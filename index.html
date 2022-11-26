@@ -13,35 +13,35 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <script>
-      function includeHTML() {
-        var z, i, elmnt, file, xhttp;
-        /* Loop through a collection of all HTML elements: */
-        var z = document.getElementsByTagName("*");
-        for (i = 0; i < z.length; i++) {
-          var elmnt = z[i];
-          /*search for elements with a certain atrribute:*/
-          var file = elmnt.getAttribute("w3-include-html");
-          if (file) {
-            /* Make an HTTP request using the attribute value as the file name: */
-            xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-              if (this.readyState == 4) {
-                if (this.status == 200) {elmnt.innerHTML = this.responseText;}
-                if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-                /* Remove the attribute, and call this function once more: */
-                elmnt.removeAttribute("w3-include-html");
-                includeHTML();
-              }
-            } 
-            xhttp.open("GET", file, true);
-            xhttp.send();
-            /* Exit the function: */
-            return;
+  <script>
+    function includeHTML() {
+      var z, i, elmnt, file, xhttp;
+      /* Loop through a collection of all HTML elements: */
+      var z = document.getElementsByTagName("*");
+      for (i = 0; i < z.length; i++) {
+        var elmnt = z[i];
+        /*search for elements with a certain atrribute:*/
+        var file = elmnt.getAttribute("w3-include-html");
+        if (file) {
+          /* Make an HTTP request using the attribute value as the file name: */
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function () {
+            if (this.readyState == 4) {
+              if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+              if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+              /* Remove the attribute, and call this function once more: */
+              elmnt.removeAttribute("w3-include-html");
+              includeHTML();
+            }
           }
+          xhttp.open("GET", file, true);
+          xhttp.send();
+          /* Exit the function: */
+          return;
         }
       }
-      </script>
+    }
+  </script>
 
   <meta name="viewport" content="width=device-width">
   <!--[if lt IE 9]>
@@ -55,21 +55,28 @@
 
 
   <div class="wrapper">
-    <nav class="navbar navbar-expand-lg" style="background-color:#069;">
-      <a class="navbar-brand" href="#"><i class="fa fa-home"></i>Home</i></a>
+    <ul class="nav justify-content-center">
+      <!-- <a class="navbar-brand" href="#"><i class="fa fa-home"></i>Home</i></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a href="#about-me"><i class="fa fa-user"></i> About Me</a> 
-          <a href="#research"><i class="fa-solid fa-flask"></i> Research</a>
-          <a href="#publications"> <i class="fa-solid fa-book"></i> Publications</a>
-          <a href="#academic"> <i class="fa-solid fa-briefcase"></i> Academic Service</a>
-        </div>
-      </div>
-    </nav>
+      </button> -->
+      <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> -->
+      <li class="nav-item">
+        <a class="nav-link" href="#about-me"><i class="fa fa-user"></i> About Me</a>
+      </li>
+      <li>
+        <a class="nav-link" href="#research"><i class="fa-solid fa-flask"></i> Research</a>
+      </li>
+      <li>
+        <a class="nav-link" href="#publications"> <i class="fa-solid fa-book"></i> Publications</a>
+      </li>
+      <li>
+        <a class="nav-link" href="#academic"> <i class="fa-solid fa-briefcase"></i> Academic Service</a>
+      </li>
+    </ul>
+
+    <hr>
 
     <header>
 
@@ -85,22 +92,25 @@
             class="fa-brands fa-medium fa-2xl"></i></a></span>
       </p>
       <p style="padding: top 20pt;">
-      <i class="fas fa-address-card fa-2xl"></i> <br>
+        <i class="fas fa-address-card fa-2xl"></i> <br>
+        <i class="fa fa-envelope" aria-hidden="true"></i> (Personal) <a href="mailto:j.prakash@zoho.com">
+          j.prakash@zoho.com
+        </a> <br>
+        <i class="fa fa-envelope" aria-hidden="true"></i> (Work) <a
+          href="mailto:jyoti.prakash@uni-passau.de">jyoti.prakash@uni-passau.de</a> <br>
 
-      <i class="fa fa-envelope" aria-hidden="true"></i> (Personal) <a href="mailto:j.prakash@zoho.com"> j.prakash@zoho </a> <br>
-      <i class="fa fa-envelope" aria-hidden="true"></i> (Offical) <a href="mailto:jyoti.prakash@uni-passau.de">jyoti.prakash@uni-passau</a>
-
-      <p style="color:gray">Chair of Software Engineering 1 <br> Faculty of Computer Science and Mathematics <br>
+        <i class="fa-solid fa-map-location"></i> IM 128, Innstra&#223;e 33, <br>
         University of Passau <br>
-        Passau, Germany</p>
-      <p>
+        94032 Passau, Germany
       </p>
     </header>
 
     <section id="about" style="padding: top 1em;">
       <h3> About Me!</h3>
 
-      <p>Hi, I am currently a PhD student at the <a href="https://www.uni-passau.de">University of Passau</a> and
+      <p>Hi, I am Jyoti. </p>
+
+      <p> I am currently a PhD student at the <a href="https://www.uni-passau.de">University of Passau</a> and
         currently affiliated with the <a href="https://www.fim.uni-passau.de/software-engineering-i">Chair of Software
           Engineering 1</a> since Oct'2021. I work with <a
           href="https://www.fim.uni-passau.de/software-engineering-i/lehrstuhlteam/lehrstuhlinhaber?target=289537&module=TemplatePersondetails&config_id=a8d16e612076595e5b55aa227262539d&range_id=d33789fe6848842635609cb3c3a3ff66&username=hammer50&group_id=">Prof.
@@ -113,8 +123,9 @@
         Information Technology in 2012. </p>
 
       <p>
-        I have also worked in <a
-        href="https://www.ibm.com/consulting/">IBM Consulting</a>  as a software developer for around two years from 2012 to 2014. I was born and raised in <a href="https://en.wikipedia.org/wiki/Bhubaneswar">Bhubaneswar</a> in India.
+        I have also worked in <a href="https://www.ibm.com/consulting/">IBM Consulting</a> as a software developer for
+        around two years from 2012 to 2014. I was born and raised in <a
+          href="https://en.wikipedia.org/wiki/Bhubaneswar">Bhubaneswar</a> in India.
       </p>
       <section id="news">
         <h3>News <i class="fa-solid fa-newspaper"></i></h3>
@@ -124,7 +135,7 @@
 
     <!--- Research -->
     <section id="research">
-      <h3>Research Interests</h3>
+      <h3>Research</h3>
       <ul>
         <li>Program Analysis</li>
         <li>Polyglot programming</li>
@@ -138,110 +149,110 @@
       <table>
 
         <tr valign="top">
-        <td align="right" class="bibtexnumber">
-        [<a name="DBLP:journals/corr/abs-2208-01968">1</a>]
-        </td>
-        <td class="bibtexitem">
-        Abhishek Tiwari, Jyoti Prakash, Alimerdan Rahimov, and Christian Hammer.
-         Our fingerprints don't fade from the apps we touch: Fingerprinting
-          the android webview.
-         <em>CoRR</em>, abs/2208.01968, 2022.
-        [&nbsp;<a href="0664_bib.html#DBLP:journals/corr/abs-2208-01968">bib</a>&nbsp;| 
-        <a href="http://dx.doi.org/10.48550/arXiv.2208.01968">DOI</a>&nbsp;| 
-        <a href="http://arxiv.org/abs/2208.01968">arXiv</a>&nbsp;| 
-        <a href="https://doi.org/10.48550/arXiv.2208.01968">http</a>&nbsp;]
-        
-        </td>
+          <td align="right" class="bibtexnumber">
+            [<a name="DBLP:journals/corr/abs-2208-01968">1</a>]
+          </td>
+          <td class="bibtexitem">
+            Abhishek Tiwari, Jyoti Prakash, Alimerdan Rahimov, and Christian Hammer.
+            Our fingerprints don't fade from the apps we touch: Fingerprinting
+            the android webview.
+            <em>CoRR</em>, abs/2208.01968, 2022.
+            [&nbsp;<a href="0664_bib.html#DBLP:journals/corr/abs-2208-01968">bib</a>&nbsp;|
+            <a href="http://dx.doi.org/10.48550/arXiv.2208.01968">DOI</a>&nbsp;|
+            <a href="http://arxiv.org/abs/2208.01968">arXiv</a>&nbsp;|
+            <a href="https://doi.org/10.48550/arXiv.2208.01968">http</a>&nbsp;]
+
+          </td>
         </tr>
-        
-        
+
+
         <tr valign="top">
-        <td align="right" class="bibtexnumber">
-        [<a name="DBLP:conf/fase/PrakashT021">2</a>]
-        </td>
-        <td class="bibtexitem">
-        Jyoti Prakash, Abhishek Tiwari, and Christian Hammer.
-         Effects of program representation on pointer analyses - an empirical
-          study.
-         In Esther Guerra and Mari&euml;lle Stoelinga, editors, <em>
-          Fundamental Approaches to Software Engineering - 24th International
-          Conference, FASE 2021, Held as Part of the European Joint Conferences on
-          Theory and Practice of Software, ETAPS 2021, Luxembourg City, Luxembourg,
-          March 27 - April 1, 2021, Proceedings</em>, volume 12649 of <em>Lecture Notes in
-          Computer Science</em>, pages 240--261. Springer, 2021.
-        [&nbsp;<a href="0664_bib.html#DBLP:conf/fase/PrakashT021">bib</a>&nbsp;| 
-        <a href="http://dx.doi.org/10.1007/978-3-030-71500-7\_12">DOI</a>&nbsp;| 
-        <a href="https://doi.org/10.1007/978-3-030-71500-7\_12">http</a>&nbsp;]
-        
-        </td>
+          <td align="right" class="bibtexnumber">
+            [<a name="DBLP:conf/fase/PrakashT021">2</a>]
+          </td>
+          <td class="bibtexitem">
+            Jyoti Prakash, Abhishek Tiwari, and Christian Hammer.
+            Effects of program representation on pointer analyses - an empirical
+            study.
+            In Esther Guerra and Mari&euml;lle Stoelinga, editors, <em>
+              Fundamental Approaches to Software Engineering - 24th International
+              Conference, FASE 2021, Held as Part of the European Joint Conferences on
+              Theory and Practice of Software, ETAPS 2021, Luxembourg City, Luxembourg,
+              March 27 - April 1, 2021, Proceedings</em>, volume 12649 of <em>Lecture Notes in
+              Computer Science</em>, pages 240--261. Springer, 2021.
+            [&nbsp;<a href="0664_bib.html#DBLP:conf/fase/PrakashT021">bib</a>&nbsp;|
+            <a href="http://dx.doi.org/10.1007/978-3-030-71500-7\_12">DOI</a>&nbsp;|
+            <a href="https://doi.org/10.1007/978-3-030-71500-7\_12">http</a>&nbsp;]
+
+          </td>
         </tr>
-        
-        
+
+
         <tr valign="top">
-        <td align="right" class="bibtexnumber">
-        [<a name="DBLP:journals/jss/TiwariPG020">3</a>]
-        </td>
-        <td class="bibtexitem">
-        Abhishek Tiwari, Jyoti Prakash, Sascha Gro&szlig;, and Christian Hammer.
-         A large scale analysis of android - web hybridization.
-         <em>J. Syst. Softw.</em>, 170:110775, 2020.
-        [&nbsp;<a href="0664_bib.html#DBLP:journals/jss/TiwariPG020">bib</a>&nbsp;| 
-        <a href="http://dx.doi.org/10.1016/j.jss.2020.110775">DOI</a>&nbsp;| 
-        <a href="https://doi.org/10.1016/j.jss.2020.110775">http</a>&nbsp;]
-        
-        </td>
+          <td align="right" class="bibtexnumber">
+            [<a name="DBLP:journals/jss/TiwariPG020">3</a>]
+          </td>
+          <td class="bibtexitem">
+            Abhishek Tiwari, Jyoti Prakash, Sascha Gro&szlig;, and Christian Hammer.
+            A large scale analysis of android - web hybridization.
+            <em>J. Syst. Softw.</em>, 170:110775, 2020.
+            [&nbsp;<a href="0664_bib.html#DBLP:journals/jss/TiwariPG020">bib</a>&nbsp;|
+            <a href="http://dx.doi.org/10.1016/j.jss.2020.110775">DOI</a>&nbsp;|
+            <a href="https://doi.org/10.1016/j.jss.2020.110775">http</a>&nbsp;]
+
+          </td>
         </tr>
-        
-        
+
+
         <tr valign="top">
-        <td align="right" class="bibtexnumber">
-        [<a name="DBLP:journals/corr/abs-2008-01725">4</a>]
-        </td>
-        <td class="bibtexitem">
-        Abhishek Tiwari, Jyoti Prakash, Sascha Gro&szlig;, and Christian Hammer.
-         A large scale analysis of android-web hybridization.
-         <em>CoRR</em>, abs/2008.01725, 2020.
-        [&nbsp;<a href="0664_bib.html#DBLP:journals/corr/abs-2008-01725">bib</a>&nbsp;| 
-        <a href="http://arxiv.org/abs/2008.01725">arXiv</a>&nbsp;| 
-        <a href="https://arxiv.org/abs/2008.01725">http</a>&nbsp;]
-        
-        </td>
+          <td align="right" class="bibtexnumber">
+            [<a name="DBLP:journals/corr/abs-2008-01725">4</a>]
+          </td>
+          <td class="bibtexitem">
+            Abhishek Tiwari, Jyoti Prakash, Sascha Gro&szlig;, and Christian Hammer.
+            A large scale analysis of android-web hybridization.
+            <em>CoRR</em>, abs/2008.01725, 2020.
+            [&nbsp;<a href="0664_bib.html#DBLP:journals/corr/abs-2008-01725">bib</a>&nbsp;|
+            <a href="http://arxiv.org/abs/2008.01725">arXiv</a>&nbsp;|
+            <a href="https://arxiv.org/abs/2008.01725">http</a>&nbsp;]
+
+          </td>
         </tr>
-        
-        
+
+
         <tr valign="top">
-        <td align="right" class="bibtexnumber">
-        [<a name="DBLP:conf/scam/TiwariPG019">5</a>]
-        </td>
-        <td class="bibtexitem">
-        Abhishek Tiwari, Jyoti Prakash, Sascha Gro&szlig;, and Christian Hammer.
-         Ludroid: A large scale analysis of android - web hybridization.
-         In <em>19th International Working Conference on Source Code Analysis
-          and Manipulation, SCAM 2019, Cleveland, OH, USA, September 30 - October 1,
-          2019</em>, pages 256--267. IEEE, 2019.
-        [&nbsp;<a href="0664_bib.html#DBLP:conf/scam/TiwariPG019">bib</a>&nbsp;| 
-        <a href="http://dx.doi.org/10.1109/SCAM.2019.00036">DOI</a>&nbsp;| 
-        <a href="https://doi.org/10.1109/SCAM.2019.00036">http</a>&nbsp;]
-        
-        </td>
+          <td align="right" class="bibtexnumber">
+            [<a name="DBLP:conf/scam/TiwariPG019">5</a>]
+          </td>
+          <td class="bibtexitem">
+            Abhishek Tiwari, Jyoti Prakash, Sascha Gro&szlig;, and Christian Hammer.
+            Ludroid: A large scale analysis of android - web hybridization.
+            In <em>19th International Working Conference on Source Code Analysis
+              and Manipulation, SCAM 2019, Cleveland, OH, USA, September 30 - October 1,
+              2019</em>, pages 256--267. IEEE, 2019.
+            [&nbsp;<a href="0664_bib.html#DBLP:conf/scam/TiwariPG019">bib</a>&nbsp;|
+            <a href="http://dx.doi.org/10.1109/SCAM.2019.00036">DOI</a>&nbsp;|
+            <a href="https://doi.org/10.1109/SCAM.2019.00036">http</a>&nbsp;]
+
+          </td>
         </tr>
-        
-        
+
+
         <tr valign="top">
-        <td align="right" class="bibtexnumber">
-        [<a name="DBLP:journals/corr/abs-1912-00429">6</a>]
-        </td>
-        <td class="bibtexitem">
-        Jyoti Prakash, Abhishek Tiwari, and Christian Hammer.
-         Pointeval: On the impact of pointer analysis frameworks.
-         <em>CoRR</em>, abs/1912.00429, 2019.
-        [&nbsp;<a href="0664_bib.html#DBLP:journals/corr/abs-1912-00429">bib</a>&nbsp;| 
-        <a href="http://arxiv.org/abs/1912.00429">arXiv</a>&nbsp;| 
-        <a href="http://arxiv.org/abs/1912.00429">http</a>&nbsp;]
-        
-        </td>
+          <td align="right" class="bibtexnumber">
+            [<a name="DBLP:journals/corr/abs-1912-00429">6</a>]
+          </td>
+          <td class="bibtexitem">
+            Jyoti Prakash, Abhishek Tiwari, and Christian Hammer.
+            Pointeval: On the impact of pointer analysis frameworks.
+            <em>CoRR</em>, abs/1912.00429, 2019.
+            [&nbsp;<a href="0664_bib.html#DBLP:journals/corr/abs-1912-00429">bib</a>&nbsp;|
+            <a href="http://arxiv.org/abs/1912.00429">arXiv</a>&nbsp;|
+            <a href="http://arxiv.org/abs/1912.00429">http</a>&nbsp;]
+
+          </td>
         </tr>
-        </table>
+      </table>
 
     </section>
     <section id="academic">
