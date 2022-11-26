@@ -1,13 +1,13 @@
 body {
-  background-color: #fff;
+  background-color: #f8f8f8;
   padding:50px;
   font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  color:#595959;
+  color: #222;;
   font-weight:400;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color:#222;
+  color:#069;
   margin:0 0 20px;
 }
 
@@ -104,7 +104,7 @@ img {
 }
 
 header {
-  width:270px;
+  width:350px;
   float:left;
   position:fixed;
   -webkit-font-smoothing:subpixel-antialiased;
@@ -120,11 +120,12 @@ header ul {
   width:270px;
 }
 
-header li {
+/* header li {
   width:89px;
   float:left;
   border-right:1px solid #e0e0e0;
   height:40px;
+  color: #222;
 }
 
 header li:first-child a {
@@ -133,12 +134,12 @@ header li:first-child a {
 
 header li:last-child a {
   border-radius:0 5px 5px 0;
-}
+} */
 
 header ul a {
   line-height:1;
   font-size:11px;
-  color:#999;
+  color: #fff;;
   display:block;
   text-align:center;
   padding-top:6px;
@@ -146,11 +147,11 @@ header ul a {
 }
 
 header ul a:hover {
-  color:#999;
+  color:#fff;
 }
 
 header ul a:active {
-  background-color:#f0f0f0;
+  background-color:#fff;
 }
 
 strong {
@@ -266,5 +267,50 @@ footer {
     padding:0.4in;
     font-size:12pt;
     color:#444;
+  }
+}
+
+.social {
+  position: relative;
+  padding-right: 0.5em;
+  color: #222;
+}
+
+.social a {
+  color: black;
+}
+
+/* Style the navigation bar */
+.navbar {
+  width: 100%;
+  background-color: #069;
+  overflow: auto;
+}
+
+/* Navbar links */
+.navbar a {
+  float: left;
+  text-align: center;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Navbar links on mouse-over */
+.navbar a:hover {
+  background-color: #000;
+}
+
+/* Current/active navbar link */
+.active {
+  background-color: #04AA6D;
+}
+
+/* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
   }
 }
