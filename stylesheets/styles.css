@@ -20,7 +20,7 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size:28px;
+  font: size 20pt;
   font-weight: 500;
 }
 
@@ -108,6 +108,7 @@ header {
   float:left;
   position:fixed;
   -webkit-font-smoothing:subpixel-antialiased;
+  padding-top: 1em;
 }
 
 header ul {
@@ -215,7 +216,7 @@ footer {
   section {
     border:1px solid #e5e5e5;
     border-width:1px 0;
-    padding:20px 0;
+    padding:20px 1em;
     margin:0 0 20px;
   }
 
@@ -281,10 +282,11 @@ footer {
 }
 
 /* Style the navigation bar */
-.navbar {
+/* .navbar {
   width: 100%;
   background-color: #069;
   overflow: auto;
+  margin-bottom: 1em;
 }
 
 /* Navbar links */
@@ -302,6 +304,7 @@ footer {
   background-color: #000;
 }
 
+
 /* Current/active navbar link */
 .active {
   background-color: #04AA6D;
@@ -313,4 +316,4 @@ footer {
     float: none;
     display: block;
   }
-}
+} */

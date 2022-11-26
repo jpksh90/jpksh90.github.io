@@ -4,12 +4,44 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <title>Minimal by Steve Smith</title>
+  <title>Jyoti Prakash</title>
 
   <link rel="stylesheet" href="stylesheets/styles.css">
   <link rel="stylesheet" href="stylesheets/pygment_trac.css">
   <script src="https://kit.fontawesome.com/95689a8e68.js" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script>
+      function includeHTML() {
+        var z, i, elmnt, file, xhttp;
+        /* Loop through a collection of all HTML elements: */
+        z = document.getElementsByTagName("*");
+        for (i = 0; i < z.length; i++) {
+          elmnt = z[i];
+          /*search for elements with a certain atrribute:*/
+          file = elmnt.getAttribute("w3-include-html");
+          if (file) {
+            /* Make an HTTP request using the attribute value as the file name: */
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+              if (this.readyState == 4) {
+                if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                /* Remove the attribute, and call this function once more: */
+                elmnt.removeAttribute("w3-include-html");
+                includeHTML();
+              }
+            } 
+            xhttp.open("GET", file, true);
+            xhttp.send();
+            /* Exit the function: */
+            return;
+          }
+        }
+      }
+      </script>
 
   <meta name="viewport" content="width=device-width">
   <!--[if lt IE 9]>
@@ -20,15 +52,25 @@
 <body>
   <!-- <nav class="navbar navbar-inverse navbar-static-top" role="navigation"> -->
 
-    
+
 
   <div class="wrapper">
-    <nav class="navbar">
-      <a href="#about-me">About Me</a> |
-      <a href="#research">Research</a> |
-      <a href="#publications">Publications</a> |
-      <a href="#academic">Academic Service</a>
+    <nav class="navbar navbar-expand-lg" style="background-color:#069;">
+      <a class="navbar-brand" href="#"><i class="fa fa-home"></i>Home</i></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a href="#about-me"><i class="fa fa-user"></i> About Me</a> 
+          <a href="#research"><i class="fa-solid fa-flask"></i> Research</a>
+          <a href="#publications"> <i class="fa-solid fa-book"></i> Publications</a>
+          <a href="#academic"> <i class="fa-solid fa-briefcase"></i> Academic Service</a>
+        </div>
+      </div>
     </nav>
+
     <header>
 
       <h1>Jyoti Prakash</h1>
@@ -41,15 +83,41 @@
       <span class="social"><a href="https://medium.com/@jyotiprakash_47924"><i
             class="fa-brands fa-medium fa-2xl"></i></a></span>
       </p>
+      <p style="padding: top 20pt;">
+      <i class="fas fa-address-card fa-2xl"></i> <br>
+
+      <i class="fa fa-envelope" aria-hidden="true"></i> (Personal) <a href="mailto:j.prakash@zoho.com"> j.prakash@zoho </a> <br>
+      <i class="fa fa-envelope" aria-hidden="true"></i> (Offical) <a href="mailto:jyoti.prakash@uni-passau.de">jyoti.prakash@uni-passau</a>
+
+      <p style="color:gray">Chair of Software Engineering 1 <br> Faculty of Computer Science and Mathematics <br>
+        University of Passau <br>
+        Passau, Germany</p>
+      <p>
+      </p>
     </header>
 
-    <section id="about">
+    <section id="about" style="padding: top 1em;">
       <h1> About Me!</h1>
 
-      <p>Hi, I am currently a PhD student at the <a href="https://www.uni-passau.de">University of Passau</a> and currently affiliated with the <a href="https://www.fim.uni-passau.de/software-engineering-i">Chair of Software Engineering 1</a> since Oct'2021. I work with <a href="https://www.fim.uni-passau.de/software-engineering-i/lehrstuhlteam/lehrstuhlinhaber?target=289537&module=TemplatePersondetails&config_id=a8d16e612076595e5b55aa227262539d&range_id=d33789fe6848842635609cb3c3a3ff66&username=hammer50&group_id=">Prof. Dr-Ing. Christian Hammer</a>, who supervises my PhD. Before, moving to Passau, I started as a PhD student with Christian at the <a href="https://www.uni-potsdam.de">University of Potsdam</a>.  </p>
+      <p>Hi, I am currently a PhD student at the <a href="https://www.uni-passau.de">University of Passau</a> and
+        currently affiliated with the <a href="https://www.fim.uni-passau.de/software-engineering-i">Chair of Software
+          Engineering 1</a> since Oct'2021. I work with <a
+          href="https://www.fim.uni-passau.de/software-engineering-i/lehrstuhlteam/lehrstuhlinhaber?target=289537&module=TemplatePersondetails&config_id=a8d16e612076595e5b55aa227262539d&range_id=d33789fe6848842635609cb3c3a3ff66&username=hammer50&group_id=">Prof.
+          Dr-Ing. Christian Hammer</a>, who supervises my PhD. Before, moving to Passau, I started as a PhD student with
+        Christian at the <a href="https://www.uni-potsdam.de">University of Potsdam</a>. </p>
 
-      <p> I graduated with a masters' degree in Computer Science from <a href="www.uni-saarland.de">University of Saarland</a> in 2017. Before that, I spent my lovely four years of bachelors degree in <a href="www.vssut.ac.in">VSSUT</a> in Burla, India from where I graduated with a bachelors degree in Information Technology in 2012.  </p>
+      <p> I graduated with a masters' degree in Computer Science from <a href="https://www.uni-saarland.de">University
+          of Saarland</a> in 2017. Before that, I spent my lovely four years of bachelors degree in <a
+          href="https://www.vssut.ac.in">VSSUT</a> in Burla, India from where I graduated with a bachelors degree in
+        Information Technology in 2012. </p>
 
+      <p>
+        I have also worked as a software developer for around two years from 2012 to 2014 for <a
+          href="https://www.ibm.com/consulting/">IBM Consulting</a> in Bangalore.
+      </p>
+      <section id="news">
+        <h3>News <i class="fa-solid fa-newspaper"></i></h3>
+      </section>
     </section>
 
     <!--- Research -->
@@ -60,25 +128,29 @@
         <li>Polyglot programming</li>
         <li>Information Flow Control</li>
       </ul>
+    </section>
 
+    <!-- Publications -->
+    <section id="publications">
+      <h1>Publications</h1>
+      <div w3-include-html="publications/publications.html">
+        <script>
+          includeHTML();
+        </script>
+      </div>
+
+    </section>
+    <section id="academic">
       <h1>Academic Service</h1>
       <ul>
         <li>Artifact Committee: PLDI'23, ECOOP'21, OOPSLA'21</li>
         <li>Shadow PC: MSR'22</li>
       </ul>
-
-      <h1>Publications</h1>
-      <ul>
-        <li></li>
-      </ul>
     </section>
     <footer>
       <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small>
       </p>
-      <p style="color:gray">Chair of Software Engineering 1 <br> Faculty of Computer Science and Mathematics <br>
-        University of Passau <br>
-        Passau, Germany</p>
-      <p>
+     
     </footer>
   </div>
   <script src="javascripts/scale.fix.js"></script>
