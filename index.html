@@ -17,11 +17,11 @@
       function includeHTML() {
         var z, i, elmnt, file, xhttp;
         /* Loop through a collection of all HTML elements: */
-        z = document.getElementsByTagName("*");
+        var z = document.getElementsByTagName("*");
         for (i = 0; i < z.length; i++) {
-          elmnt = z[i];
+          var elmnt = z[i];
           /*search for elements with a certain atrribute:*/
-          file = elmnt.getAttribute("w3-include-html");
+          var file = elmnt.getAttribute("w3-include-html");
           if (file) {
             /* Make an HTTP request using the attribute value as the file name: */
             xhttp = new XMLHttpRequest();
@@ -73,7 +73,8 @@
 
     <header>
 
-      <h1>Jyoti Prakash</h1>
+      <img src="images/profile-pic.jpg" />
+      <h3>Jyoti Prakash</h3>
       <p>PhD Student <br> University of Passau <br> Germany</p>
 
       <span class="social"><a href="https://github.com/jpksh90"><i class="fa-brands fa-github fa-2xl"></i></a></span>
@@ -97,7 +98,7 @@
     </header>
 
     <section id="about" style="padding: top 1em;">
-      <h1> About Me!</h1>
+      <h3> About Me!</h3>
 
       <p>Hi, I am currently a PhD student at the <a href="https://www.uni-passau.de">University of Passau</a> and
         currently affiliated with the <a href="https://www.fim.uni-passau.de/software-engineering-i">Chair of Software
@@ -112,17 +113,18 @@
         Information Technology in 2012. </p>
 
       <p>
-        I have also worked as a software developer for around two years from 2012 to 2014 for <a
-          href="https://www.ibm.com/consulting/">IBM Consulting</a> in Bangalore.
+        I have also worked in <a
+        href="https://www.ibm.com/consulting/">IBM Consulting</a>  as a software developer for around two years from 2012 to 2014. I was born and raised in <a href="https://en.wikipedia.org/wiki/Bhubaneswar">Bhubaneswar</a> in India.
       </p>
       <section id="news">
         <h3>News <i class="fa-solid fa-newspaper"></i></h3>
       </section>
     </section>
 
+
     <!--- Research -->
     <section id="research">
-      <h1>Research Interests</h1>
+      <h3>Research Interests</h3>
       <ul>
         <li>Program Analysis</li>
         <li>Polyglot programming</li>
@@ -132,16 +134,118 @@
 
     <!-- Publications -->
     <section id="publications">
-      <h1>Publications</h1>
-      <div w3-include-html="publications/publications.html">
-        <script>
-          includeHTML();
-        </script>
-      </div>
+      <h3>Publications</h3>
+      <table>
+
+        <tr valign="top">
+        <td align="right" class="bibtexnumber">
+        [<a name="DBLP:journals/corr/abs-2208-01968">1</a>]
+        </td>
+        <td class="bibtexitem">
+        Abhishek Tiwari, Jyoti Prakash, Alimerdan Rahimov, and Christian Hammer.
+         Our fingerprints don't fade from the apps we touch: Fingerprinting
+          the android webview.
+         <em>CoRR</em>, abs/2208.01968, 2022.
+        [&nbsp;<a href="0664_bib.html#DBLP:journals/corr/abs-2208-01968">bib</a>&nbsp;| 
+        <a href="http://dx.doi.org/10.48550/arXiv.2208.01968">DOI</a>&nbsp;| 
+        <a href="http://arxiv.org/abs/2208.01968">arXiv</a>&nbsp;| 
+        <a href="https://doi.org/10.48550/arXiv.2208.01968">http</a>&nbsp;]
+        
+        </td>
+        </tr>
+        
+        
+        <tr valign="top">
+        <td align="right" class="bibtexnumber">
+        [<a name="DBLP:conf/fase/PrakashT021">2</a>]
+        </td>
+        <td class="bibtexitem">
+        Jyoti Prakash, Abhishek Tiwari, and Christian Hammer.
+         Effects of program representation on pointer analyses - an empirical
+          study.
+         In Esther Guerra and Mari&euml;lle Stoelinga, editors, <em>
+          Fundamental Approaches to Software Engineering - 24th International
+          Conference, FASE 2021, Held as Part of the European Joint Conferences on
+          Theory and Practice of Software, ETAPS 2021, Luxembourg City, Luxembourg,
+          March 27 - April 1, 2021, Proceedings</em>, volume 12649 of <em>Lecture Notes in
+          Computer Science</em>, pages 240--261. Springer, 2021.
+        [&nbsp;<a href="0664_bib.html#DBLP:conf/fase/PrakashT021">bib</a>&nbsp;| 
+        <a href="http://dx.doi.org/10.1007/978-3-030-71500-7\_12">DOI</a>&nbsp;| 
+        <a href="https://doi.org/10.1007/978-3-030-71500-7\_12">http</a>&nbsp;]
+        
+        </td>
+        </tr>
+        
+        
+        <tr valign="top">
+        <td align="right" class="bibtexnumber">
+        [<a name="DBLP:journals/jss/TiwariPG020">3</a>]
+        </td>
+        <td class="bibtexitem">
+        Abhishek Tiwari, Jyoti Prakash, Sascha Gro&szlig;, and Christian Hammer.
+         A large scale analysis of android - web hybridization.
+         <em>J. Syst. Softw.</em>, 170:110775, 2020.
+        [&nbsp;<a href="0664_bib.html#DBLP:journals/jss/TiwariPG020">bib</a>&nbsp;| 
+        <a href="http://dx.doi.org/10.1016/j.jss.2020.110775">DOI</a>&nbsp;| 
+        <a href="https://doi.org/10.1016/j.jss.2020.110775">http</a>&nbsp;]
+        
+        </td>
+        </tr>
+        
+        
+        <tr valign="top">
+        <td align="right" class="bibtexnumber">
+        [<a name="DBLP:journals/corr/abs-2008-01725">4</a>]
+        </td>
+        <td class="bibtexitem">
+        Abhishek Tiwari, Jyoti Prakash, Sascha Gro&szlig;, and Christian Hammer.
+         A large scale analysis of android-web hybridization.
+         <em>CoRR</em>, abs/2008.01725, 2020.
+        [&nbsp;<a href="0664_bib.html#DBLP:journals/corr/abs-2008-01725">bib</a>&nbsp;| 
+        <a href="http://arxiv.org/abs/2008.01725">arXiv</a>&nbsp;| 
+        <a href="https://arxiv.org/abs/2008.01725">http</a>&nbsp;]
+        
+        </td>
+        </tr>
+        
+        
+        <tr valign="top">
+        <td align="right" class="bibtexnumber">
+        [<a name="DBLP:conf/scam/TiwariPG019">5</a>]
+        </td>
+        <td class="bibtexitem">
+        Abhishek Tiwari, Jyoti Prakash, Sascha Gro&szlig;, and Christian Hammer.
+         Ludroid: A large scale analysis of android - web hybridization.
+         In <em>19th International Working Conference on Source Code Analysis
+          and Manipulation, SCAM 2019, Cleveland, OH, USA, September 30 - October 1,
+          2019</em>, pages 256--267. IEEE, 2019.
+        [&nbsp;<a href="0664_bib.html#DBLP:conf/scam/TiwariPG019">bib</a>&nbsp;| 
+        <a href="http://dx.doi.org/10.1109/SCAM.2019.00036">DOI</a>&nbsp;| 
+        <a href="https://doi.org/10.1109/SCAM.2019.00036">http</a>&nbsp;]
+        
+        </td>
+        </tr>
+        
+        
+        <tr valign="top">
+        <td align="right" class="bibtexnumber">
+        [<a name="DBLP:journals/corr/abs-1912-00429">6</a>]
+        </td>
+        <td class="bibtexitem">
+        Jyoti Prakash, Abhishek Tiwari, and Christian Hammer.
+         Pointeval: On the impact of pointer analysis frameworks.
+         <em>CoRR</em>, abs/1912.00429, 2019.
+        [&nbsp;<a href="0664_bib.html#DBLP:journals/corr/abs-1912-00429">bib</a>&nbsp;| 
+        <a href="http://arxiv.org/abs/1912.00429">arXiv</a>&nbsp;| 
+        <a href="http://arxiv.org/abs/1912.00429">http</a>&nbsp;]
+        
+        </td>
+        </tr>
+        </table>
 
     </section>
     <section id="academic">
-      <h1>Academic Service</h1>
+      <h3>Academic Service</h3>
       <ul>
         <li>Artifact Committee: PLDI'23, ECOOP'21, OOPSLA'21</li>
         <li>Shadow PC: MSR'22</li>
@@ -150,7 +254,6 @@
     <footer>
       <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small>
       </p>
-     
     </footer>
   </div>
   <script src="javascripts/scale.fix.js"></script>
