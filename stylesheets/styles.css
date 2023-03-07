@@ -33,14 +33,17 @@ h3, h4, h5, h6 {
   color:#494949;
   font-weight: 500;
 }
+.p a {
+  color: #494949;
+}
 
 a {
-  color:#39c;
+  color:#777;
   text-decoration:none;
 }
 
 a:hover {
-  color:#069;
+  color: #777;;
 }
 
 a small {
@@ -282,12 +285,12 @@ footer {
 }
 
 /* Style the navigation bar */
-/* .navbar {
+ /* .navbar {
   width: 100%;
   background-color: #069;
   overflow: auto;
   margin-bottom: 1em;
-}
+}  */
 
 /* Navbar links */
 .navbar a {
