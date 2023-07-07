@@ -27,6 +27,7 @@ h1 {
 h2 {
   color:#393939;
   font-weight: 500;
+  margin-top: 5mm;
 }
 
 h3, h4, h5, h6 {
@@ -297,14 +298,14 @@ footer {
   float: left;
   text-align: center;
   padding: 20px;
-  color: white;
+  color: #000;
   text-decoration: none;
   font-size: 17px;
 }
 
 /* Navbar links on mouse-over */
 .navbar a:hover {
-  background-color: #000;
+  background-color: #fff;
 }
 
 
