@@ -39,7 +39,7 @@ jobs:
           git push origin "build-${{ env.timestamp }}"
           git fetch origin deploy
           git checkout deploy
-          git merge -s ours "build-${{ env.timestamp }}" -m "Merge build branch into deploy (ignore build changes)"
+          git merge --allow-unrelated-histories -s ours "build-${{ env.timestamp }}" -m "Merge build branch into deploy (ignore build changes)"
           git push origin deploy
 
       - name: Remove timestamp build branch
