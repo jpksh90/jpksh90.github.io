@@ -21,6 +21,9 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
+    
+      - name: Clean and build site
+        run: python site-utils.py -o docs clean build
 
       - name: Set timestamp variable
         id: vars
@@ -30,9 +33,6 @@ jobs:
         run: |
           git fetch origin deploy
           git checkout deploy
-
-      - name: Clean and build site
-        run: python site-utils.py -o docs clean build
 
       - name: Copy build artifacts into deploy branch
         run: |
