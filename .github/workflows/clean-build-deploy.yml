@@ -31,12 +31,8 @@ jobs:
 
       - name: Checkout deploy branch
         run: |
-          git fetch origin deploy
-          git checkout deploy
-
-      - name: Copy build artifacts into deploy branch
-        run: |
-          cp -r docs/* .
+          git fetch origin
+          git checkout -B deploy
 
       - name: Commit and push to deploy
         run: |
