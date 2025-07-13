@@ -28,18 +28,18 @@ jobs:
       - name: Set timestamp variable
         id: vars
         run: echo "timestamp=$(date +'%Y-%m-%d_%H-%M-%S')" >> $GITHUB_ENV
-    
+
       - name: Checkout deploy branch
         run: |
-            git fetch origin deploy
-            git checkout deploy
+          git fetch origin deploy
+          git checkout deploy
 
       - name: Copy build artifacts into deploy branch
         run: |
-            cp -r docs/* .  # Or wherever your build outputs go
+          cp -r docs/* .
 
       - name: Commit and push to deploy
         run: |
-            git add -A
-            git commit -m "Deploy build: ${{ env.timestamp }}" || echo "No changes to commit"
-            git push origin deploy
+          git add -A
+          git commit -m "Deploy build: ${{ env.timestamp }}" || echo "No changes to commit"
+          git push origin deploy
