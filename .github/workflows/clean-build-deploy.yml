@@ -31,8 +31,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git fetch origin deploy
           git checkout deploy || git checkout --orphan deploy
-          git rm -rf .
-          cp docs/*.html .
+          git add docs/*.html .
           git add *.html
           timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
           git commit -m "deployed build:${timestamp}" || echo "No changes to commit"
