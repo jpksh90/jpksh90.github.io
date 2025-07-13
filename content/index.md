@@ -1,10 +1,11 @@
-**👋 Hi, I'm Jyoti**. I work as a Software Engineer for OpenText India. I specialize in developing advanced static analysis tools for detecting security vulnerabilities in software systems.
+**👋 Hi, I'm Jyoti**. I work for OpenText India where I specialize in developing advanced static analysis tools for detecting security vulnerabilities in software systems.
 
 My research interests include:
 
 - Static Program Analysis
 - Information Flow Control
 - Polyglot Programming Languages and Interoperability
+- Dynamic Program Analysis
 
 ---
 
