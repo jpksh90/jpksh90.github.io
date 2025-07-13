@@ -31,6 +31,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git fetch origin deploy
           git checkout deploy || git checkout --orphan deploy
+          find . -name "*.html" -exec rm -f {} +
           cp docs/* .
           git add *.html
           timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
