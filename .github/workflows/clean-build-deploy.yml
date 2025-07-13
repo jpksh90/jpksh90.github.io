@@ -1,4 +1,4 @@
-name: Clean Build and Push
+name: Deploy Clean Build
 
 on:
   workflow_dispatch:
