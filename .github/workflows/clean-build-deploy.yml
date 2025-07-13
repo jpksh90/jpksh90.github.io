@@ -28,21 +28,18 @@ jobs:
       - name: Set timestamp variable
         id: vars
         run: echo "timestamp=$(date +'%Y-%m-%d_%H-%M-%S')" >> $GITHUB_ENV
-
-      - name: Create timestamp branch and merge to deploy
+    
+      - name: Checkout deploy branch
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -b "build-${{ env.timestamp }}"
-          git add docs/*.html
-          git commit -m "deployed build:${{ env.timestamp }}" || echo "No changes to commit"
-          git push origin "build-${{ env.timestamp }}"
-          git fetch origin deploy
-          git checkout deploy
-          git merge --allow-unrelated-histories -s ours "build-${{ env.timestamp }}" -m "Merge build branch into deploy (ignore build changes)"
-          git push origin deploy
+            git fetch origin deploy
+            git checkout deploy
 
-      - name: Remove timestamp build branch
+      - name: Copy build artifacts into deploy branch
         run: |
-          git branch -D "build-${{ env.timestamp }}" || true
-          git push origin --delete "build-${{ env.timestamp }}" || true
+            cp -r docs/* .  # Or wherever your build outputs go
+
+      - name: Commit and push to deploy
+        run: |
+            git add -A
+            git commit -m "Deploy build: ${{ env.timestamp }}" || echo "No changes to commit"
+            git push origin deploy
