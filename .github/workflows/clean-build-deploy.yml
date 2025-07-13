@@ -27,9 +27,10 @@ jobs:
 
       - name: Commit and push changes
         run: |
+          git checkout -b deploy
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add *.html
           timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
           git commit -m "deployed build:${timestamp}" || echo "No changes to commit"
-          git push origin main
+          git push origin deploy
