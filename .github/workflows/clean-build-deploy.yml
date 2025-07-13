@@ -25,15 +25,24 @@ jobs:
       - name: Clean and build site
         run: python site-utils.py -o docs clean build
 
-      - name: Deploy to deploy branch
+      - name: Set timestamp variable
+        id: vars
+        run: echo "timestamp=$(date +'%Y-%m-%d_%H-%M-%S')" >> $GITHUB_ENV
+
+      - name: Create timestamp branch and merge to deploy
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "build-${{ env.timestamp }}"
+          git add docs/*.html
+          git commit -m "deployed build:${{ env.timestamp }}" || echo "No changes to commit"
+          git push origin "build-${{ env.timestamp }}"
           git fetch origin deploy
-          git clean -fd
-          git checkout deploy || git checkout --orphan deploy
-          find . -name "*.html" -exec rm -f {} +
-          git add *.html
-          timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
-          git commit -m "deployed build:${timestamp}" || echo "No changes to commit"
-          git push origin deploy --force
+          git checkout deploy
+          git merge -s ours "build-${{ env.timestamp }}" -m "Merge build branch into deploy (ignore build changes)"
+          git push origin deploy
+
+      - name: Remove timestamp build branch
+        run: |
+          git branch -D "build-${{ env.timestamp }}" || true
+          git push origin --delete "build-${{ env.timestamp }}" || true
