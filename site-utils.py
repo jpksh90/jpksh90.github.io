@@ -15,21 +15,21 @@ pages = [
     "contact"
 ]
 
-def clean_pages(pages):
+def clean_pages(pages, output_dir="docs"):
     """Remove generated HTML files for the given pages."""
     for page in pages:
-        html_file = f"{page}.html"
+        html_file = os.path.join(output_dir, f"{page}.html")
         if os.path.exists(html_file):
             os.remove(html_file)
             print(f"\tDeleted {html_file}")
 
-def generate():
+def generate(output_dir="docs"):
     for page in pages:
         with open(f"content/{page}.md") as f:
             md_content = f.read()
         html_content = markdown.markdown(md_content, extensions=['extra'])
         rendered = template.render(content=html_content)
-        html_path = os.path.join(".", f"{page}.html")
+        html_path = os.path.join(output_dir, f"{page}.html")
         with open(html_path, "w") as f:
             print(f"\tRendering {page}.html")
             f.write(rendered)
