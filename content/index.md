@@ -1,4 +1,6 @@
-**👋 Hi, I'm Jyoti**. I work for OpenText India where I specialize in developing advanced static analysis tools for detecting security vulnerabilities in software systems.
+## About Me 
+
+I work for OpenText India where I specialize in developing advanced static analysis tools for detecting security vulnerabilities in software systems.
 
 My research interests include:
 
