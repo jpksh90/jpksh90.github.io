@@ -22,9 +22,6 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Clean and build site
-        run: python site-utils.py -o docs clean build
-
       - name: Set timestamp variable
         id: vars
         run: echo "timestamp=$(date +'%Y-%m-%d_%H-%M-%S')" >> $GITHUB_ENV
@@ -34,12 +31,17 @@ jobs:
           git fetch origin deploy
           git checkout deploy
 
+      - name: Clean and build site
+        run: python site-utils.py -o docs clean build
+
       - name: Copy build artifacts into deploy branch
         run: |
           cp -r docs/* .
 
       - name: Commit and push to deploy
         run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "Deploy build: ${{ env.timestamp }}" || echo "No changes to commit"
           git push origin deploy
