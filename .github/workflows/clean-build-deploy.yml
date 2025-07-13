@@ -24,19 +24,16 @@ jobs:
 
       - name: Clean and build site
         run: python site-utils.py clean build
-    
-      - name: Delete deploy branch if it exists
-        run: |
-          if git ls-remote --exit-code --heads origin deploy; then
-            git push origin --delete deploy
-          fi
 
-      - name: Commit and push changes
+      - name: Deploy to deploy branch
         run: |
-          git checkout -b deploy
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git fetch origin deploy
+          git checkout deploy || git checkout --orphan deploy
+          git rm -rf .
+          cp docs/*.html .
           git add *.html
           timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
           git commit -m "deployed build:${timestamp}" || echo "No changes to commit"
-          git push origin deploy
+          git push origin deploy --force
