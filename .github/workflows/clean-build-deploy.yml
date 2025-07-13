@@ -27,7 +27,7 @@ jobs:
 
       - name: Set timestamp variable
         id: vars
-        run: echo "timestamp=$(date +'%Y-%m-%d_%H-%M-%S')" >> $GITHUB_ENV
+        run: echo "timestamp=$(date +%s)" >> $GITHUB_ENV
 
       - name: Checkout deploy branch
         run: |
