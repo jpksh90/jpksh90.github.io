@@ -24,6 +24,12 @@ jobs:
 
       - name: Clean and build site
         run: python site-utils.py clean build
+    
+      - name: Delete deploy branch if it exists
+        run: |
+          if git ls-remote --exit-code --heads origin deploy; then
+            git push origin --delete deploy
+          fi
 
       - name: Commit and push changes
         run: |
