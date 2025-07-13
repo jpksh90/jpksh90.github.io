@@ -15,7 +15,7 @@ pages = [
     # "contact"
 ]
 
-def clean_pages(pages, output_dir="docs"):
+def clean_pages(pages, output_dir):
     """Remove generated HTML files for the given pages."""
     for page in pages:
         html_file = os.path.join(output_dir, f"{page}.html")
@@ -23,7 +23,7 @@ def clean_pages(pages, output_dir="docs"):
             os.remove(html_file)
             print(f"\tDeleted {html_file}")
 
-def generate(output_dir="docs"):
+def generate(output_dir):
     for page in pages:
         with open(f"content/{page}.md") as f:
             md_content = f.read()
@@ -39,14 +39,16 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Static site generator for personal website.")
     parser.add_argument("commands", nargs="*", default=["build"], choices=["clean", "build"],
                         help="Commands to run: 'build', 'clean', or both in sequence")
+    parser.add_argument("-o", "--output", default="docs",
+                        help="Output directory for generated HTML files (default: docs)")
     args = parser.parse_args()
 
     for cmd in args.commands:
         if cmd == "clean":
             print("Cleaning up old HTML files...")
-            clean_pages(pages)
+            clean_pages(pages, output_dir=args.output)
         elif cmd == "build":
             print("Generating HTML files...")
-            generate()
+            generate(output_dir=args.output)
             print("HTML files generated successfully.")
 
