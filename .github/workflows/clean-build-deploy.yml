@@ -23,7 +23,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Clean and build site
-        run: python site-utils.py -o . clean build
+        run: python site-utils.py -o docs clean build
 
       - name: Deploy to deploy branch
         run: |
@@ -33,7 +33,6 @@ jobs:
           git clean -fd
           git checkout deploy || git checkout --orphan deploy
           find . -name "*.html" -exec rm -f {} +
-          cp docs/* .
           git add *.html
           timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
           git commit -m "deployed build:${timestamp}" || echo "No changes to commit"
