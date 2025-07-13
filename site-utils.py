@@ -12,7 +12,7 @@ pages = [
     "publications",
     "research",
     "teaching",
-    "contact"
+    # "contact"
 ]
 
 def clean_pages(pages, output_dir="docs"):

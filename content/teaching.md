@@ -1,4 +1,4 @@
-I have been a Teaching Assistant (TA) for courses related to program analysis and language-based security.
+In my past life, I have been a Teaching Assistant (TA) for courses related to program analysis and language-based security. I still enjoy teaching!
 
 ## University of Passau (Graduate Teaching Assistant)
 - Program Repair
