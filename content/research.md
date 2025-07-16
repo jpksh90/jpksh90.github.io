@@ -2,7 +2,7 @@
 
 ---
 
-### Demand-driven Information Flow Analysis of WebView in Android Hybrid Apps
+##### Demand-driven Information Flow Analysis of WebView in Android Hybrid Apps
 
 *WebView encapsulates information flows from Java to JavaScript and vice-versa.*  
 In this project, we developed a **demand-driven information flow analysis** for Android hybrid apps.
@@ -11,7 +11,7 @@ In this project, we developed a **demand-driven information flow analysis** for 
 
 ---
 
-### Unifying Pointer Analysis for Static Analysis of Multilingual Applications
+##### Unifying Pointer Analysis for Static Analysis of Multilingual Applications
 
 *Can we combine different program analyses, say, WALA + SVF?*  
 We developed an approach to combine existing analyses to analyze multilingual (polyglot) applications.
@@ -20,7 +20,7 @@ We developed an approach to combine existing analyses to analyze multilingual (p
 
 ---
 
-### Understanding Fingerprinting in Hybrid Browsers
+##### Understanding Fingerprinting in Hybrid Browsers
 
 *How vulnerable are Android WebViews to fingerprinting?*  
 We developed dynamic instrumentation to collect attributes related to fingerprinting in Android WebViews.  
@@ -30,7 +30,7 @@ Our study revealed that Android WebViews are **equally or more vulnerable** to f
 
 ---
 
-### Program Representation Effects on Pointer Analysis
+##### Program Representation Effects on Pointer Analysis
 
 *Do different intermediate representations affect the outcome of pointer analysis?*  
 We created metrics to compare program analyses by isolating the effect of their underlying representations.  
@@ -40,7 +40,7 @@ The results showed that such parameters have **little to no effect on precision*
 
 ---
 
-### Security Vulnerabilities in Android WebView
+##### Security Vulnerabilities in Android WebView
 
 *How vulnerable are Android WebViews to JavaScript injection and misuse?*  
 We designed a static analysis technique to collect JavaScript passed from Android to WebView.  
@@ -50,7 +50,7 @@ Our study showed that such flows are often vulnerable, and sometimes **Java cont
 
 ---
 
-### Points-to Analysis using Push-Down Systems
+##### Points-to Analysis using Push-Down Systems
 
 In this project, we expressed **points-to analysis** as a **push-down system reachability** problem, enabling sound handling of recursive programs.
 
