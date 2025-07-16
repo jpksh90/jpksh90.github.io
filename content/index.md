@@ -26,7 +26,6 @@ Previously, I earned:
 
 - **M.Sc. in Computer Science** from [Saarland University](https://www.uni-saarland.de)  
 - **B.Tech. in Information Technology** from [VSSUT](https://www.vssut.ac.in)  
-- I also worked at [IBM Consulting](https://www.ibm.com/consulting/)
 
 ---
 
