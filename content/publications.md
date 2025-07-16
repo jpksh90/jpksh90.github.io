@@ -1,6 +1,6 @@
-## 📚 Publications
+## 📚 publications
 
-#### Peer-reviewed Publications and Preprints
+#### peer-reviewed publications and preprints
 
 - **Modular unification of unilingual pointer analyses to multilingual FFI-based programs**  
   Jyoti Prakash, Abhishek Tiwari, Christian Hammer  
@@ -57,7 +57,7 @@
 
 ---
 
-### 🎓 Academic Service
+### 🎓 academic service
 
 - **Artifact Evaluation Committee (AEC):** ISSTA'23, PLDI'23, ECOOP'21, OOPSLA'21  
 - **Shadow PC Member:** MSR'22

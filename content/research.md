@@ -1,4 +1,4 @@
-## Research Projects
+## research projects
 
 ---
 

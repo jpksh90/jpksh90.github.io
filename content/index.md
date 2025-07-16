@@ -1,4 +1,4 @@
-## About Me 
+## about me 
 
 I work for OpenText India where I specialize in developing advanced static analysis tools for detecting security vulnerabilities in software systems.
 
@@ -11,7 +11,7 @@ My research interests include:
 
 ---
 
-## 🎓 Academic Background
+## 🎓 academic background
 
 I defended my PhD dissertation on:
 
@@ -29,7 +29,7 @@ Previously, I earned:
 
 ---
 
-## 📰 Updates
+## 📰 updates
 
 - **Oct 2024** – Defended my PhD thesis  
 - **Oct 2024** – On TACAS'24 AEC  

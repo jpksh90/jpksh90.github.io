@@ -28,7 +28,7 @@ def generate(output_dir):
         with open(f"content/{page}.md") as f:
             md_content = f.read()
         html_content = markdown.markdown(md_content, extensions=['extra'])
-        rendered = template.render(content=html_content)
+        rendered = template.render(content=html_content, page=f"{page}.html")
         html_path = os.path.join(output_dir, f"{page}.html")
         with open(html_path, "w") as f:
             print(f"\tRendering {page}.html")
