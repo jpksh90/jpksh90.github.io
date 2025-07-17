@@ -55,6 +55,10 @@
         }
       });
     });
+
+    const user = "j.prakash";
+    const domain = "zoho.com";
+    document.getElementById("email").innerHTML = `<a href="mailto:${user}@${domain}">${user}@${domain}</a>`;
   </script>
 
   <meta name="viewport" content="width=device-width">
@@ -112,7 +116,9 @@
         </div>
         <div style="font-size: 0.95em; color: #444; text-align: center;">
           <i class="fa fa-envelope" aria-hidden="true"></i>
-          <a href="mailto:j.prakash@zoho.com" style="color:#333;">j.prakash@zoho.com</a>
+          <span id="email"></span>
+<!--           <a href="mailto:j.prakash@zoho.com" style="color:#333;">j.prakash@zoho.com</a>
+           -->
         </div>
       </aside>
       {% endif %}
