@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <title>Dr. Jyoti Prakash</title>
+  <script src="https://kit.fontawesome.com/95689a8e68.js" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+
+  <!-- Bootstrap Bundle JS (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function includeHTML() {
+      var z, i, elmnt, file, xhttp;
+      /* Loop through a collection of all HTML elements: */
+      var z = document.getElementsByTagName("*");
+      for (i = 0; i < z.length; i++) {
+        var elmnt = z[i];
+        /*search for elements with a certain atrribute:*/
+        var file = elmnt.getAttribute("w3-include-html");
+        if (file) {
+          /* Make an HTTP request using the attribute value as the file name: */
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function () {
+            if (this.readyState == 4) {
+              if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+              if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+              /* Remove the attribute, and call this function once more: */
+              elmnt.removeAttribute("w3-include-html");
+              includeHTML();
+            }
+          }
+          xhttp.open("GET", file, true);
+          xhttp.send();
+          /* Exit the function: */
+          return;
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Get current page filename (e.g., "index.html")
+      var path = window.location.pathname.split('/');
+      var page = path[path.length - 1] || "index.html";
+      // Loop through nav links and set active class
+      document.querySelectorAll('.nav-link').forEach(function (link) {
+        if (link.getAttribute('href') === page) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    const user = "j.prakash";
+    const domain = "zoho.com";
+    document.getElementById("email").innerHTML = `<a href="mailto:${user}@${domain}">${user}@${domain}</a>`;
+  </script>
+
+  <meta name="viewport" content="width=device-width">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <header class="d-flex flex-wrap justify-content-center py-2 mb-1 border-bottom">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" aria-hidden="true">
+          <use xlink:href="#bootstrap"></use>
+        </svg>
+        <span class="fs-4"
+          style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+          
+          Dr. Jyoti Prakash
+          
+        </span></a>
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="index.html" class="nav-link" aria-current="page"><b>h</b>ome</a></li>
+        <li class="nav-item"><a href="research.html" class="nav-link" aria-current="page"><b>r</b>esearch</a></li>
+        <li class="nav-item"><a href="publications.html" class="nav-link" aria-current="page"><b>p</b>ublications</a></li>
+        <li class="nav-item"><a href="teaching.html" class="nav-link" aria-current="page"><b>t</b>eaching</a></li>
+      </ul>
+    </header>
+
+       <div style="display: flex; flex-direction: row; min-height: 80vh;">
+      <!-- Main Content (Left) -->
+      <main style="flex: 1 1 0; padding: 32px;">
+        <section id="content" style="margin-top: 32px;">
+          <h2>research projects</h2>
+<hr />
+<h5>Demand-driven Information Flow Analysis of WebView in Android Hybrid Apps</h5>
+<p><em>WebView encapsulates information flows from Java to JavaScript and vice-versa.</em><br />
+In this project, we developed a <strong>demand-driven information flow analysis</strong> for Android hybrid apps.</p>
+<ul>
+<li><strong>Tool:</strong> <a href="https://iwandroid.github.io">IwanDroid</a></li>
+</ul>
+<hr />
+<h5>Unifying Pointer Analysis for Static Analysis of Multilingual Applications</h5>
+<p><em>Can we combine different program analyses, say, WALA + SVF?</em><br />
+We developed an approach to combine existing analyses to analyze multilingual (polyglot) applications.</p>
+<ul>
+<li><strong>Tool:</strong> <em>To be published soon</em></li>
+</ul>
+<hr />
+<h5>Understanding Fingerprinting in Hybrid Browsers</h5>
+<p><em>How vulnerable are Android WebViews to fingerprinting?</em><br />
+We developed dynamic instrumentation to collect attributes related to fingerprinting in Android WebViews.<br />
+Our study revealed that Android WebViews are <strong>equally or more vulnerable</strong> to fine-grained fingerprinting compared to traditional browsers.</p>
+<ul>
+<li><strong>Tool:</strong> <a href="https://github.com/AliDevel/Charlie">Charlie</a></li>
+</ul>
+<hr />
+<h5>Program Representation Effects on Pointer Analysis</h5>
+<p><em>Do different intermediate representations affect the outcome of pointer analysis?</em><br />
+We created metrics to compare program analyses by isolating the effect of their underlying representations.<br />
+The results showed that such parameters have <strong>little to no effect on precision</strong>, making fair comparisons viable.</p>
+<ul>
+<li><strong>Tool:</strong> <a href="https://github.com/jpksh90/pointeval">PointEval</a></li>
+</ul>
+<hr />
+<h5>Security Vulnerabilities in Android WebView</h5>
+<p><em>How vulnerable are Android WebViews to JavaScript injection and misuse?</em><br />
+We designed a static analysis technique to collect JavaScript passed from Android to WebView.<br />
+Our study showed that such flows are often vulnerable, and sometimes <strong>Java control flow is influenced by external JS APIs.</strong></p>
+<ul>
+<li><strong>Tool:</strong> <em>Available on request</em></li>
+</ul>
+<hr />
+<h5>Points-to Analysis using Push-Down Systems</h5>
+<p>In this project, we expressed <strong>points-to analysis</strong> as a <strong>push-down system reachability</strong> problem, enabling sound handling of recursive programs.</p>
+<ul>
+<li><strong>Tool:</strong> <a href="https://github.com/jpksh90/Points2Pds">Points2Pds</a></li>
+</ul>
+<hr />
+<blockquote>
+<p><em>Note: The tools listed here are research prototypes and should be treated as alpha-quality software.</em></p>
+</blockquote>
+        </section>
+      </main>
+
+      
+    </div>
+
+    <footer style="display: flex; justify-content: space-between; align-items: center; padding: 0 16px;">
+  <span style="margin:0;">
+    <small>Profile picture, courtesy of <a href="https://www.instagram.com/ankitarout_23">@ankitarout_23</a></small>
+  </span>
+  <span style="margin:0;">
+    <small>Hosted on GitHub Pages</small>
+  </span>
+</footer>
+  </div>
+  <script src="javascripts/scale.fix.js"></script>
+</body>
+
+</html>
