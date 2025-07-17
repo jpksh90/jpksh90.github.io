@@ -30,11 +30,7 @@ Previously, I earned:
 ---
 
 ## 📰 updates
-
-- **Oct 2024** – Defended my PhD thesis  
-- **Oct 2024** – On TACAS'24 AEC  
-- **Jun 2024** – On ISSTA'24 AEC  
-- **Jun 2024** – Paper on Android IFC repair accepted in FM'24  
-
+- **Jun 2025** - I am on SAS'25 Artifact committee.
+- **May 2025** - Paper on combining uni-lingual program analysis for analyzing FFI-program accepted in SCP.
 ---
 
