@@ -14,6 +14,7 @@ My Ph.D. at the [University of Passau](https://www.uni-passau.de), supervised by
 
 ## 📰 updates
 - **Jan 2026** - Starting as Assistant Professor at University of Southern Denmark
+- **Dec 2026** - *Towards Analyzing N-language Polyglot Programs* accepted in ERA track of SANER'2026
 - **Oct 2024** – Defended my PhD thesis  
 - **Oct 2024** – On TACAS'24 AEC  
 - **Jun 2024** – On ISSTA'24 AEC  
