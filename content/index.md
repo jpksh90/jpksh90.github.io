@@ -1,5 +1,7 @@
 ## 👨‍💻 about me  
 
+*I will start as Assistant Professor at Maersk McKinney Moller Institute, SDU Software Engineering, Odense, Denmark from Jan 2026*
+
 I am currently part of OpenText India, where I design and develop advanced static analysis tools to detect and mitigate security vulnerabilities in complex software systems. My work sits at the intersection of software engineering, program analysis, and secure systems, blending theoretical precision with practical impact.  
 
 My research explores the broader landscape of program analysis and language interoperability. I am particularly interested in how static and dynamic analyses can be combined to reason about information flow, interlanguage communication, and polyglot systems — modern software ecosystems where multiple programming languages seamlessly interact.  
