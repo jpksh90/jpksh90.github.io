@@ -1,16 +1,14 @@
 ## 👨‍💻 about me  
 
-*I will start as Assistant Professor at Maersk McKinney Moller Institute, SDU Software Engineering, Odense, Denmark from Jan 2026*
+I will join the Maersk Mc-Kinney Møller Institute, SDU Software Engineering, Odense, as an Assistant Professor in January 2026.
 
-I am currently part of OpenText India, where I design and develop advanced static analysis tools to detect and mitigate security vulnerabilities in complex software systems. My work sits at the intersection of software engineering, program analysis, and secure systems, blending theoretical precision with practical impact.  
+My research vision is to develop scalable program analysis techniques for complex software systems. Modern software increasingly spans multiple programming languages and runtimes, yet most analysis tools reason about languages in isolation. This limits our ability to ensure security, correctness, and reliability in real-world systems.
 
-My research explores the broader landscape of program analysis and language interoperability. I am particularly interested in how static and dynamic analyses can be combined to reason about information flow, interlanguage communication, and polyglot systems — modern software ecosystems where multiple programming languages seamlessly interact.  
+My work focuses on cross-language program analysis, studying how data flow, control flow, and information-flow properties propagate across interlanguage boundaries. A key direction is the integration of static and dynamic analyses, combining the global guarantees of static reasoning with runtime evidence to improve precision, scalability, and explainability.
 
-Lately, my work has also been expanding toward dynamic analysis techniques for understanding runtime behavior and improving the reliability and security of multi-language applications.  
- 
-My Ph.D. at the [University of Passau](https://www.uni-passau.de), supervised by [Prof. Christian Hammer](https://www.fim.uni-passau.de/software-engineering-i/lehrstuhlteam/lehrstuhlinhaber?username=hammer50), explored the challenges of static analysis across language boundaries. In my dissertation, *Static Analysis of Interlanguage Interoperations* ([📖 Slides](assests/Slides.pdf) | [📘 Thesis](assests/thesis.pdf)), I developed techniques to reason about how programs written in multiple programming languages interact—particularly focusing on how data, control flow, and security properties propagate across these interlanguage boundaries. The research introduced methods to extend traditional static analyses to polyglot software systems, ensuring that developers can detect security vulnerabilities and correctness issues even when components are implemented in different languages or runtime environments.  
+In parallel, I design industrial-strength analysis systems, informed by my work at OpenText, where I develop static analysis tools for large, security-critical codebases. This ensures that my research remains grounded in deployable, real-world constraints.
 
-
+My Ph.D. at the University of Passau, supervised by Prof. Christian Hammer, established the foundations of this agenda through techniques for static analysis of interlanguage interoperations. My ongoing research extends this work toward hybrid static–dynamic analyses and runtime monitoring for modern, multi-language software ecosystems.
 
 ---
 
