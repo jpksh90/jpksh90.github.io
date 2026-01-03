@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <title>Dr. Jyoti Prakash</title>
+  <title>{{ title }}</title>
   <script src="https://kit.fontawesome.com/95689a8e68.js" crossorigin="anonymous"></script>
 
   <!-- Bootstrap CSS -->
@@ -73,8 +73,8 @@
         </svg>
         <span class="fs-4"
           style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;color: #ffffff; font-weight: 600;">
-          Dr. Jyoti Prakash
-          <h6 style="margin: 0.5em 0 0.2em 0; color:darkgray;">Assistant Professor @ Southern Denmark University, Odense</h6>
+          {{ heading }}
+          <h6 style="margin: 0.5em 0 0.2em 0; color:darkgray;">{{ subheading }}</h6>
 
         </span></a>
       <ul class="nav nav-pills">
@@ -100,11 +100,11 @@
         <!-- <h3 style="margin: 0.5em 0 0.2em 0; font-size: 2em;">Dr. Jyoti Prakash</h3> -->
         <!-- <p style="margin-bottom: 0.7em; font-size: 1em; color: #555;">PhD, University of Passau <br> MSc, Saarland University</p> -->
         <div style="font-size: 2.0em; margin-bottom: 1em; text-align: center;">
-          <span class="social"><a href="https://github.com/jpksh90"><i class="fa-brands fa-github"></i></a></span>
-          <span class="social"><a href="https://www.linkedin.com/in/jprakash90/"><i class="fa-brands fa-linkedin"></i></a></span>
-          <span class="social"><a href="https://twitter.com/jpksh90"><i class="fa-brands fa-twitter"></i></a></span>
-          <span class="social"><a href="https://scholar.google.de/citations?user=-hJIVcwAAAAJ"><i class="fa-brands fa-google-scholar"></i></a></span>
-          <span class="social"><a href="mailto:jyotiprakash1@acm.org"><i class="fa fa-envelope"></i></a></span>
+          <span class="social"><a href="{{ github }}"><i class="fa-brands fa-github"></i></a></span>
+          <span class="social"><a href="{{ linkedin }}"><i class="fa-brands fa-linkedin"></i></a></span>
+          <span class="social"><a href="{{ twitter }}"><i class="fa-brands fa-twitter"></i></a></span>
+          <span class="social"><a href="{{ google_scholar }}"><i class="fa-brands fa-google-scholar"></i></a></span>
+          <span class="social"><a href="mailto:{{ email }}"><i class="fa fa-envelope"></i></a></span>
         </div>
       </aside>
       {% endif %}

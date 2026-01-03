@@ -1,0 +1,28 @@
+[project]
+name = "personal-website"
+version = "1.0.0"
+description = "Static site generator for personal website"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "jinja2>=3.1.0",
+    "markdown>=3.4.0",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pylint>=2.17.0",
+    "black>=23.0.0",
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 79
+target-version = ['py38']
+
+[tool.pylint.messages_control]
+max-line-length = 79
