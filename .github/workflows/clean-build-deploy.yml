@@ -17,7 +17,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.14'
 
       - name: Install uv
         uses: astral-sh/setup-uv@v3
@@ -28,7 +28,7 @@ jobs:
         run: uv sync
     
       - name: Clean and build site
-        run: uv run src/site-utils.py -o docs clean build
+        run: uv run site-utils.py -o docs clean build
 
       - name: Set timestamp variable
         id: vars
