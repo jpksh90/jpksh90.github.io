@@ -2,9 +2,14 @@
 
 #### peer-reviewed publications and preprints
 
+- **Towards Analyzing N-language Polyglot Programs**
+   Jyoti Prakash, Abhishek	Tiwari, Mikkel Baun	Kjærgaard
+   _33rd IEEE International Conference on Software Analysis, Evolution and Reengineering_ [PDF](will be updated)
+  
 - **Modular unification of unilingual pointer analyses to multilingual FFI-based programs**  
   Jyoti Prakash, Abhishek Tiwari, Christian Hammer  
   _Science of Computer Programming 243_  [PDF](https://www.sciencedirect.com/science/article/pii/S0167642325000176)
+  Journal First Track @ SANER'26
 
 ---
 

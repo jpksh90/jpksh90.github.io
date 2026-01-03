@@ -14,7 +14,7 @@
     * *Can we combine different program analyses, such as WALA and SVF?*  
     * We proposed an approach to unify existing static analyses to analyze **multilingual (polyglot) applications**, enabling consistent reasoning across language boundaries.  
     * Status → *To be published*
-- **Toward Program Analysis of N-Language Systems
+- **Toward Program Analysis of N-Language Systems**
     * We proposed the challenges in static analysis of N-Language systems that communicate through FFI.
 
 ---
