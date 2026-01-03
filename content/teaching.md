@@ -1,19 +1,12 @@
-In my past life, I have been a Teaching Assistant (TA) for courses related to program analysis and language-based security. I still enjoy teaching!
+* **Southern Denmark University (Instructor)**
+    - Development of Software Systems (a.k.a. Software Engineering Project, B.Sc.)
+* **University of Passau, University of Potsdam (Graduate Teaching Assistant)**
+    - Program Repair (M.Sc.)
+    - Reverse and Re-engineering (M.Sc.)
+    - Programming in C++ (B.Sc., M.Sc.)
+    - Compiler Construction (M.Sc.)
+    - Secure Information Flow (M.Sc.)
+    - Static Program Analysis (M.Sc.)
+    - Topics in Programming Languages and Security (M.Sc.)
+    - Foundations of Computer Science (*co-instructor*, M.Sc.)
 
-##### university of passau (Graduate Teaching Assistant)
-- Program Repair
-- Reverse and Re-engineering
-- Programming in C++
-- Compiler Construction
-- Secure Information Flow
-- Topics in Programming Languages and Security
-
-##### university of potsdam (Graduate Teaching Assistant)
-- Static Program Analysis
-- Programming in C++
-- Secure Information Flow
-- Foundations of Computer Science (*co-instructor*)
-- Topics in Programming Languages and Security
-
-##### saarland university (Tutor)
-- Software Engineering

@@ -18,6 +18,12 @@ header {
   z-index: 2000;
   background-color: #202021; /* dark gray/black header */
   box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  align-items: flex-end !important; /* align items to bottom */
+}
+
+header .nav-pills {
+  align-self: flex-end !important;
+  margin-bottom: 0 !important;
 }
 
 body {
