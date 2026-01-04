@@ -2,7 +2,7 @@
 
 ---
 
-## Program Analysis for Polyglot and Hybrid Systems
+#### Program Analysis for Polyglot and Hybrid Systems
 
 - **Demand-Driven Information Flow Analysis of WebView in Android Hybrid Apps**  
   `static-analysis` `information-flow` `android` `polyglot`  
@@ -19,7 +19,7 @@
 
 ---
 
-## Security and Privacy Analysis of Android WebView
+#### Security and Privacy Analysis of Android WebView
 
 - **Understanding Fingerprinting in Hybrid Browsers**  
   `security` `privacy` `dynamic-analysis` `android`  
@@ -34,7 +34,7 @@
 
 ---
 
-## Foundations of Pointer Analysis
+#### Foundations of Pointer Analysis
 
 - **Program Representation Effects on Pointer Analysis**  
   `pointer-analysis` `program-representation` `empirical-study`  

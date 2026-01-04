@@ -17,16 +17,17 @@ with open('config.yaml', 'r') as f:
     linkedin = config.get('linkedin', '')
     twitter = config.get('twitter', '')
     google_scholar = config.get('google_scholar', '')
+    pages = config.get('pages', [])
 
 env = Environment(loader=FileSystemLoader('templates'))
 template = env.get_template('base.html')
 
-pages = [
-    "index",
-    "publications",
-    "research",
-    "teaching",
-]
+# pages = [
+#     "index",
+#     "publications",
+#     "research",
+#     "teaching",
+# ]
 
 
 def clean_pages(pages, output_dir):

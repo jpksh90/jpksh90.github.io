@@ -1,14 +1,23 @@
-.nav-item {
+/* =================================
+   Base Styles
+   ================================= */
+
+body {
+  margin: 0;
+  padding: 0;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 16px;
-  color: #e0dbc9;
-  padding: 1px 1px;
-  font-weight: 700;
+  background-color: #F5E6D3;
 }
-.nav-item a {
-  color: #e0dbc9;
-  text-decoration: none;
+
+.wrapper {
+  padding-top: 64px;
+  margin-left: 0.5cm;
+  margin-right: 0.5cm;
 }
+
+/* =================================
+   Header & Navigation
+   ================================= */
 
 header {
   position: fixed;
@@ -16,9 +25,20 @@ header {
   left: 0;
   width: 100vw;
   z-index: 2000;
-  background-color: #202021; /* dark gray/black header */
+  background-color: #202021;
   box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  align-items: flex-end !important; /* align items to bottom */
+  align-items: flex-end !important;
+}
+
+header .site-title {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+header .site-subtitle {
+  margin: 0.5em 0 0.2em 0;
+  color: darkgray;
 }
 
 header .nav-pills {
@@ -26,199 +46,196 @@ header .nav-pills {
   margin-bottom: 0 !important;
 }
 
-body {
-  margin: 0;
-  padding: 0;
+.nav-item {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  background-color: #f5f5f0; /* soft warm background */
+  font-size: 16px;
+  color: #e0dbc9;
+  padding: 1px 1px;
+  font-weight: 700;
 }
 
-.wrapper {
-  padding-top: 64px; /* adjust this value to match your header height */
-}
-
-.profile-window {
-  background: #f5f5f0; /* soft warm background */
-  border-radius: 32px 0 0 32px;
-  box-shadow: -4px 0 24px rgba(0,0,0,0.08);
-  width: 450px;
-  max-width: 100vw;
-  height: calc(100vh - 80px);
-  padding: 2.5em 1.2em;
-  text-align: center;
-  position: fixed;
-  top: 80px;
-  right: 0;
-  left: unset;
-  z-index: 1000;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  border-left: 1.5px solid #e0dbc9;
-}
-
-.profile-window .profile-pic {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 100%;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-  margin-bottom: 0.5em;
-}
-
-.profile-window a {
+.nav-item a {
+  color: #e0dbc9;
   text-decoration: none;
-  transition: color 0.2s;
-}
-
-.profile-window a:hover {
-  opacity: 0.8;
-}
-
-.navbar, .nav-tabs, .custom-navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding-top: 0cm;
-  width: 100vw;
-  z-index: 2000;
-  background-color: #505052 !important; /* keep your beige tone */
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-}
-
-.wrapper {
-  padding-top: 64px; /* adjust this value to match your navbar height */
-  margin-left: 0.5cm;
-  margin-right: 0.5cm;
 }
 
 .nav-link,
 .nav-link:visited {
-  color: #ffffff !important; /* white for navigation links */
+  color: #ffffff !important;
   font-weight: 600;
-
 }
+
 .nav-link.active {
-  color: #e0dbc9 !important; /* highlight active tab if you want */
+  color: #e0dbc9 !important;
   background-color: #ece5d8;
 }
+
 .nav-link:hover,
 .nav-link:focus {
-  color: #adaeaf !important; /* or any accent color you prefer on hover */
+  color: #adaeaf !important;
   background-color: black;
 }
 
+/* =================================
+   Main Content Layout
+   ================================= */
+
+.content-container {
+  display: flex;
+  flex-direction: row;
+  min-height: 80vh;
+}
+
+.main-content {
+  flex: 1 1 0;
+  padding: 32px;
+}
+
+#content {
+  margin-top: 32px;
+}
+
+/* =================================
+   Sidebar / Aside
+   ================================= */
+
 aside {
-  background: #ffffff !important; /* white background for sidebar */
-  color: #000000 !important; /* black text */
-  height: auto !important; /* fit to content height */
-  min-height: auto !important; /* remove minimum height constraints */
-  position: static !important; /* remove fixed/absolute positioning */
-  top: auto !important;
-  right: auto !important;
-  left: auto !important;
-  gap: 1.5rem !important; /* spacing between elements */
-  flex: 0 0 420px !important; /* increased width for social icons */
-  max-width: 420px !important;
-}
-
-/* Profile picture styling */
-aside .profile-pic,
-aside img.profile-pic {
-  margin-bottom: 1rem !important;
-  border: 4px solid #f5f5f0 !important;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15) !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-}
-
-aside .profile-pic:hover,
-aside img.profile-pic:hover {
-  transform: scale(1.05) !important;
-  box-shadow: 0 12px 32px rgba(0,0,0,0.2) !important;
-}
-
-/* Social icons container */
-aside div[style*="font-size: 2.0em"] {
+  flex: 0 0 340px !important;
+  max-width: 340px !important;
+  background: #F5E6D3 !important;
+  border-radius: 18px 0 0 18px !important;
+  box-shadow: -4px 0 24px rgba(0,0,0,0.08) !important;
+  margin: 32px 0 !important;
+  padding: 2.5em 1.2em !important;
   display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: wrap !important;
-  justify-content: center !important;
+  flex-direction: column !important;
   align-items: center !important;
-  gap: 1rem !important;
-  margin-top: 1.5rem !important;
-  margin-bottom: 1.5rem !important;
-  padding: 1rem 0 !important;
-}
-
-/* Individual social icon styling */
-aside .social {
-  display: inline-block !important;
-}
-
-aside .social a {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  width: 50px !important;
-  height: 50px !important;
-  border-radius: 50% !important;
-  background: #f5f5f0 !important;
-  transition: all 0.3s ease !important;
-  text-decoration: none !important;
-}
-
-aside .social a:hover {
-  background: #202021 !important;
-  color: #ffffff !important;
-  transform: translateY(-4px) !important;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15) !important;
-}
-
-aside .social a i {
-  font-size: 1.2em !important;
-}
-
-/* Email section styling */
-aside div[style*="font-size: 0.95em"] {
-  padding: 1rem 1.5rem !important;
-  background: #f5f5f0 !important;
-  border-radius: 12px !important;
-  margin-top: 1rem !important;
-  transition: background 0.3s ease !important;
-}
-
-aside div[style*="font-size: 0.95em"]:hover {
-  background: #e8e8e3 !important;
+  justify-content: flex-start !important;
+  gap: 1.5rem !important;
+  color: #000000 !important;
+  height: auto !important;
+  min-height: auto !important;
+  position: static !important;
 }
 
 aside h3,
 aside p,
 aside div {
-  color: #000000 !important; /* black text for all sidebar content */
+  color: #000000 !important;
 }
 
 aside a {
-  color: #000000 !important; /* black links in sidebar */
-  transition: color 0.3s ease !important;
+  color: #000000 !important;
+  transition: color 0.3s ease;
 }
 
-aside div[style*="font-size: 0.95em"] a:hover {
-  color: #202021 !important;
-  text-decoration: underline !important;
+/* Profile Picture */
+aside .profile-pic,
+aside img.profile-pic {
+  width: 220px !important;
+  height: 220px !important;
+  object-fit: cover !important;
+  border-radius: 50% !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18) !important;
+  margin-bottom: 0.5em !important;
+  border: 4px solid #F5E6D3 !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Mobile-friendly styles */
+aside .profile-pic:hover,
+aside img.profile-pic:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.2) !important;
+}
+
+/* Social Icons */
+aside .social-icons {
+  font-size: 2.0em;
+  margin-bottom: 1em;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding: 1rem 0;
+}
+
+aside .social {
+  display: inline-block;
+}
+
+aside .social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #F5E6D3;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+aside .social a:hover {
+  background: #202021;
+  color: #ffffff;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+aside .social a i {
+  font-size: 1.2em;
+}
+
+/* =================================
+   Footer
+   ================================= */
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+}
+
+footer span {
+  margin: 0;
+}
+
+/* =================================
+   Responsive Design
+   ================================= */
+
+/* Tablet */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .wrapper {
+    margin-left: 0.3cm;
+    margin-right: 0.3cm;
+  }
+
+  aside {
+    flex: 0 0 280px !important;
+    max-width: 280px !important;
+  }
+
+  main {
+    padding: 24px !important;
+  }
+}
+
+/* Mobile */
 @media (max-width: 768px) {
   body {
-    font-size: 16px !important;
+    font-size: 16px;
   }
 
   .wrapper {
-    margin-left: 0.2cm !important;
-    margin-right: 0.2cm !important;
-    padding-top: 80px !important;
+    margin-left: 0.2cm;
+    margin-right: 0.2cm;
+    padding-top: 80px;
   }
 
   header {
@@ -244,7 +261,7 @@ aside div[style*="font-size: 0.95em"] a:hover {
   }
 
   .nav-item {
-    font-size: 14px !important;
+    font-size: 14px;
   }
 
   .nav-link {
@@ -255,7 +272,6 @@ aside div[style*="font-size: 0.95em"] a:hover {
     align-items: center !important;
   }
 
-  /* Make layout stack vertically on mobile */
   .content-container {
     flex-direction: column !important;
     min-height: auto !important;
@@ -263,11 +279,11 @@ aside div[style*="font-size: 0.95em"] a:hover {
 
   .main-content {
     padding: 16px !important;
-    order: 2 !important;
+    order: 2;
   }
 
   main section {
-    margin-top: 8px !important;
+    margin-top: 8px;
   }
 
   aside {
@@ -277,7 +293,7 @@ aside div[style*="font-size: 0.95em"] a:hover {
     margin: 16px 0 !important;
     border-radius: 12px !important;
     padding: 1.5em 1em !important;
-    order: 1 !important;
+    order: 1;
   }
 
   aside img,
@@ -288,91 +304,41 @@ aside div[style*="font-size: 0.95em"] a:hover {
     border-width: 3px !important;
   }
 
-  aside div[style*="font-size: 2.0em"] {
-    font-size: 1.5em !important;
-    gap: 0.8rem !important;
-    margin-top: 1rem !important;
-    margin-bottom: 1rem !important;
+  aside .social-icons {
+    font-size: 1.5em;
+    gap: 0.8rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 
   aside .social a {
     width: 44px !important;
     height: 44px !important;
-    min-width: 44px !important;
-    min-height: 44px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+    min-width: 44px;
+    min-height: 44px;
   }
 
   aside .social a i {
-    font-size: 1em !important;
-  }
-
-  aside div[style*="font-size: 0.95em"] {
-    padding: 0.8rem 1rem !important;
-    font-size: 0.9em !important;
+    font-size: 1em;
   }
 
   footer {
-    flex-direction: column !important;
-    text-align: center !important;
-    gap: 8px !important;
-    padding: 12px 8px !important;
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+    padding: 12px 8px;
   }
 
   h2 {
-    font-size: 1.5rem !important;
+    font-size: 1.5rem;
   }
 
   h3 {
-    font-size: 1.3rem !important;
+    font-size: 1.3rem;
   }
 
   p, li {
-    font-size: 1rem !important;
-    line-height: 1.6 !important;
-  }
-}
-
-/* Tablet styles */
-@media (max-width: 1024px) and (min-width: 769px) {
-  .wrapper {
-    margin-left: 0.3cm !important;
-    margin-right: 0.3cm !important;
-  }
-
-  aside {
-    flex: 0 0 280px !important;
-    max-width: 280px !important;
-  }
-
-  main {
-    padding: 24px !important;
-  }
-}
-
-@media (max-width: 900px) {
-  .profile-window {
-    position: static;
-    margin: 1.5em auto;
-    left: unset;
-    right: unset;
-    top: unset;
-  }
-}
-
-@media (max-width: 1100px) {
-  .profile-window {
-    position: static;
-    width: 100%;
-    height: auto;
-    border-radius: 18px;
-    border-left: none;
-    margin: 1.5em auto;
-    left: unset;
-    right: unset;
-    top: unset;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    font-size: 1rem;
+    line-height: 1.6;
   }
 }

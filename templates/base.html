@@ -71,10 +71,9 @@
         <svg class="bi me-2" width="40" height="32" aria-hidden="true">
           <use xlink:href="#bootstrap"></use>
         </svg>
-        <span class="fs-4"
-          style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;color: #ffffff; font-weight: 600;">
+        <span class="fs-4 site-title">
           {{ heading }}
-          <h6 style="margin: 0.5em 0 0.2em 0; color:darkgray;">{{ subheading }}</h6>
+          <h6 class="site-subtitle">{{ subheading }}</h6>
 
         </span></a>
       <ul class="nav nav-pills">
@@ -85,21 +84,19 @@
       </ul>
     </header>
 
-       <div class="content-container" style="display: flex; flex-direction: row; min-height: 80vh;">
+       <div class="content-container">
       <!-- Main Content (Left) -->
-      <main class="main-content" style="flex: 1 1 0; padding: 32px;">
-        <section id="content" style="margin-top: 32px;">
+      <main class="main-content">
+        <section id="content">
           {{ content | safe }}
         </section>
       </main>
 
       {% if page == "index.html" or page == "" %}
       <!-- Sidebar (Right) -->
-      <aside style="flex: 0 0 340px; max-width: 340px; background: #d6d2e6; border-radius: 18px 0 0 18px; box-shadow: -4px 0 24px rgba(0,0,0,0.08); margin: 32px 0 32px 0; padding: 2.5em 1.2em; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
-        <img src="images/profile-pic.jpg" class="profile-pic" alt="Profile picture" style="width:220px;height:220px;object-fit:cover;border-radius:50%;box-shadow:0 4px 16px rgba(0,0,0,0.18);margin-bottom:0.5em;">
-        <!-- <h3 style="margin: 0.5em 0 0.2em 0; font-size: 2em;">Dr. Jyoti Prakash</h3> -->
-        <!-- <p style="margin-bottom: 0.7em; font-size: 1em; color: #555;">PhD, University of Passau <br> MSc, Saarland University</p> -->
-        <div style="font-size: 2.0em; margin-bottom: 1em; text-align: center;">
+      <aside>
+        <img src="images/profile-pic.jpg" class="profile-pic" alt="Profile picture">
+        <div class="social-icons">
           <span class="social"><a href="{{ github }}"><i class="fa-brands fa-github"></i></a></span>
           <span class="social"><a href="{{ linkedin }}"><i class="fa-brands fa-linkedin"></i></a></span>
           <span class="social"><a href="{{ twitter }}"><i class="fa-brands fa-twitter"></i></a></span>
@@ -110,11 +107,11 @@
       {% endif %}
     </div>
 
-    <footer style="display: flex; justify-content: space-between; align-items: center; padding: 0 16px;">
-  <span style="margin:0;">
+    <footer>
+  <span>
     <small>Profile picture, courtesy of <a href="https://www.instagram.com/ankitarout_23">@ankitarout_23</a></small>
   </span>
-  <span style="margin:0;">
+  <span>
     <small>Hosted on GitHub Pages</small>
   </span>
 </footer>
