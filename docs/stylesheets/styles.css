@@ -6,7 +6,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  background-color: #D3D3D3;
+  background-color: #36454F;
+  color: #ffffff;
 }
 
 .wrapper {
@@ -100,19 +101,17 @@ header .nav-pills {
    ================================= */
 
 aside {
-  flex: 0 0 340px !important;
-  max-width: 340px !important;
-  background: #D3D3D3 !important;
-  border-radius: 18px 0 0 18px !important;
-  box-shadow: -4px 0 24px rgba(0,0,0,0.08) !important;
-  margin: 32px 0 !important;
+  flex: 0 0 250px !important;
+  max-width: 250px !important;
+  background: #36454F !important;
+  margin: 0 !important;
   padding: 2.5em 1.2em !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
   justify-content: flex-start !important;
   gap: 1.5rem !important;
-  color: #000000 !important;
+  color: #ffffff !important;
   height: auto !important;
   min-height: auto !important;
   position: static !important;
@@ -121,11 +120,11 @@ aside {
 aside h3,
 aside p,
 aside div {
-  color: #000000 !important;
+  color: #ffffff !important;
 }
 
 aside a {
-  color: #000000 !important;
+  color: #ffffff !important;
   transition: color 0.3s ease;
 }
 
@@ -174,20 +173,22 @@ aside .social a {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: #D3D3D3;
+  background: #000000;
+  color: #ffffff;
   transition: all 0.3s ease;
   text-decoration: none;
 }
 
 aside .social a:hover {
-  background: #202021;
+  background: #000000;
   color: #ffffff;
   transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
 }
 
 aside .social a i {
   font-size: 1.2em;
+  color: #ffffff;
 }
 
 /* =================================
