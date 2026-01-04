@@ -6,7 +6,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  background-color: #F5E6D3;
+  background-color: #D3D3D3;
 }
 
 .wrapper {
@@ -102,7 +102,7 @@ header .nav-pills {
 aside {
   flex: 0 0 340px !important;
   max-width: 340px !important;
-  background: #F5E6D3 !important;
+  background: #D3D3D3 !important;
   border-radius: 18px 0 0 18px !important;
   box-shadow: -4px 0 24px rgba(0,0,0,0.08) !important;
   margin: 32px 0 !important;
@@ -138,7 +138,7 @@ aside img.profile-pic {
   border-radius: 50% !important;
   box-shadow: 0 4px 16px rgba(0,0,0,0.18) !important;
   margin-bottom: 0.5em !important;
-  border: 4px solid #F5E6D3 !important;
+  border: 4px solid #D3D3D3 !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -174,7 +174,7 @@ aside .social a {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: #F5E6D3;
+  background: #D3D3D3;
   transition: all 0.3s ease;
   text-decoration: none;
 }
