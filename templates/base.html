@@ -106,11 +106,17 @@
       </aside>
       {% endif %}
     </div>
-
-    <footer>
-  <span>
-    <small>Profile picture, courtesy of <a href="https://www.instagram.com/ankitarout_23">@ankitarout_23</a></small>
-  </span>
+  
+  <footer>
+      <span>
+        {% if photo_credit != "" and (page == "index.html" or page == "") %}
+        <small>Profile picture, courtesy of <a href="https://www.instagram.com/{{ photo_credit}}">@{{ photo_credit }}</a></small>
+        {% else %}
+        <hidden></hidden>
+      
+        {% endif %}
+      </span>
+    
   <span>
     <small>Hosted on GitHub Pages</small>
   </span>

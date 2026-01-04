@@ -18,7 +18,8 @@ with open('config.yaml', 'r') as f:
     twitter = config.get('twitter', '')
     google_scholar = config.get('google_scholar', '')
     pages = config.get('pages', [])
-    
+    photo_credit = config.get('photo_credit', '')
+
 
 env = Environment(loader=FileSystemLoader('templates'))
 template = env.get_template('base.html')
@@ -49,7 +50,8 @@ def generate(output_dir):
             github=github,
             linkedin=linkedin,
             twitter=twitter,
-            google_scholar=google_scholar
+            google_scholar=google_scholar,
+            photo_credit=photo_credit,
         )
         html_path = os.path.join(output_dir, f"{page}.html")
         with open(html_path, "w") as f:

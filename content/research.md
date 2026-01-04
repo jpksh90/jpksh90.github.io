@@ -1,5 +1,7 @@
 ## Research
 
+In my research, I focus on improving software security and reliability through the lens of program analysis. I develop static and dynamic analysis techniques that enable systematic reasoning about program behavior in complex, real-world software systems. My work targets modern applications that span multiple programming languages, runtimes, and execution environments, where traditional single-language analyses fall short. By combining formal foundations with scalable engineering, I aim to detect security vulnerabilities, enforce correctness properties, and improve system robustness in security-critical and industrial-scale codebases.
+
 ---
 
 #### Program Analysis for Polyglot and Hybrid Systems
@@ -47,5 +49,8 @@
     * Tool → **Points2Pds**
 
 ---
+
+#### Testing Static Analyzers
+    - Upcoming... 
 
 **Note:** *All tools listed here are research prototypes and should be treated as alpha-quality software.*
