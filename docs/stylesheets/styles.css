@@ -193,6 +193,49 @@ aside .social a i {
 }
 
 /* =================================
+   Tables
+   ================================= */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 0.95rem;
+}
+
+thead {
+  border-top: 2px solid #202021;
+  border-bottom: 2px solid #202021;
+  background-color: transparent;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+th {
+  padding: 8px 12px;
+  text-align: left;
+  border: none;
+}
+
+td {
+  padding: 6px 12px;
+  border: none;
+  border-bottom: 1px solid #e0dbc9;
+}
+
+tbody tr:last-child td {
+  border-bottom: 2px solid #202021;
+}
+
+tbody tr {
+  transition: none;
+}
+
+tbody tr:hover {
+  background-color: transparent;
+}
+
+/* =================================
    Footer
    ================================= */
 

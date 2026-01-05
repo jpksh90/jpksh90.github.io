@@ -1,7 +1,7 @@
 import argparse
 import os
 
-import markdown
+import mistune
 import yaml
 from jinja2 import Environment, FileSystemLoader
 
@@ -39,7 +39,8 @@ def generate(output_dir):
     for page in pages:
         with open(f"content/{page}.md") as f:
             md_content = f.read()
-        html_content = markdown.markdown(md_content, extensions=['extra'])
+        markdown = mistune.create_markdown(plugins=['table'])
+        html_content = markdown(md_content)
         rendered = template.render(
             content=html_content,
             page=f"{page}.html",
