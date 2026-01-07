@@ -45,6 +45,37 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
+      // Burger menu toggle
+      const burgerMenu = document.getElementById('burgerMenu');
+      const navMenu = document.getElementById('navMenu');
+      
+      function closeMenu() {
+        navMenu.classList.remove('active');
+        burgerMenu.classList.remove('active');
+        burgerMenu.setAttribute('aria-expanded', 'false');
+      }
+      
+      burgerMenu.addEventListener('click', function (e) {
+        e.stopPropagation();
+        navMenu.classList.toggle('active');
+        burgerMenu.classList.toggle('active');
+        burgerMenu.setAttribute('aria-expanded', burgerMenu.getAttribute('aria-expanded') === 'false' ? 'true' : 'false');
+      });
+      
+      // Close menu when a link is clicked
+      navMenu.querySelectorAll('.nav-link').forEach(function (link) {
+        link.addEventListener('click', function () {
+          closeMenu();
+        });
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', function (e) {
+        if (!e.target.closest('header')) {
+          closeMenu();
+        }
+      });
+
       // Get current page filename (e.g., "index.html")
       var path = window.location.pathname.split('/');
       var page = path[path.length - 1] || "index.html";
@@ -76,11 +107,15 @@
           <h6 class="site-subtitle">{{ subheading }}</h6>
 
         </span></a>
-      <ul class="nav nav-pills">
-        <li class="nav-item"><a href="index.html" class="nav-link" aria-current="page"><b>h</b>ome</a></li>
-        <li class="nav-item"><a href="research.html" class="nav-link" aria-current="page"><b>r</b>esearch</a></li>
-        <li class="nav-item"><a href="publications.html" class="nav-link" aria-current="page"><b>p</b>ublications</a></li>
-        <li class="nav-item"><a href="teaching_service.html" class="nav-link" aria-current="page"><b>t</b>eaching</a></li>
+      <button class="burger-menu" id="burgerMenu" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav nav-pills" id="navMenu">
+        {% for k,v in pages.items() %}
+          <li class="nav-item"><a href="{{ k }}.html" class="nav-link" aria-current="page"><b>{{ v[0] }}</b>{{ v[1:] }}</a></li>
+        {% endfor %}
       </ul>
     </header>
 

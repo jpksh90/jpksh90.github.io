@@ -251,6 +251,54 @@ footer span {
 }
 
 /* =================================
+    Burger Menu / Hamburger Icon
+    ================================= */
+
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  gap: 4px;
+  align-self: center;
+  width: 28px;
+  height: 28px;
+  justify-content: center;
+}
+
+.burger-menu span {
+  width: 20px;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 1px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.burger-menu:hover span {
+  background-color: #adaeaf;
+}
+
+.burger-menu.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.burger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+#navMenu {
+  max-height: 100vh;
+  transition: max-height 0.3s ease;
+}
+
+/* =================================
    Responsive Design
    ================================= */
 
@@ -284,13 +332,17 @@ footer span {
   }
 
   header {
-    flex-direction: column !important;
+    flex-direction: row !important;
     align-items: center !important;
     padding: 12px 8px !important;
+    position: relative;
+    width: 100%;
+    flex-wrap: nowrap !important;
   }
 
   header a {
-    margin-bottom: 8px !important;
+    margin-bottom: 0 !important;
+    flex: 1;
   }
 
   header .fs-4 {
@@ -298,23 +350,49 @@ footer span {
     margin-bottom: 0 !important;
   }
 
+  .burger-menu {
+    display: flex;
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-left: auto;
+  }
+
   .nav-pills {
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    gap: 4px !important;
+    max-height: 0;
+    overflow: hidden;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    gap: 0 !important;
     margin: 0 !important;
+    width: 100%;
+    transition: max-height 0.3s ease, visibility 0.3s ease;
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #202021;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-pills.active {
+    max-height: 500px;
+    visibility: visible;
   }
 
   .nav-item {
     font-size: 14px;
+    width: 100%;
   }
 
   .nav-link {
-    padding: 10px 16px !important;
+    padding: 12px 16px !important;
     font-size: 14px !important;
-    min-height: 44px !important;
+    min-height: auto !important;
     display: flex !important;
     align-items: center !important;
+    justify-content: flex-start !important;
+    border-radius: 0 !important;
   }
 
   .content-container {

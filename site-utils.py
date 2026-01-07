@@ -17,7 +17,7 @@ with open('config.yaml', 'r') as f:
     linkedin = config.get('linkedin', '')
     twitter = config.get('twitter', '')
     google_scholar = config.get('google_scholar', '')
-    pages = config.get('pages', [])
+    pages = config.get('pages', {})
     photo_credit = config.get('photo_credit', '')
 
 
@@ -36,7 +36,7 @@ def clean_pages(pages, output_dir):
 
 def generate(output_dir):
     """Generate HTML files from markdown content."""
-    for page in pages:
+    for page,_ in pages.items():
         with open(f"content/{page}.md") as f:
             md_content = f.read()
         markdown = mistune.create_markdown(plugins=['table'])
@@ -53,6 +53,7 @@ def generate(output_dir):
             twitter=twitter,
             google_scholar=google_scholar,
             photo_credit=photo_credit,
+            pages=pages,
         )
         html_path = os.path.join(output_dir, f"{page}.html")
         with open(html_path, "w") as f:
