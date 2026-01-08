@@ -39,7 +39,7 @@ def generate(output_dir):
     for page,_ in pages.items():
         with open(f"content/{page}.md") as f:
             md_content = f.read()
-        markdown = mistune.create_markdown(plugins=['table'])
+        markdown = mistune.create_markdown(plugins=['table'], escape=False)
         html_content = markdown(md_content)
         rendered = template.render(
             content=html_content,

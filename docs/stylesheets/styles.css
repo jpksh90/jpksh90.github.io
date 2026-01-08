@@ -1,13 +1,54 @@
 /* =================================
+   CSS Custom Properties
+   ================================= */
+
+:root {
+  /* Colors */
+  --color-bg: #36454F;
+  --color-bg-dark: #202021;
+  --color-text: #ffffff;
+  --color-text-secondary: #e0dbc9;
+  --color-text-hover: #adaeaf;
+  --color-border: #e0dbc9;
+  --color-accent: #ece5d8;
+  --color-accent-secondary: #D3D3D3;
+  --color-black: #000000;
+  --color-gray: darkgray;
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  
+  /* Sizing */
+  --size-profile-pic: 220px;
+  --size-profile-pic-mobile: 150px;
+  --size-social-icon: 50px;
+  --size-social-icon-mobile: 44px;
+  --size-sidebar: 250px;
+  --size-sidebar-tablet: 280px;
+  
+  /* Transitions */
+  --transition-fast: 0.3s ease;
+  --transition-all: all 0.3s ease;
+  
+  /* Font Family */
+  --font-primary: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+/* =================================
    Base Styles
    ================================= */
 
 body {
   margin: 0;
-  padding: 16px 48px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  background-color: #36454F;
-  color: #ffffff;
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  font-family: var(--font-primary);
+  background-color: var(--color-bg);
+  color: var(--color-text);
 }
 
 .wrapper {
@@ -26,56 +67,56 @@ header {
   left: 0;
   width: 100vw;
   z-index: 2000;
-  background-color: #202021;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  align-items: flex-end !important;
-  padding: 16px 48px;
+  background-color: var(--color-bg-dark);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  align-items: flex-end;
+  padding: var(--spacing-lg) var(--spacing-2xl);
 }
 
 header .site-title {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  color: #ffffff;
+  font-family: var(--font-primary);
+  color: var(--color-text);
   font-weight: 600;
 }
 
 header .site-subtitle {
   margin: 0.5em 0 0.2em 0;
-  color: darkgray;
+  color: var(--color-gray);
 }
 
 header .nav-pills {
-  align-self: flex-end !important;
-  margin-bottom: 0 !important;
+  align-self: flex-end;
+  margin-bottom: 0;
 }
 
 .nav-item {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: var(--font-primary);
   font-size: 16px;
-  color: #e0dbc9;
+  color: var(--color-text-secondary);
   padding: 1px 1px;
   font-weight: 700;
 }
 
 .nav-item a {
-  color: #e0dbc9;
+  color: var(--color-text-secondary);
   text-decoration: none;
 }
 
 .nav-link,
 .nav-link:visited {
-  color: #ffffff !important;
+  color: var(--color-text);
   font-weight: 600;
 }
 
 .nav-link.active {
-  color: #e0dbc9 !important;
-  background-color: #ece5d8;
+  color: var(--color-text-secondary);
+  background-color: var(--color-accent);
 }
 
 .nav-link:hover,
 .nav-link:focus {
-  color: #adaeaf !important;
-  background-color: black;
+  color: var(--color-text-hover);
+  background-color: var(--color-black);
 }
 
 /* =================================
@@ -90,11 +131,11 @@ header .nav-pills {
 
 .main-content {
   flex: 1 1 0;
-  padding: 32px;
+  padding: var(--spacing-xl);
 }
 
 #content {
-  margin-top: 32px;
+  margin-top: var(--spacing-xl);
 }
 
 /* =================================
@@ -102,56 +143,56 @@ header .nav-pills {
    ================================= */
 
 aside {
-  flex: 0 0 250px !important;
-  max-width: 250px !important;
-  background: #36454F !important;
-  margin: 0 !important;
-  padding: 2.5em 1.2em !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-  gap: 1.5rem !important;
-  color: #ffffff !important;
-  height: auto !important;
-  min-height: auto !important;
-  position: static !important;
+  flex: 0 0 var(--size-sidebar);
+  max-width: var(--size-sidebar);
+  background: var(--color-bg);
+  margin: 0;
+  padding: 2.5em 1.2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  color: var(--color-text);
+  height: auto;
+  min-height: auto;
+  position: static;
 }
 
 aside h3,
 aside p,
 aside div {
-  color: #ffffff !important;
+  color: var(--color-text);
 }
 
 aside a {
-  color: #ffffff !important;
-  transition: color 0.3s ease;
+  color: var(--color-text);
+  transition: color var(--transition-fast);
 }
 
 /* Profile Picture */
 aside .profile-pic,
 aside img.profile-pic {
-  width: 220px !important;
-  height: 220px !important;
-  object-fit: cover !important;
-  border-radius: 50% !important;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.18) !important;
-  margin-bottom: 0.5em !important;
-  border: 4px solid #D3D3D3 !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: var(--size-profile-pic);
+  height: var(--size-profile-pic);
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  margin-bottom: 0.5em;
+  border: 4px solid var(--color-accent-secondary);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 aside .profile-pic:hover,
 aside img.profile-pic:hover {
   transform: scale(1.05);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.2) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
 }
 
 /* Social Icons */
 aside .social-icons {
-  font-size: 2.0em;
-  margin-bottom: 1em;
+  font-size: 2em;
+  margin: 1.5rem 0 1em 0;
   text-align: center;
   display: flex;
   flex-direction: row;
@@ -159,7 +200,6 @@ aside .social-icons {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  margin-top: 1.5rem;
   padding: 1rem 0;
 }
 
@@ -171,25 +211,25 @@ aside .social a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  width: var(--size-social-icon);
+  height: var(--size-social-icon);
   border-radius: 50%;
-  background: #000000;
-  color: #ffffff;
-  transition: all 0.3s ease;
+  background: var(--color-black);
+  color: var(--color-text);
+  transition: var(--transition-all);
   text-decoration: none;
 }
 
 aside .social a:hover {
-  background: #000000;
-  color: #ffffff;
+  background: var(--color-black);
+  color: var(--color-text);
   transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
 aside .social a i {
   font-size: 1.2em;
-  color: #ffffff;
+  color: var(--color-text);
 }
 
 /* =================================
@@ -199,32 +239,32 @@ aside .social a i {
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 16px 0;
+  margin: var(--spacing-lg) 0;
   font-size: 0.95rem;
 }
 
 thead {
-  border-top: 2px solid #202021;
-  border-bottom: 2px solid #202021;
+  border-top: 2px solid var(--color-bg-dark);
+  border-bottom: 2px solid var(--color-bg-dark);
   background-color: transparent;
-  color: #ffffff;
+  color: var(--color-text);
   font-weight: 600;
 }
 
 th {
-  padding: 8px 12px;
+  padding: var(--spacing-sm) var(--spacing-md);
   text-align: left;
   border: none;
 }
 
 td {
-  padding: 6px 12px;
+  padding: 6px var(--spacing-md);
   border: none;
-  border-bottom: 1px solid #e0dbc9;
+  border-bottom: 1px solid var(--color-border);
 }
 
 tbody tr:last-child td {
-  border-bottom: 2px solid #202021;
+  border-bottom: 2px solid var(--color-bg-dark);
 }
 
 tbody tr {
@@ -243,7 +283,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 16px;
+  padding: 0 var(--spacing-lg);
 }
 
 footer span {
@@ -260,8 +300,8 @@ footer span {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
-  gap: 4px;
+  padding: var(--spacing-xs);
+  gap: var(--spacing-xs);
   align-self: center;
   width: 28px;
   height: 28px;
@@ -271,14 +311,14 @@ footer span {
 .burger-menu span {
   width: 20px;
   height: 2px;
-  background-color: #ffffff;
+  background-color: var(--color-text);
   border-radius: 1px;
-  transition: all 0.3s ease;
+  transition: var(--transition-all);
   transform-origin: center;
 }
 
 .burger-menu:hover span {
-  background-color: #adaeaf;
+  background-color: var(--color-text-hover);
 }
 
 .burger-menu.active span:nth-child(1) {
@@ -295,14 +335,14 @@ footer span {
 
 #navMenu {
   max-height: 100vh;
-  transition: max-height 0.3s ease;
+  transition: max-height var(--transition-fast);
 }
 
 /* =================================
    Responsive Design
    ================================= */
 
-/* Tablet */
+/* Tablet: 769px - 1024px */
 @media (max-width: 1024px) and (min-width: 769px) {
   .wrapper {
     margin-left: 0.3cm;
@@ -310,44 +350,45 @@ footer span {
   }
 
   aside {
-    flex: 0 0 280px !important;
-    max-width: 280px !important;
+    flex: 0 0 var(--size-sidebar-tablet);
+    max-width: var(--size-sidebar-tablet);
   }
 
   main {
-    padding: 24px !important;
+    padding: 24px;
   }
 }
 
-/* Mobile */
+/* Mobile: Up to 768px */
 @media (max-width: 768px) {
   body {
     font-size: 16px;
+    padding: var(--spacing-md) var(--spacing-lg);
   }
 
   .wrapper {
-    margin-left: 0.2cm;
-    margin-right: 0.2cm;
+    margin-left: 0;
+    margin-right: 0;
     padding-top: 80px;
   }
 
   header {
-    flex-direction: row !important;
-    align-items: center !important;
-    padding: 12px 8px !important;
+    flex-direction: row;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-sm);
     position: relative;
     width: 100%;
-    flex-wrap: nowrap !important;
+    flex-wrap: nowrap;
   }
 
   header a {
-    margin-bottom: 0 !important;
+    margin-bottom: 0;
     flex: 1;
   }
 
   header .fs-4 {
-    font-size: 1.2rem !important;
-    margin-bottom: 0 !important;
+    font-size: 1.2rem;
+    margin-bottom: 0;
   }
 
   .burger-menu {
@@ -361,17 +402,17 @@ footer span {
   .nav-pills {
     max-height: 0;
     overflow: hidden;
-    flex-direction: column !important;
-    justify-content: flex-start !important;
-    gap: 0 !important;
-    margin: 0 !important;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0;
+    margin: 0;
     width: 100%;
-    transition: max-height 0.3s ease, visibility 0.3s ease;
+    transition: max-height var(--transition-fast), visibility var(--transition-fast);
     visibility: hidden;
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #202021;
+    background-color: var(--color-bg-dark);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 
@@ -386,22 +427,22 @@ footer span {
   }
 
   .nav-link {
-    padding: 12px 16px !important;
-    font-size: 14px !important;
-    min-height: auto !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    border-radius: 0 !important;
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: 14px;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 0;
   }
 
   .content-container {
-    flex-direction: column !important;
-    min-height: auto !important;
+    flex-direction: column;
+    min-height: auto;
   }
 
   .main-content {
-    padding: 16px !important;
+    padding: var(--spacing-md) var(--spacing-sm);
     order: 2;
   }
 
@@ -410,21 +451,21 @@ footer span {
   }
 
   aside {
-    flex: 1 !important;
-    max-width: 100% !important;
-    width: 100% !important;
-    margin: 16px 0 !important;
-    border-radius: 12px !important;
-    padding: 1.5em 1em !important;
+    flex: 1;
+    max-width: 100%;
+    width: 100%;
+    margin: var(--spacing-md) 0;
+    border-radius: 12px;
+    padding: 1.2em 0.8em;
     order: 1;
   }
 
   aside img,
   aside .profile-pic,
   aside img.profile-pic {
-    width: 150px !important;
-    height: 150px !important;
-    border-width: 3px !important;
+    width: var(--size-profile-pic-mobile);
+    height: var(--size-profile-pic-mobile);
+    border-width: 3px;
   }
 
   aside .social-icons {
@@ -435,10 +476,10 @@ footer span {
   }
 
   aside .social a {
-    width: 44px !important;
-    height: 44px !important;
-    min-width: 44px;
-    min-height: 44px;
+    width: var(--size-social-icon-mobile);
+    height: var(--size-social-icon-mobile);
+    min-width: var(--size-social-icon-mobile);
+    min-height: var(--size-social-icon-mobile);
   }
 
   aside .social a i {
@@ -449,7 +490,7 @@ footer span {
     flex-direction: column;
     text-align: center;
     gap: 8px;
-    padding: 12px 8px;
+    padding: var(--spacing-md) var(--spacing-sm);
   }
 
   h2 {
