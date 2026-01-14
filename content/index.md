@@ -1,4 +1,11 @@
-I work at the Maersk Mc-Kinney Møller Institute, SDU Software Engineering, Odense, as an Assistant Professor in January 2026. My research focuses on developing scalable program analysis techniques for complex software systems. Modern software increasingly spans multiple programming languages and runtimes; however, most existing analysis tools reason about individual languages in isolation. This disconnect significantly limits our ability to ensure security, correctness, and reliability in real-world systems.
+
+```
+Assistant Professor, Software Engineering 
+Maersk McKinney Moller Institute
+University of Southern Denmark (Odense)
+```
+
+My research focuses on developing scalable program analysis techniques for complex software systems. Modern software increasingly spans multiple programming languages and runtimes; however, most existing analysis tools reason about individual languages in isolation. This disconnect significantly limits our ability to ensure security, correctness, and reliability in real-world systems.
 
 Alongside my academic work, I have designed and built industrial-strength analysis systems at OpenText, where I developed static analysis tools for large, security-critical codebases. This experience ensures that my research is firmly grounded in deployable solutions and real-world engineering constraints.
 
