@@ -12,7 +12,6 @@ with open('config.yaml', 'r') as f:
     title = config.get('title', 'My Personal Website')
     email = config.get('email', '')
     heading = config.get('heading', '')
-    subheading = config.get('subheading', '')
     github = config.get('github', '')
     linkedin = config.get('linkedin', '')
     twitter = config.get('twitter', '')
@@ -47,7 +46,6 @@ def generate(output_dir):
             title=title,
             email=email,
             heading=heading,
-            subheading=subheading,
             github=github,
             linkedin=linkedin,
             twitter=twitter,
