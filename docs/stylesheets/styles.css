@@ -49,9 +49,6 @@ body {
   font-family: var(--font-primary);
   background-color: var(--color-bg);
   color: var(--color-text);
-  border-left: 1px solid var(--color-border);
-  border-right: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
   margin-left: auto;
   margin-right: auto;
   max-width: 1200px;
@@ -84,8 +81,6 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  border-left: 1px solid var(--color-border);
-  border-right: 1px solid var(--color-border);
 }
 
 header .site-title {
