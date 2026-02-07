@@ -1,6 +1,6 @@
-**Assistant Professor, Software Engineering** <br>
-**Maersk McKinney Moller Institute** <br>
-**University of Southern Denmark (Odense)** <br>
+> **Assistant Professor, Software Engineering** <br>
+> **Maersk McKinney Moller Institute** <br>
+> **University of Southern Denmark (Odense)** <br>
 
 
 My research focuses on developing scalable program analysis techniques for complex software systems. Modern software increasingly spans multiple programming languages and runtimes; however, most existing analysis tools reason about individual languages in isolation. This disconnect significantly limits our ability to ensure security, correctness, and reliability in real-world systems.
