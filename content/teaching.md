@@ -22,7 +22,7 @@ I have taught the following courses:
   University of Southern Denmark — *Expected May 2026*
 
 - **BSc Thesis — Gustav Speedtsberg & Rolf Vandsted**  
-  *Design and Implementation of Housing Application (in collaboration with Pentia)*  
+  *Industry Project*  
   University of Southern Denmark — *Expected May 2026*
 
 
