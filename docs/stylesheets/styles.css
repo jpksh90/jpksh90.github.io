@@ -37,6 +37,8 @@
   
   /* Font Family */
   --font-primary: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    --font-menu: 'Roboto Condensed', 'Arial Narrow', Arial, sans-serif;
+    --font-menu-weight: 300;
 }
 
 /* =================================
@@ -44,6 +46,7 @@
    ================================= */
 
 body {
+    /* Import thin and crisp font for menu */
   margin: 0;
   padding: var(--spacing-lg) 2%;
   font-family: var(--font-primary);
@@ -53,12 +56,13 @@ body {
   margin-right: auto;
   max-width: 1200px;
 }
-
-.wrapper {
-  padding-top: 64px;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1200px;
+    font-family: var(--font-menu);
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    padding: 0;
+    font-weight: var(--font-menu-weight);
+    letter-spacing: 0.02em;
+    list-style: none;
 }
 
 /* =================================
@@ -70,13 +74,14 @@ header {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2000;
-  background-color: var(--color-bg-dark);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  align-items: flex-end;
-  padding: var(--spacing-lg) 2% var(--spacing-lg) 2%;
-  box-sizing: border-box;
-  max-width: 1200px;
+    color: var(--color-text-secondary);
+    font-family: var(--font-menu);
+    font-weight: 300;
+    padding: 8px 16px !important;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    display: inline-block;
+    font-size: 15px;
   width: calc(100% - 4%);
   display: flex;
   flex-wrap: wrap;
