@@ -6,5 +6,5 @@ linkedin: https://www.linkedin.com/in/jprakash90/
 twitter: https://twitter.com/jpksh90
 google_scholar: https://scholar.google.de/citations?user=-hJIVcwAAAAJ
 
-pages: {index: "about", research: "research", publications_talks: "publications & talks",  teaching_service: "teaching & service"}
+pages: {index: "about", research: "research", publications_talks: "publications & talks",  teaching: "teaching", service: "service"}
 photo_credit: "ankitarout_23"
