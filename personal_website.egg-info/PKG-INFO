@@ -1,0 +1,28 @@
+Metadata-Version: 2.4
+Name: personal-website
+Version: 1.0.0
+Summary: Static site generator for personal website
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: jinja2>=3.1.0
+Requires-Dist: markdown>=3.4.0
+Requires-Dist: mistune>=3.2.0
+Requires-Dist: pyyaml>=6.0
+Provides-Extra: dev
+Requires-Dist: pylint>=2.17.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+
+# Minimal Theme
+
+[Demo the Theme](https://orderedlist.com/minimal/)
+
+This is the raw HTML and styles that are used for the *minimal* theme on [GitHub Pages](http://pages.github.com/).
+
+Syntax highlighting is provided on GitHub Pages by [Pygments](http://pygments.org).
+
+# License
+
+This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/).
+
+
+
