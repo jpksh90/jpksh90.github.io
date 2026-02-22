@@ -2,7 +2,7 @@
 
 I have taught the following courses:
 
-* **Southern Denmark University (Instructor)**
+* **University of Southern Denmark (Instructor)**
     - Development of Software Systems (a.k.a. Software Engineering Project, B.Sc.)
 * **University of Passau, University of Potsdam (Graduate Teaching Assistant)**
     - Program Repair (M.Sc.)
