@@ -7,4 +7,7 @@ twitter: https://twitter.com/jpksh90
 google_scholar: https://scholar.google.de/citations?user=-hJIVcwAAAAJ
 
 pages: {index: "about", research: "research", publications_talks: "publications & talks",  teaching: "teaching", service: "service"}
-photo_credit: "ankitarout_23"
+# photo_credit: "ankitarout_23"
+
+# Path to profile photo (relative to docs/ or static root)
+photo_path: "../docs/images/Photo-Indian-Passport.jpg"
