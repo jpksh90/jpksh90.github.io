@@ -1,4 +1,4 @@
-<span style="font-family: 'Inter', var(--font-primary); font-size: 1.08em; line-height: 1.4; display: inline-block; margin: 1.2em 0 0.2em 0; text-align: justify;">
+<!-- <span style="font-family: 'Inter', var(--font-primary); font-size: 1.08em; line-height: 1.4; display: inline-block; margin: 1.2em 0 0.2em 0; text-align: justify;">
 <strong>
 Assistant Professor, Software Engineering<br>
 Maersk McKinney Moller Institute<br>
@@ -6,7 +6,12 @@ University of Southern Denmark (Odense)
 </strong>
 </span>
 
-<br>
+<br> -->
+
+*Assistant Professor*
+*SDU Software Engineering Section*
+*Mærsk McKinney Møller Institute*
+*University of Southern Denmark, Odense*
 
 My research focuses on developing scalable program analysis techniques for complex software systems. Modern software increasingly spans multiple programming languages and runtimes; however, most existing analysis tools reason about individual languages in isolation. This disconnect significantly limits our ability to ensure security, correctness, and reliability in real-world systems.
 
