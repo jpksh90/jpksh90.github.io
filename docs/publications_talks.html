@@ -1,0 +1,228 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <title>Jyoti Prakash - Personal Website</title>
+  <script src="https://kit.fontawesome.com/95689a8e68.js" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <!-- Thin and crisp font for menu -->
+   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Bundle JS (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function includeHTML() {
+      var z, i, elmnt, file, xhttp;
+      /* Loop through a collection of all HTML elements: */
+      var z = document.getElementsByTagName("*");
+      for (i = 0; i < z.length; i++) {
+        var elmnt = z[i];
+        /*search for elements with a certain atrribute:*/
+        var file = elmnt.getAttribute("w3-include-html");
+        if (file) {
+          /* Make an HTTP request using the attribute value as the file name: */
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function () {
+            if (this.readyState == 4) {
+              if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+              if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+              /* Remove the attribute, and call this function once more: */
+              elmnt.removeAttribute("w3-include-html");
+              includeHTML();
+            }
+          }
+          xhttp.open("GET", file, true);
+          xhttp.send();
+          /* Exit the function: */
+          return;
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Burger menu toggle
+      const burgerMenu = document.getElementById('burgerMenu');
+      const navMenu = document.getElementById('navMenu');
+      
+      function closeMenu() {
+        navMenu.classList.remove('active');
+        burgerMenu.classList.remove('active');
+        burgerMenu.setAttribute('aria-expanded', 'false');
+      }
+      
+      burgerMenu.addEventListener('click', function (e) {
+        e.stopPropagation();
+        navMenu.classList.toggle('active');
+        burgerMenu.classList.toggle('active');
+        burgerMenu.setAttribute('aria-expanded', burgerMenu.getAttribute('aria-expanded') === 'false' ? 'true' : 'false');
+      });
+      
+      // Close menu when a link is clicked
+      navMenu.querySelectorAll('.nav-link').forEach(function (link) {
+        link.addEventListener('click', function () {
+          closeMenu();
+        });
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', function (e) {
+        if (!e.target.closest('header')) {
+          closeMenu();
+        }
+      });
+
+      // Get current page filename (e.g., "index.html")
+      var path = window.location.pathname.split('/');
+      var page = path[path.length - 1] || "index.html";
+      // Loop through nav links and set active class
+      document.querySelectorAll('.nav-link').forEach(function (link) {
+        if (link.getAttribute('href') === page) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <header class="d-flex flex-wrap justify-content-center py-2 mb-1 border-bottom">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" aria-hidden="true">
+          <use xlink:href="#bootstrap"></use>
+        </svg>
+        <span class="fs-4 site-title">
+          Jyoti Prakash
+        </span></a>
+      <button class="burger-menu" id="burgerMenu" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav nav-pills" id="navMenu">
+        
+          <li class="nav-item"><a href="index.html" class="nav-link" aria-current="page"><b>a</b>bout</a></li>
+        
+          <li class="nav-item"><a href="research.html" class="nav-link" aria-current="page"><b>r</b>esearch</a></li>
+        
+          <li class="nav-item"><a href="publications_talks.html" class="nav-link" aria-current="page"><b>p</b>ublications & talks</a></li>
+        
+          <li class="nav-item"><a href="teaching.html" class="nav-link" aria-current="page"><b>t</b>eaching</a></li>
+        
+          <li class="nav-item"><a href="service.html" class="nav-link" aria-current="page"><b>s</b>ervice</a></li>
+        
+      </ul>
+    </header>
+
+        <div class="content-container">
+      <!-- Main Content (Left) -->
+      <main class="main-content">
+        <section id="content">
+          <h3>📚 Publications</h3>
+<ul>
+<li><p><strong>Towards Analyzing N-language Polyglot Programs</strong> <a href="https://arxiv.org/abs/2602.00303">PDF</a><br />
+Jyoti Prakash, Abhishek Tiwari, Mikkel Baun Kjærgaard<br />
+<em>33rd IEEE International Conference on Software Analysis, Evolution and Reengineering</em></p>
+</li>
+<li><p><strong>Modular Unification of Unilingual Pointer Analyses to Multilingual FFI-based Programs</strong>  <a href="https://www.sciencedirect.com/science/article/pii/S0167642325000176">PDF</a><br />
+Jyoti Prakash, Abhishek Tiwari, Christian Hammer<br />
+<em>Science of Computer Programming 243</em><br />
+Journal First Track @ SANER'26</p>
+</li>
+<li><p><strong>Automated Repair of Information Flow Security in Android Implicit Inter-App Communication</strong>   <a href="https://arxiv.org/pdf/2305.03916">PDF</a><br />
+<em>Abhishek Tiwari</em>, Jyoti Prakash, Zhen Dong, Carlo A. Furia<br />
+<em>26th IEEE International Symposium on Formal Methods (FM'24)</em></p>
+</li>
+<li><p><strong>Demand-driven Information Flow Analysis of WebView in Android Hybrid Apps</strong>  <a href="https://arxiv.org/pdf/2305.03916">PDF</a><br />
+<em>Abhishek Tiwari</em>, <em>Jyoti Prakash</em>, Christian Hammer<br />
+<em>34th IEEE International Symposium on Software Reliability Engineering (ISSRE'23)</em></p>
+</li>
+<li><p><strong>Understanding the Impact of Fingerprinting in Android Hybrid Apps</strong>  <a href="assests/charlie.pdf">PDF</a><br />
+<em>Abhishek Tiwari</em>, <em>Jyoti Prakash</em>, Alimerdan Rahimov, Christian Hammer<br />
+<em>MobileSoft'23 (co-located with ICSE'23)</em><br />
+🏅 <strong>ACM SIGSOFT Distinguished Paper Award</strong></p>
+</li>
+<li><p><strong>Effects of Program Representation on Pointer Analyses — An Empirical Study</strong>   <a href="assests/pointeval.pdf">PDF</a><br />
+Jyoti Prakash, Abhishek Tiwari, Christian Hammer<br />
+<em>24th International Conference on Fundamental Approaches to Software Engineering (FASE'21)</em></p>
+</li>
+<li><p><strong>A Large Scale Analysis of Android–Web Hybridization</strong>  <a href="assests/ludroid-journal.pdf">PDF</a><br />
+Abhishek Tiwari, Jyoti Prakash, Sascha Groß, Christian Hammer<br />
+<em>Journal of Systems and Software 170</em></p>
+</li>
+<li><p><strong>A Large Scale Analysis of Android–Web Hybridization</strong>  <a href="assests/ludroid.pdf">PDF</a><br />
+Abhishek Tiwari, Jyoti Prakash, Sascha Groß, Christian Hammer<br />
+<em>19th International Working Conference on Source Code Analysis and Manipulation (SCAM'2019)</em></p>
+</li>
+</ul>
+<h3>📜 Patents</h3>
+<ul>
+<li>Submitted three patents related to testing static analyzers with AI and detecting non-deterministically reported vulnerabilities.<br />
+<em>Titles cannot be disclosed due to non-disclosure agreements.</em></li>
+</ul>
+<hr />
+<h3>🎤 Talks</h3>
+<ul>
+<li><p><strong>Building Trust in Open-Ended Software Systems: From Static Analysis to LLM Assurance</strong><br />
+AI Conference @ ExxonMobil, Bangalore</p>
+</li>
+<li><p><strong>Demand-driven Information Flow Analysis of WebView in Android Hybrid Apps</strong><br />
+Research Highlights in Programming Languages @ FSTTCS'2024 (IIT Gandhinagar)</p>
+</li>
+<li><p><strong>On the Soundness of Pointer Analyses</strong><br />
+The MathWorks, Bangalore</p>
+</li>
+</ul>
+<hr />
+<h3>📘 Thesis</h3>
+<ul>
+<li><p><strong>Static Analyses of Interlanguage Interoperations</strong>  <a href="assests/thesis.pdf">Dissertation (PDF)</a> <a href="assests/DisputationSlidesPublic.pdf">Slides</a><br />
+Jyoti Prakash<br />
+University of Passau, Germany (2024)</p>
+</li>
+<li><p><strong>Points-to Analysis for Java using Push-Down Systems</strong><br />
+Jyoti Prakash<br />
+Master's Thesis, Saarland University (2017)</p>
+</li>
+</ul>
+<hr />
+
+        </section>
+      </main>
+
+      
+    </div>
+  
+  <footer>
+      <span>
+        
+        <hidden></hidden>
+      
+        
+      </span>
+    
+  <span>
+    <small>Hosted on GitHub Pages</small>
+  </span>
+</footer>
+  </div>
+  <script src="javascripts/scale.fix.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,217 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <title>Jyoti Prakash - Personal Website</title>
+  <script src="https://kit.fontawesome.com/95689a8e68.js" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <!-- Modern font for minimal look -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+
+  <!-- Bootstrap Bundle JS (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function includeHTML() {
+      var z, i, elmnt, file, xhttp;
+      /* Loop through a collection of all HTML elements: */
+      var z = document.getElementsByTagName("*");
+      for (i = 0; i < z.length; i++) {
+        var elmnt = z[i];
+        /*search for elements with a certain atrribute:*/
+        var file = elmnt.getAttribute("w3-include-html");
+        if (file) {
+          /* Make an HTTP request using the attribute value as the file name: */
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function () {
+            if (this.readyState == 4) {
+              if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+              if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+              /* Remove the attribute, and call this function once more: */
+              elmnt.removeAttribute("w3-include-html");
+              includeHTML();
+            }
+          }
+          xhttp.open("GET", file, true);
+          xhttp.send();
+          /* Exit the function: */
+          return;
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Burger menu toggle
+      const burgerMenu = document.getElementById('burgerMenu');
+      const navMenu = document.getElementById('navMenu');
+      
+      function closeMenu() {
+        navMenu.classList.remove('active');
+        burgerMenu.classList.remove('active');
+        burgerMenu.setAttribute('aria-expanded', 'false');
+      }
+      
+      burgerMenu.addEventListener('click', function (e) {
+        e.stopPropagation();
+        navMenu.classList.toggle('active');
+        burgerMenu.classList.toggle('active');
+        burgerMenu.setAttribute('aria-expanded', burgerMenu.getAttribute('aria-expanded') === 'false' ? 'true' : 'false');
+      });
+      
+      // Close menu when a link is clicked
+      navMenu.querySelectorAll('.nav-link').forEach(function (link) {
+        link.addEventListener('click', function () {
+          closeMenu();
+        });
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', function (e) {
+        if (!e.target.closest('header')) {
+          closeMenu();
+        }
+      });
+
+      // Get current page filename (e.g., "index.html")
+      var path = window.location.pathname.split('/');
+      var page = path[path.length - 1] || "index.html";
+      // Loop through nav links and set active class
+      document.querySelectorAll('.nav-link').forEach(function (link) {
+        if (link.getAttribute('href') === page) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <header class="d-flex flex-wrap justify-content-center py-2 mb-1" style="background: var(--color-bg-dark); box-shadow: var(--shadow-soft);">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" aria-hidden="true">
+          <use xlink:href="#bootstrap"></use>
+        </svg>
+        <span class="fs-4 site-title">
+          Jyoti Prakash
+        </span></a>
+      <button class="burger-menu" id="burgerMenu" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav nav-pills" id="navMenu">
+        
+          <li class="nav-item"><a href="index.html" class="nav-link" aria-current="page"><b>a</b>bout</a></li>
+        
+          <li class="nav-item"><a href="research.html" class="nav-link" aria-current="page"><b>r</b>esearch</a></li>
+        
+          <li class="nav-item"><a href="publications_talks.html" class="nav-link" aria-current="page"><b>p</b>ublications & talks</a></li>
+        
+          <li class="nav-item"><a href="teaching_service.html" class="nav-link" aria-current="page"><b>t</b>eaching & service</a></li>
+        
+      </ul>
+    </header>
+
+       <div class="content-container">
+      <!-- Main Content (Left) -->
+      <main class="main-content">
+        <section id="content">
+          <h3>Teaching</h3>
+<p>I have taught the following courses:</p>
+<ul>
+<li><strong>Southern Denmark University (Instructor)</strong><ul>
+<li>Development of Software Systems (a.k.a. Software Engineering Project, B.Sc.)</li>
+</ul>
+</li>
+<li><strong>University of Passau, University of Potsdam (Graduate Teaching Assistant)</strong><ul>
+<li>Program Repair (M.Sc.)</li>
+<li>Reverse and Re-engineering (M.Sc.)</li>
+<li>Programming in C++ (B.Sc., M.Sc.)</li>
+<li>Compiler Construction (M.Sc.)</li>
+<li>Secure Information Flow (M.Sc.)</li>
+<li>Static Program Analysis (M.Sc.)</li>
+<li>Topics in Programming Languages and Security (M.Sc.)</li>
+<li>Foundations of Computer Science (<em>co-instructor</em>, M.Sc.)</li>
+</ul>
+</li>
+</ul>
+<h3>Service</h3>
+<table>
+<thead>
+<tr>
+  <th>Year</th>
+  <th>Conference and Role.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>2026</td>
+  <td>PC Member, ICST'26</td>
+</tr>
+<tr>
+  <td>2025</td>
+  <td>AEC Member, SAS'25</td>
+</tr>
+<tr>
+  <td>2024</td>
+  <td>AEC Member, TACAS'24</td>
+</tr>
+<tr>
+  <td>2023</td>
+  <td>AEC Member, ISSTA'23</td>
+</tr>
+<tr>
+  <td>2023</td>
+  <td>AEC Member, PLDI'23</td>
+</tr>
+<tr>
+  <td>2022</td>
+  <td>Shadow PC, MSR'22</td>
+</tr>
+<tr>
+  <td>2021</td>
+  <td>AEC Member, ECOOP'21</td>
+</tr>
+<tr>
+  <td>2021</td>
+  <td>AEC Member, OOPSLA'21</td>
+</tr>
+</tbody>
+</table>
+
+        </section>
+      </main>
+
+      
+    </div>
+  
+  <footer>
+      <span>
+        
+        <hidden></hidden>
+      
+        
+      </span>
+    
+  <span>
+    <small>Hosted on GitHub Pages</small>
+  </span>
+</footer>
+  </div>
+  <script src="javascripts/scale.fix.js"></script>
+</body>
+
+</html>

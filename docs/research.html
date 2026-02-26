@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <title>Jyoti Prakash - Personal Website</title>
+  <script src="https://kit.fontawesome.com/95689a8e68.js" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <!-- Thin and crisp font for menu -->
+   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Bundle JS (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function includeHTML() {
+      var z, i, elmnt, file, xhttp;
+      /* Loop through a collection of all HTML elements: */
+      var z = document.getElementsByTagName("*");
+      for (i = 0; i < z.length; i++) {
+        var elmnt = z[i];
+        /*search for elements with a certain atrribute:*/
+        var file = elmnt.getAttribute("w3-include-html");
+        if (file) {
+          /* Make an HTTP request using the attribute value as the file name: */
+          xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function () {
+            if (this.readyState == 4) {
+              if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+              if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+              /* Remove the attribute, and call this function once more: */
+              elmnt.removeAttribute("w3-include-html");
+              includeHTML();
+            }
+          }
+          xhttp.open("GET", file, true);
+          xhttp.send();
+          /* Exit the function: */
+          return;
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Burger menu toggle
+      const burgerMenu = document.getElementById('burgerMenu');
+      const navMenu = document.getElementById('navMenu');
+      
+      function closeMenu() {
+        navMenu.classList.remove('active');
+        burgerMenu.classList.remove('active');
+        burgerMenu.setAttribute('aria-expanded', 'false');
+      }
+      
+      burgerMenu.addEventListener('click', function (e) {
+        e.stopPropagation();
+        navMenu.classList.toggle('active');
+        burgerMenu.classList.toggle('active');
+        burgerMenu.setAttribute('aria-expanded', burgerMenu.getAttribute('aria-expanded') === 'false' ? 'true' : 'false');
+      });
+      
+      // Close menu when a link is clicked
+      navMenu.querySelectorAll('.nav-link').forEach(function (link) {
+        link.addEventListener('click', function () {
+          closeMenu();
+        });
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', function (e) {
+        if (!e.target.closest('header')) {
+          closeMenu();
+        }
+      });
+
+      // Get current page filename (e.g., "index.html")
+      var path = window.location.pathname.split('/');
+      var page = path[path.length - 1] || "index.html";
+      // Loop through nav links and set active class
+      document.querySelectorAll('.nav-link').forEach(function (link) {
+        if (link.getAttribute('href') === page) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <header class="d-flex flex-wrap justify-content-center py-2 mb-1 border-bottom">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" aria-hidden="true">
+          <use xlink:href="#bootstrap"></use>
+        </svg>
+        <span class="fs-4 site-title">
+          Jyoti Prakash
+        </span></a>
+      <button class="burger-menu" id="burgerMenu" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav nav-pills" id="navMenu">
+        
+          <li class="nav-item"><a href="index.html" class="nav-link" aria-current="page"><b>a</b>bout</a></li>
+        
+          <li class="nav-item"><a href="research.html" class="nav-link" aria-current="page"><b>r</b>esearch</a></li>
+        
+          <li class="nav-item"><a href="publications_talks.html" class="nav-link" aria-current="page"><b>p</b>ublications & talks</a></li>
+        
+          <li class="nav-item"><a href="teaching.html" class="nav-link" aria-current="page"><b>t</b>eaching</a></li>
+        
+          <li class="nav-item"><a href="service.html" class="nav-link" aria-current="page"><b>s</b>ervice</a></li>
+        
+      </ul>
+    </header>
+
+        <div class="content-container">
+      <!-- Main Content (Left) -->
+      <main class="main-content">
+        <section id="content">
+          <h2>Research</h2>
+<p>In my research, I focus on improving software security and reliability through the lens of program analysis. I develop static and dynamic analysis techniques that enable systematic reasoning about program behavior in complex, real-world software systems. My work targets modern applications that span multiple programming languages, runtimes, and execution environments, where traditional single-language analyses fall short. By combining formal foundations with scalable engineering, I aim to detect security vulnerabilities, enforce correctness properties, and improve system robustness in security-critical and industrial-scale codebases.</p>
+<hr />
+<h4>Program Analysis for Polyglot and Hybrid Systems</h4>
+<ul>
+<li><strong>Demand-Driven Information Flow Analysis of WebView in Android Hybrid Apps</strong><br />
+<code>static-analysis</code> <code>information-flow</code> <code>android</code> <code>polyglot</code><ul>
+<li><em>WebView encapsulates information flows from Java to JavaScript and vice versa.</em></li>
+<li>We developed a <strong>demand-driven information flow analysis</strong> for Android hybrid applications that precisely tracks cross-language data flows between Java and JavaScript.</li>
+<li>Tool → <strong>IwanDroid</strong></li>
+</ul>
+</li>
+<li><strong>Unifying Pointer Analysis for Static Analysis of Multilingual Applications</strong><br />
+<code>static-analysis</code> <code>pointer-analysis</code> <code>polyglot</code> <code>analysis-integration</code><ul>
+<li><em>Can we combine different program analyses, such as WALA and SVF?</em></li>
+<li>We proposed an approach to unify existing static analyses to analyze <strong>multilingual (polyglot) applications</strong>, enabling consistent reasoning across language boundaries.</li>
+<li>Status → <em>To be published</em></li>
+</ul>
+</li>
+<li><strong>Toward Program Analysis of N-Language Systems</strong><ul>
+<li>We proposed the challenges in static analysis of N-Language systems that communicate through FFI.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h4>Security and Privacy Analysis of Android WebView</h4>
+<ul>
+<li><strong>Understanding Fingerprinting in Hybrid Browsers</strong><br />
+<code>security</code> <code>privacy</code> <code>dynamic-analysis</code> <code>android</code><ul>
+<li><em>How vulnerable are Android WebViews to fingerprinting?</em></li>
+<li>We developed <strong>dynamic instrumentation</strong> to collect fingerprinting-relevant attributes in Android WebViews. Our study showed that WebViews are <strong>equally or more vulnerable</strong> to fine-grained fingerprinting compared to traditional browsers.</li>
+<li>Tool → <strong>Charlie</strong></li>
+</ul>
+</li>
+<li><strong>Security Vulnerabilities in Android WebView</strong><br />
+<code>security</code> <code>static-analysis</code> <code>android</code> <code>webview</code><ul>
+<li><em>How vulnerable are Android WebViews to JavaScript injection and misuse?</em></li>
+<li>We designed a <strong>static analysis technique</strong> to collect JavaScript passed from Android code to WebView. Our results show that such flows are frequently vulnerable, and in some cases <strong>Java control flow is influenced by external JavaScript APIs</strong>.</li>
+<li>Availability → <em>Available on request</em></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h4>Foundations of Pointer Analysis</h4>
+<ul>
+<li><strong>Program Representation Effects on Pointer Analysis</strong><br />
+<code>pointer-analysis</code> <code>program-representation</code> <code>empirical-study</code><ul>
+<li><em>Do different intermediate representations affect the outcome of pointer analysis?</em></li>
+<li>We introduced metrics to compare pointer analyses by isolating the impact of their underlying program representations. Results show that such parameters have <strong>little to no effect on precision</strong>, enabling fair and meaningful comparisons.</li>
+<li>Tool → <strong>PointEval</strong></li>
+</ul>
+</li>
+<li><strong>Points-to Analysis using Push-Down Systems</strong><br />
+<code>pointer-analysis</code> <code>formal-methods</code> <code>static-analysis</code><ul>
+<li>We formulated <strong>points-to analysis</strong> as a <strong>push-down system reachability</strong> problem, enabling sound handling of recursion and improved precision for context-sensitive analysis.</li>
+<li>Tool → <strong>Points2Pds</strong></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h4>Testing Static Analyzers</h4>
+<pre><code>- Upcoming... </code></pre>
+<p><strong>Note:</strong> <em>All tools listed here are research prototypes and should be treated as alpha-quality software.</em></p>
+
+        </section>
+      </main>
+
+      
+    </div>
+  
+  <footer>
+      <span>
+        
+        <hidden></hidden>
+      
+        
+      </span>
+    
+  <span>
+    <small>Hosted on GitHub Pages</small>
+  </span>
+</footer>
+  </div>
+  <script src="javascripts/scale.fix.js"></script>
+</body>
+
+</html>
