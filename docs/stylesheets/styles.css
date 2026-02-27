@@ -42,7 +42,7 @@
 
 body {
   margin: 0;
-  padding: var(--spacing-lg) 2%;
+  padding: 0 2% var(--spacing-lg);
   font-family: var(--font-primary);
   background-color: var(--color-bg);
   color: var(--color-text);
@@ -69,7 +69,7 @@ body::before {
 }
 
 .wrapper {
-  padding-top: 120px;
+  padding-top: 108px;
   position: relative;
   z-index: 1;
   width: 100%;
@@ -93,7 +93,7 @@ body::after {
 
 header {
   position: fixed;
-  top: 16px;
+  top: 0;
   left: 2%;
   right: 2%;
   margin: 0 auto;
@@ -141,20 +141,20 @@ header .nav-pills {
 .nav-item {
   font-family: var(--font-primary);
   font-size: 14px;
-  color: var(--color-text-secondary);
+  color: var(--color-text);
   padding: 0;
   font-weight: 600;
   list-style: none;
 }
 
 .nav-item a {
-  color: var(--color-text-secondary);
+  color: var(--color-text);
   text-decoration: none;
 }
 
 .nav-link,
 .nav-link:visited {
-  color: var(--color-text-secondary);
+  color: var(--color-text);
   font-weight: 600;
   padding: 8px 16px !important;
   border-radius: 12px;
@@ -428,6 +428,7 @@ footer span {
 #navMenu {
   max-height: 100vh;
   transition: max-height var(--transition-fast);
+  padding-top: 0%;
 }
 
 /* =================================
@@ -455,13 +456,13 @@ footer span {
 @media (max-width: 768px) {
   body {
     font-size: 16px;
-    padding: var(--spacing-md) var(--spacing-lg);
+    padding: 0 var(--spacing-lg) var(--spacing-md);
   }
 
   .wrapper {
     margin-left: 0;
     margin-right: 0;
-    padding-top: 80px;
+    padding-top: 72px;
   }
 
   header {
@@ -516,7 +517,7 @@ footer span {
   }
 
   .nav-item {
-    font-size: 14px;
+    font-size: 15px;
     width: 100%;
   }
 
@@ -602,7 +603,7 @@ footer span {
   
   header {
     width: calc(100% - 4%);
-    top: 10px;
+    top: 0;
   }
 
   body::before {
