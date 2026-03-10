@@ -1,4 +1,4 @@
-### Teaching 
+## Teaching 
 
 I have taught the following courses:
 
@@ -17,7 +17,7 @@ I have taught the following courses:
 
 
 
-### Service
+## Service
 
 | Year | Conference and Role.   |
 | ------- | ----------------------|

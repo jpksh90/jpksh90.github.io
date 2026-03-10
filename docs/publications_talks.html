@@ -53,27 +53,27 @@
       // Burger menu toggle
       const burgerMenu = document.getElementById('burgerMenu');
       const navMenu = document.getElementById('navMenu');
-      
+
       function closeMenu() {
         navMenu.classList.remove('active');
         burgerMenu.classList.remove('active');
         burgerMenu.setAttribute('aria-expanded', 'false');
       }
-      
+
       burgerMenu.addEventListener('click', function (e) {
         e.stopPropagation();
         navMenu.classList.toggle('active');
         burgerMenu.classList.toggle('active');
         burgerMenu.setAttribute('aria-expanded', burgerMenu.getAttribute('aria-expanded') === 'false' ? 'true' : 'false');
       });
-      
+
       // Close menu when a link is clicked
       navMenu.querySelectorAll('.nav-link').forEach(function (link) {
         link.addEventListener('click', function () {
           closeMenu();
         });
       });
-      
+
       // Close menu when clicking outside
       document.addEventListener('click', function (e) {
         if (!e.target.closest('header')) {
@@ -102,7 +102,7 @@
 <body>
   <div class="wrapper">
 
-    <header class="d-flex flex-wrap justify-content-center py-2 mb-1 border-bottom">
+    <header class="d-flex flex-wrap justify-content-between py-2 mb-1 border-bottom">
       <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
         <svg class="bi me-2" width="40" height="32" aria-hidden="true">
           <use xlink:href="#bootstrap"></use>
@@ -110,31 +110,33 @@
         <span class="fs-4 site-title">
           Jyoti Prakash
         </span></a>
+      <div class="header-controls">
+        <ul class="nav nav-pills" id="navMenu">
+          
+            <li class="nav-item"><a href="index.html" class="nav-link" aria-current="page"><b>a</b>bout</a></li>
+          
+            <li class="nav-item"><a href="research.html" class="nav-link" aria-current="page"><b>r</b>esearch</a></li>
+          
+            <li class="nav-item"><a href="publications_talks.html" class="nav-link" aria-current="page"><b>p</b>ublications & talks</a></li>
+          
+            <li class="nav-item"><a href="teaching.html" class="nav-link" aria-current="page"><b>t</b>eaching</a></li>
+          
+            <li class="nav-item"><a href="service.html" class="nav-link" aria-current="page"><b>s</b>ervice</a></li>
+          
+        </ul>
+        </div>
       <button class="burger-menu" id="burgerMenu" aria-label="Toggle navigation menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
-      <ul class="nav nav-pills" id="navMenu">
-        
-          <li class="nav-item"><a href="index.html" class="nav-link" aria-current="page"><b>a</b>bout</a></li>
-        
-          <li class="nav-item"><a href="research.html" class="nav-link" aria-current="page"><b>r</b>esearch</a></li>
-        
-          <li class="nav-item"><a href="publications_talks.html" class="nav-link" aria-current="page"><b>p</b>ublications & talks</a></li>
-        
-          <li class="nav-item"><a href="teaching.html" class="nav-link" aria-current="page"><b>t</b>eaching</a></li>
-        
-          <li class="nav-item"><a href="service.html" class="nav-link" aria-current="page"><b>s</b>ervice</a></li>
-        
-      </ul>
     </header>
 
         <div class="content-container">
       <!-- Main Content (Left) -->
       <main class="main-content">
         <section id="content">
-          <h3>📚 Publications</h3>
+          <h2>📚 Publications</h2>
 <ul>
 <li><p><strong>Towards Analyzing N-language Polyglot Programs</strong> <a href="https://arxiv.org/abs/2602.00303">PDF</a><br />
 Jyoti Prakash, Abhishek Tiwari, Mikkel Baun Kjærgaard<br />
@@ -171,13 +173,13 @@ Abhishek Tiwari, Jyoti Prakash, Sascha Groß, Christian Hammer<br />
 <em>19th International Working Conference on Source Code Analysis and Manipulation (SCAM'2019)</em></p>
 </li>
 </ul>
-<h3>📜 Patents</h3>
+<h2>📜 Patents</h2>
 <ul>
 <li>Submitted three patents related to testing static analyzers with AI and detecting non-deterministically reported vulnerabilities.<br />
 <em>Titles cannot be disclosed due to non-disclosure agreements.</em></li>
 </ul>
 <hr />
-<h3>🎤 Talks</h3>
+<h2>🎤 Talks</h2>
 <ul>
 <li><p><strong>Building Trust in Open-Ended Software Systems: From Static Analysis to LLM Assurance</strong><br />
 AI Conference @ ExxonMobil, Bangalore</p>
@@ -190,7 +192,7 @@ The MathWorks, Bangalore</p>
 </li>
 </ul>
 <hr />
-<h3>📘 Thesis</h3>
+<h2>📘 Thesis</h2>
 <ul>
 <li><p><strong>Static Analyses of Interlanguage Interoperations</strong>  <a href="assests/thesis.pdf">Dissertation (PDF)</a> <a href="assests/DisputationSlidesPublic.pdf">Slides</a><br />
 Jyoti Prakash<br />

@@ -1,4 +1,4 @@
-### 📚 Publications
+## 📚 Publications
 
 - **Towards Analyzing N-language Polyglot Programs** [PDF](https://arxiv.org/abs/2602.00303)  
   Jyoti Prakash, Abhishek Tiwari, Mikkel Baun Kjærgaard  
@@ -43,14 +43,14 @@
   
 
 
-### 📜 Patents
+## 📜 Patents
 
 - Submitted three patents related to testing static analyzers with AI and detecting non-deterministically reported vulnerabilities.  
   *Titles cannot be disclosed due to non-disclosure agreements.*
 
 ---
 
-### 🎤 Talks
+## 🎤 Talks
 
 - **Building Trust in Open-Ended Software Systems: From Static Analysis to LLM Assurance**  
   AI Conference @ ExxonMobil, Bangalore
@@ -63,7 +63,7 @@
 
 ---
 
-### 📘 Thesis
+## 📘 Thesis
 
 - **Static Analyses of Interlanguage Interoperations**  [Dissertation (PDF)](assests/thesis.pdf) [Slides](assests/DisputationSlidesPublic.pdf)  
   Jyoti Prakash  
