@@ -1,4 +1,4 @@
-### Teaching 
+## Teaching 
 
 I have taught the following courses:
 
@@ -14,7 +14,7 @@ I have taught the following courses:
     - Topics in Programming Languages and Security (M.Sc.)
     - Foundations of Computer Science (*co-instructor*, M.Sc.)
 
-### Students
+## Students
 
 ##### Ongoing
 - **BSc Thesis — Mathias Ransgaard Yde**  
