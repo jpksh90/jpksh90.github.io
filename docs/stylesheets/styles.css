@@ -5,17 +5,17 @@
    ================================= */
 
 :root {
-  --color-bg: #fdf9f4;
-  --color-paper: #fdf9f4;
-  --color-ink: #1a1814;
-  --color-heading: #000000;
-  --color-secondary: #6a6258;
-  --color-border: rgba(154, 128, 106, 0.28);
-  --color-accent: #b09a7c;
-  --color-accent-soft: #c8b69d;
-  --color-shadow: rgba(100, 83, 61, 0.12);
-  --color-surface-alt: #f7f3ed;
-  --color-toggle: rgba(154, 128, 106, 0.25);
+  --color-bg: #010101;
+  --color-paper: #050505;
+  --color-ink: #ffffff;
+  --color-heading: #ffffff;
+  --color-secondary: #ededed;
+  --color-border: rgba(255, 255, 255, 0.32);
+  --color-accent: #ffffff;
+  --color-accent-soft: rgba(255, 255, 255, 0.95);
+  --color-shadow: rgba(255, 255, 255, 0.18);
+  --color-surface-alt: #0d0d0d;
+  --color-toggle: rgba(255, 255, 255, 0.32);
 
   --spacing-xs: 4px;
   --spacing-sm: 8px;
@@ -69,7 +69,7 @@ a {
 }
 
 a:hover {
-  color: var(--color-accent-soft);
+  color: #ffffff;
   text-decoration: underline;
 }
 
@@ -96,7 +96,9 @@ header {
   padding: 16px 28px;
   background: var(--color-paper);
   border-radius: 28px;
-  box-shadow: none;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 18px 55px var(--color-shadow);
+  backdrop-filter: blur(18px);
   z-index: 10;
   display: flex;
   flex-wrap: wrap;
@@ -137,25 +139,29 @@ header {
   border-radius: 999px;
   color: var(--color-secondary);
   background: transparent;
+  border: 1px solid transparent;
   transition: var(--transition-all);
 }
 
 .nav-link:hover {
-  color: var(--color-ink);
+  color: var(--color-accent);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--color-border);
 }
 
 .nav-link.active {
-  background: var(--color-accent);
-  color: #fff;
-  border: none;
-  box-shadow: none;
+  background: #ffffff;
+  color: #000;
+  border-color: #ffffff;
+  box-shadow: 0 18px 30px rgba(255, 255, 255, 0.25);
 }
 
 .burger-menu {
   display: none;
   flex-direction: column;
-  background: none;
+  background: var(--color-paper);
   border-radius: 50%;
+  border: 1px solid var(--color-border);
   padding: var(--spacing-xs);
   gap: var(--spacing-xs);
   align-self: center;
@@ -201,7 +207,8 @@ header {
   background: var(--color-paper);
   border-radius: 24px;
   padding: var(--spacing-xl);
-  box-shadow: none;
+  border: 1px solid rgba(255, 255, 255, 0.44);
+  box-shadow: 0 25px 55px rgba(255, 255, 255, 0.18);
 }
 
 .main-content section {
@@ -239,7 +246,8 @@ aside {
   background: var(--color-paper);
   border-radius: 24px;
   padding: 2.5em 1.5em;
-  box-shadow: none;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 20px 45px var(--color-shadow);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -251,8 +259,8 @@ aside {
   height: var(--size-profile-pic);
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid var(--color-accent);
-  box-shadow: 0 12px 32px rgba(118, 95, 75, 0.28);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75);
 }
 
 .social-icons {
@@ -271,6 +279,7 @@ aside {
   justify-content: center;
   color: var(--color-ink);
   background: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
   transition: var(--transition-all);
 }
 
@@ -291,16 +300,25 @@ table {
   border-collapse: collapse;
   margin: var(--spacing-lg) 0;
   font-size: 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: linear-gradient(180deg, #050505 0%, #0b0b0b 100%);
+  border-radius: 18px;
+  overflow: hidden;
 }
 
 th, td {
   padding: var(--spacing-sm) var(--spacing-md);
   text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 thead {
   color: var(--color-secondary);
   font-weight: 600;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
 }
 
 /* =================================
@@ -315,6 +333,8 @@ footer {
   font-size: 0.85rem;
   color: var(--color-secondary);
   margin-top: var(--spacing-xl);
+  border-top: 1px solid var(--color-border);
+  padding-top: calc(var(--spacing-md) + 4px);
 }
 
 footer span {
@@ -365,6 +385,7 @@ footer span {
     align-items: flex-start;
     background: var(--color-paper);
     border-radius: 16px;
+    border: 1px solid var(--color-border);
     padding: var(--spacing-lg) var(--spacing-md);
     margin-top: var(--spacing-md);
     max-height: 0;

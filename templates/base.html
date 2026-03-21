@@ -107,9 +107,12 @@
         <svg class="bi me-2" width="40" height="32" aria-hidden="true">
           <use xlink:href="#bootstrap"></use>
         </svg>
+        {% if not (page == "index.html" or page == "") %}
         <span class="fs-4 site-title">
           {{ heading }}
-        </span></a>
+        </span>
+        {% endif %}
+      </a>
       <div class="header-controls">
         <ul class="nav nav-pills" id="navMenu">
           {% for k,v in pages.items() %}
