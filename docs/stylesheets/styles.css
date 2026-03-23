@@ -54,6 +54,7 @@ body {
   text-align: left;
   min-height: 100vh;
   position: relative;
+  border: none;
 }
 
 .wrapper {
@@ -96,8 +97,9 @@ header {
   padding: 16px 28px;
   background: var(--color-paper);
   border-radius: 28px;
-  border: 1px solid var(--color-border);
-  box-shadow: 0 18px 55px var(--color-shadow);
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: none;
   backdrop-filter: blur(18px);
   z-index: 10;
   display: flex;
@@ -153,7 +155,7 @@ header {
   background: #ffffff;
   color: #000;
   border-color: #ffffff;
-  box-shadow: 0 18px 30px rgba(255, 255, 255, 0.25);
+  box-shadow: none;
 }
 
 .burger-menu {
@@ -207,8 +209,8 @@ header {
   background: var(--color-paper);
   border-radius: 24px;
   padding: var(--spacing-xl);
-  border: 1px solid rgba(255, 255, 255, 0.44);
-  box-shadow: 0 25px 55px rgba(255, 255, 255, 0.18);
+  border: none;
+  box-shadow: none;
 }
 
 .main-content section {
@@ -246,8 +248,8 @@ aside {
   background: var(--color-paper);
   border-radius: 24px;
   padding: 2.5em 1.5em;
-  border: 1px solid var(--color-border);
-  box-shadow: 0 20px 45px var(--color-shadow);
+  border: none;
+  box-shadow: none;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -259,8 +261,8 @@ aside {
   height: var(--size-profile-pic);
   object-fit: cover;
   border-radius: 50%;
-  border: 1px solid var(--color-border);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75);
+  border: none;
+  box-shadow: none;
 }
 
 .social-icons {
