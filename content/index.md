@@ -19,6 +19,11 @@ Alongside my academic work, I have designed and built industrial-strength analys
 
 E-mail: *xy@mmmi.sdu.dk* where *x* is the first two characters of first name and *y* is the first character of last name.
 
+#### Research Interests
+- Cross-Language Programming Systems
+- Program Analysis
+- Program Repair
+
 ---
 
 ## 📰 updates
