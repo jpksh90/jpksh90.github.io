@@ -1,171 +1,85 @@
 <!doctype html>
-<html>
-
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <title>{{ title }}</title>
-  <script src="https://kit.fontawesome.com/95689a8e68.js" crossorigin="anonymous"></script>
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="stylesheets/styles.css">
-  <!-- Thin and crisp font for menu -->
-   <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-
-   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-
-  <!-- Bootstrap Bundle JS (includes Popper) -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-  <script>
-    function includeHTML() {
-      var z, i, elmnt, file, xhttp;
-      /* Loop through a collection of all HTML elements: */
-      var z = document.getElementsByTagName("*");
-      for (i = 0; i < z.length; i++) {
-        var elmnt = z[i];
-        /*search for elements with a certain atrribute:*/
-        var file = elmnt.getAttribute("w3-include-html");
-        if (file) {
-          /* Make an HTTP request using the attribute value as the file name: */
-          xhttp = new XMLHttpRequest();
-          xhttp.onreadystatechange = function () {
-            if (this.readyState == 4) {
-              if (this.status == 200) { elmnt.innerHTML = this.responseText; }
-              if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
-              /* Remove the attribute, and call this function once more: */
-              elmnt.removeAttribute("w3-include-html");
-              includeHTML();
-            }
-          }
-          xhttp.open("GET", file, true);
-          xhttp.send();
-          /* Exit the function: */
-          return;
-        }
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-      // Burger menu toggle
-      const burgerMenu = document.getElementById('burgerMenu');
-      const navMenu = document.getElementById('navMenu');
-
-      function closeMenu() {
-        navMenu.classList.remove('active');
-        burgerMenu.classList.remove('active');
-        burgerMenu.setAttribute('aria-expanded', 'false');
-      }
-
-      burgerMenu.addEventListener('click', function (e) {
-        e.stopPropagation();
-        navMenu.classList.toggle('active');
-        burgerMenu.classList.toggle('active');
-        burgerMenu.setAttribute('aria-expanded', burgerMenu.getAttribute('aria-expanded') === 'false' ? 'true' : 'false');
-      });
-
-      // Close menu when a link is clicked
-      navMenu.querySelectorAll('.nav-link').forEach(function (link) {
-        link.addEventListener('click', function () {
-          closeMenu();
-        });
-      });
-
-      // Close menu when clicking outside
-      document.addEventListener('click', function (e) {
-        if (!e.target.closest('header')) {
-          closeMenu();
-        }
-      });
-
-      // Get current page filename (e.g., "index.html")
-      var path = window.location.pathname.split('/');
-      var page = path[path.length - 1] || "index.html";
-      // Loop through nav links and set active class
-      document.querySelectorAll('.nav-link').forEach(function (link) {
-        if (link.getAttribute('href') === page) {
-          link.classList.add('active');
-        }
-      });
-    });
-  </script>
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
 </head>
-
 <body>
-  <div class="wrapper">
-
-    <header class="d-flex flex-wrap justify-content-between py-2 mb-1 border-bottom">
-      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-        <svg class="bi me-2" width="40" height="32" aria-hidden="true">
-          <use xlink:href="#bootstrap"></use>
-        </svg>
-        {% if not (page == "index.html" or page == "") %}
-        <span class="fs-4 site-title">
-          {{ heading }}
-        </span>
-        {% endif %}
-      </a>
-      <div class="header-controls">
-        <ul class="nav nav-pills" id="navMenu">
-          {% for k,v in pages.items() %}
-            <li class="nav-item"><a href="{{ k }}.html" class="nav-link" aria-current="page"><b>{{ v[0] }}</b>{{ v[1:] }}</a></li>
-          {% endfor %}
-        </ul>
-        </div>
-      <button class="burger-menu" id="burgerMenu" aria-label="Toggle navigation menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+  <div class="site-shell">
+    <header class="site-header">
+      {% if not (page == "index.html" or page == "") %}
+      <a href="index.html" class="site-title">{{ heading }}</a>
+      {% endif %}
+      <nav class="site-nav" aria-label="Primary">
+        {% for k, v in pages.items() %}
+        <a href="{{ k }}.html" class="nav-link{% if page == k ~ '.html' %} active{% endif %}">{{ v }}</a>
+        {% endfor %}
+      </nav>
     </header>
 
-        <div class="content-container">
-      <!-- Main Content (Left) -->
+    {% if page == "index.html" or page == "" %}
+    <div class="home-layout">
       <main class="main-content">
         <section id="content">
           {{ content | safe }}
         </section>
       </main>
 
-      {% if page == "index.html" or page == "" %}
-      <!-- Sidebar (Right) -->
-      <aside>
-        <img src="images/Photo-Indian-Passport.jpg" class="profile-pic" alt="Profile picture">
-        <div class="social-icons">
-          <span class="social"><a href="{{ github }}"><i class="fa-brands fa-github"></i></a></span>
-          <span class="social"><a href="{{ linkedin }}"><i class="fa-brands fa-linkedin"></i></a></span>
-          <span class="social"><a href="{{ twitter }}"><i class="fa-brands fa-twitter"></i></a></span>
-          <span class="social"><a href="{{ google_scholar }}"><i class="fa-brands fa-google-scholar"></i></a></span>
-          <span class="social"><a href="mailto:{{ email }}"><i class="fa fa-envelope"></i></a></span>
+      <aside class="profile-column">
+        <img src="{{ photo_path }}" class="profile-pic" alt="Profile picture">
+        <div class="contact-links">
+          <a href="{{ github }}" class="contact-link">
+            <svg viewBox="0 0 16 16" aria-hidden="true" class="contact-icon">
+              <path fill="currentColor" d="M8 0C3.58 0 0 3.67 0 8.2c0 3.62 2.29 6.69 5.47 7.78.4.08.55-.18.55-.39 0-.19-.01-.83-.01-1.51-2.01.38-2.53-.51-2.69-.98-.09-.24-.48-.98-.82-1.18-.28-.16-.68-.56-.01-.57.63-.01 1.08.59 1.23.84.72 1.24 1.87.89 2.33.68.07-.54.28-.89.5-1.09-1.78-.21-3.64-.92-3.64-4.09 0-.9.31-1.64.82-2.22-.08-.21-.36-1.05.08-2.19 0 0 .67-.22 2.2.85A7.38 7.38 0 0 1 8 4.97c.68 0 1.37.09 2.01.28 1.53-1.07 2.2-.85 2.2-.85.44 1.14.16 1.98.08 2.19.51.58.82 1.31.82 2.22 0 3.18-1.87 3.88-3.65 4.09.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.14.47.55.39A8.23 8.23 0 0 0 16 8.2C16 3.67 12.42 0 8 0Z"/>
+            </svg>
+            <span>github</span>
+          </a>
+          <a href="{{ linkedin }}" class="contact-link">
+            <svg viewBox="0 0 16 16" aria-hidden="true" class="contact-icon">
+              <path fill="currentColor" d="M2.84 1.33A1.5 1.5 0 1 1 2.8 4.34a1.5 1.5 0 0 1 .04-3.01ZM1.5 5.5h2.67V14H1.5V5.5Zm4.17 0h2.56v1.16h.04c.36-.68 1.23-1.39 2.54-1.39 2.72 0 3.22 1.79 3.22 4.11V14h-2.67v-4.02c0-.96-.02-2.2-1.34-2.2-1.34 0-1.55 1.05-1.55 2.13V14H5.67V5.5Z"/>
+            </svg>
+            <span>linkedin</span>
+          </a>
+          <a href="{{ twitter }}" class="contact-link">
+            <svg viewBox="0 0 16 16" aria-hidden="true" class="contact-icon">
+              <path fill="currentColor" d="M9.52 6.77 15.48 0H14.1L8.9 5.91 4.75 0H0l6.25 8.9L0 16h1.38l5.48-6.23L11.25 16H16L9.52 6.77ZM7.56 9l-.62-.87L2 1.19h2.16l3.98 5.58.62.87 5.16 7.23H11.76L7.56 9Z"/>
+            </svg>
+            <span>twitter</span>
+          </a>
+          <a href="{{ google_scholar }}" class="contact-link">
+            <svg viewBox="0 0 16 16" aria-hidden="true" class="contact-icon">
+              <path fill="currentColor" d="M8 1 0 5.3l8 4.3 6.49-3.49V11H16V5.3L8 1Zm-3.58 9.5L8 12.43l3.58-1.93L14 11.8 8 15 2 11.8l2.42-1.3Z"/>
+            </svg>
+            <span>scholar</span>
+          </a>
+          <a href="mailto:{{ email }}" class="contact-link">
+            <svg viewBox="0 0 16 16" aria-hidden="true" class="contact-icon">
+              <path fill="currentColor" d="M1.5 3h13A1.5 1.5 0 0 1 16 4.5v7a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5v-7A1.5 1.5 0 0 1 1.5 3Zm0 1a.5.5 0 0 0-.31.11L8 9.57l6.81-5.46A.5.5 0 0 0 14.5 4h-13Zm13.5 1.39-5.86 4.69a1.83 1.83 0 0 1-2.28 0L1 5.39v6.11c0 .28.22.5.5.5h13a.5.5 0 0 0 .5-.5V5.39Z"/>
+            </svg>
+            <span>email</span>
+          </a>
         </div>
       </aside>
-      {% endif %}
     </div>
-  
-  <footer>
+    {% else %}
+    <main class="main-content main-content-single">
+      <section id="content">
+        {{ content | safe }}
+      </section>
+    </main>
+    {% endif %}
+
+    <footer class="site-footer">
       <span>
         {% if photo_credit != "" and (page == "index.html" or page == "") %}
-        <small>Profile picture, courtesy of <a href="https://www.instagram.com/{{ photo_credit}}">@{{ photo_credit }}</a></small>
-        {% else %}
-        <hidden></hidden>
-      
+        Profile picture courtesy of <a href="https://www.instagram.com/{{ photo_credit }}">@{{ photo_credit }}</a>
         {% endif %}
       </span>
-    
-  <span>
-    <small>Hosted on GitHub Pages</small>
-  </span>
-</footer>
+      <span>Hosted on GitHub Pages</span>
+    </footer>
   </div>
-  <script src="javascripts/scale.fix.js"></script>
 </body>
-
 </html>

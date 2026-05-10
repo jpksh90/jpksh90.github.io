@@ -18,6 +18,17 @@ with open('config.yaml', 'r') as f:
     google_scholar = config.get('google_scholar', '')
     pages = config.get('pages', {})
     photo_credit = config.get('photo_credit', '')
+    photo_path = config.get('photo_path', 'images/Photo-Indian-Passport.jpg')
+
+
+def normalize_public_path(path):
+    """Return an asset path relative to the published docs root."""
+    normalized = os.path.normpath(path).replace("\\", "/")
+    if normalized.startswith("../docs/"):
+        return normalized[len("../docs/"):]
+    if normalized.startswith("docs/"):
+        return normalized[len("docs/"):]
+    return normalized
 
 
 env = Environment(loader=FileSystemLoader('templates'))
@@ -51,6 +62,7 @@ def generate(output_dir):
             twitter=twitter,
             google_scholar=google_scholar,
             photo_credit=photo_credit,
+            photo_path=normalize_public_path(photo_path),
             pages=pages,
         )
         html_path = os.path.join(output_dir, f"{page}.html")
