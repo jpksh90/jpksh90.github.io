@@ -10,4 +10,4 @@ pages: {index: "about", research: "research", publications_talks: "publications 
 # photo_credit: "ankitarout_23"
 
 # Path to profile photo (relative to docs/ or static root)
-photo_path: "../docs/images/Photo-Indian-Passport.jpg"
+photo_path: "../docs/images/photo.png"
