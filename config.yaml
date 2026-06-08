@@ -6,7 +6,7 @@ linkedin: https://www.linkedin.com/in/jprakash90/
 twitter: https://twitter.com/jpksh90
 google_scholar: https://scholar.google.de/citations?user=-hJIVcwAAAAJ
 
-pages: {index: "/", research: "/research", publications_talks: "/publications_and_talks",  teaching: "/teaching", service: "/service"}
+pages: {index: "/home", research: "/research", publications_talks: "/publications_and_talks",  teaching: "/teaching", service: "/service"}
 # photo_credit: "ankitarout_23"
 
 # Path to profile photo (relative to docs/ or static root)
