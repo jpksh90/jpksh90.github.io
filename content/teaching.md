@@ -3,7 +3,8 @@
 I have taught the following courses:
 
 * **University of Southern Denmark (Instructor)**
-    - Development of Software Systems (B.Sc., 88 students)
+    - Software Maintenance (B.Sc., 55 students)
+    - Development of Software Systems (Project course, B.Sc., 88 students)
 * **University of Passau, University of Potsdam (Graduate Teaching Assistant)**
     - Program Repair (M.Sc.)
     - Reverse and Re-engineering (M.Sc.)
