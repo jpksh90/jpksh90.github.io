@@ -1,7 +1,7 @@
 ## 📚 Publications
 
 - **JetTyped: A Study of Cross-Language Type Bugs in Android’s JavaScriptEngine** <a href="https://arxiv.org/abs/2602.00303" aria-label="PDF" title="PDF"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></a>  
-  Abhishek Tiwari, Jyoti Prakash, Dimitrios Dafnis, Mikkel Kjærgaard 
+  Abhishek Tiwari, Jyoti Prakash, Dimitrios Dafnis, Mikkel Kjærgaard
   _37th International Symposium on Software Reliability Engineering_
   
 - **Towards Analyzing N-language Polyglot Programs** <a href="https://arxiv.org/abs/2602.00303" aria-label="PDF" title="PDF"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></a>  
