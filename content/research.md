@@ -1,56 +1,103 @@
-## Research
+## Research & Publications
 
-In my research, I focus on improving software security and reliability through the lens of program analysis. I develop static and dynamic analysis techniques that enable systematic reasoning about program behavior in complex, real-world software systems. My work targets modern applications that span multiple programming languages, runtimes, and execution environments, where traditional single-language analyses fall short. By combining formal foundations with scalable engineering, I aim to detect security vulnerabilities, enforce correctness properties, and improve system robustness in security-critical and industrial-scale codebases.
+I am a software analysis researcher with a core interest in cross-language (polyglot) program analysis. I develop static and dynamic analysis techniques — grounded in formal foundations — that enable systematic reasoning about program behavior in complex, real-world software systems. Modern software increasingly spans multiple programming languages, runtimes, and execution environments, where traditional single-language analysis tools fall short. My work targets these cross-language boundaries to detect security vulnerabilities, enforce correctness properties, and improve system robustness in security-critical and industrial-scale codebases.
 
----
+My work sits under four themes. Most papers cross-cut more than one of them — each publication below is labeled with every theme it belongs to.
 
-#### Program Analysis for Polyglot and Hybrid Systems
+- 🔀 **Cross-Language Program Analysis** `cross-language` — This is my core research theme: reasoning about programs that span multiple languages and runtimes joined by mechanisms such as FFI, JNI, and embedded WebViews, where single-language tools stop short at the language boundary. My **IwanDroid** tool performs demand-driven information-flow analysis across the Java–JavaScript boundary inside Android WebViews, tracking flows precisely in both directions. To generalize beyond a single language pair, I have proposed an approach for unifying independent static analyses — such as WALA and SVF — so that multilingual (polyglot) applications can be reasoned about consistently across language boundaries, and I am investigating the open challenges of analyzing N-language systems that communicate through foreign function interfaces.
 
-- **Demand-Driven Information Flow Analysis of WebView in Android Hybrid Apps**  
-  `static-analysis` `information-flow` `android` `polyglot`  
-    * *WebView encapsulates information flows from Java to JavaScript and vice versa.*  
-    * We developed a **demand-driven information flow analysis** for Android hybrid applications that precisely tracks cross-language data flows between Java and JavaScript.  
-    * Tool → **IwanDroid**
-- **Unifying Pointer Analysis for Static Analysis of Multilingual Applications**  
-  `static-analysis` `pointer-analysis` `polyglot` `analysis-integration`  
-    * *Can we combine different program analyses, such as WALA and SVF?*  
-    * We proposed an approach to unify existing static analyses to analyze **multilingual (polyglot) applications**, enabling consistent reasoning across language boundaries.  
-    * Status → *To be published*
-- **Toward Program Analysis of N-Language Systems**
-    * We proposed the challenges in static analysis of N-Language systems that communicate through FFI.
+- 🔒 **Cross-Language Security & Privacy Analysis** `security-privacy` — Applying cross-language analysis to security-critical Android hybrid apps, where the Java–JavaScript boundary inside WebView is a recurring source of vulnerabilities and privacy leaks. Using dynamic instrumentation, my **Charlie** tool collects fingerprinting-relevant attributes from Android WebViews, and our study found WebViews to be equally or more vulnerable to fine-grained fingerprinting than traditional browsers. On the static side, I designed an analysis that collects JavaScript passed from Android code into WebView, showing that such flows are frequently vulnerable and that in some cases Java control flow is influenced by external JavaScript APIs.
+
+- 👉 **Foundations of Program Analysis** `program-analysis` — The formal and empirical foundations underlying my analyses. My **PointEval** tool introduces metrics for isolating the effect of a program's intermediate representation on pointer-analysis outcomes, showing that such representational choices have little to no effect on precision and enabling fairer comparisons between analyses. On the formal side, **Points2Pds** formulates points-to analysis as a push-down-system reachability problem, giving sound handling of recursion and improved precision for context-sensitive analysis.
+
+- 🧪 **Testing of Static Analyzers** `analyzer-testing` — Turning the analysis lens onto the analyzers themselves: testing that static analysis tools behave soundly and that their reported results are reproducible. This is an emerging direction for me, currently reflected in three filed patents (titles undisclosed under NDA) on testing static analyzers with AI and on detecting non-deterministically reported vulnerabilities; a full publication is upcoming.
 
 ---
 
-#### Security and Privacy Analysis of Android WebView
+### 📄 Publications
 
-- **Understanding Fingerprinting in Hybrid Browsers**  
-  `security` `privacy` `dynamic-analysis` `android`  
-    * *How vulnerable are Android WebViews to fingerprinting?*  
-    * We developed **dynamic instrumentation** to collect fingerprinting-relevant attributes in Android WebViews. Our study showed that WebViews are **equally or more vulnerable** to fine-grained fingerprinting compared to traditional browsers.  
-    * Tool → **Charlie**
-- **Security Vulnerabilities in Android WebView**  
-  `security` `static-analysis` `android` `webview`  
-    * *How vulnerable are Android WebViews to JavaScript injection and misuse?*  
-    * We designed a **static analysis technique** to collect JavaScript passed from Android code to WebView. Our results show that such flows are frequently vulnerable, and in some cases **Java control flow is influenced by external JavaScript APIs**.  
-    * Availability → *Available on request*
+- **JetTyped: A Study of Cross-Language Type Bugs in Android's JavaScriptEngine** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assests/jettyped-issre-2026.pdf)<br>
+  `cross-language`<br>
+  Abhishek Tiwari, Jyoti Prakash, Dimitrios Dafnis, Mikkel Baun Kjærgaard<br>
+  *34th IEEE International Symposium on Software Reliability Engineering (ISSRE'26)*
+
+- **Sentry: A Cross-Language and Cross-Platform Security Analysis Framework**<br>
+  `cross-language` `security-privacy`<br>
+  Jyoti Prakash, Abhishek Tiwari, Mikkel Baun Kjærgaard<br>
+  *SECUTE@ASE 2026 — TBA*
+
+- **Towards Analyzing N-language Polyglot Programs** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](https://arxiv.org/abs/2602.00303)<br>
+  `cross-language`<br>
+  Jyoti Prakash, Abhishek Tiwari, Mikkel Baun Kjærgaard<br>
+  *33rd IEEE International Conference on Software Analysis, Evolution and Reengineering*
+
+- **Modular Unification of Unilingual Pointer Analyses to Multilingual FFI-based Programs** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](https://www.sciencedirect.com/science/article/pii/S0167642325000176)<br>
+  `cross-language` `program-analysis`<br>
+  Jyoti Prakash, Abhishek Tiwari, Christian Hammer<br>
+  *Science of Computer Programming 243*<br>
+  Journal First Track @ SANER'26
+
+- **Automated Repair of Information Flow Security in Android Implicit Inter-App Communication** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](https://link.springer.com/chapter/10.1007/978-3-031-71162-6_15)<br>
+  `security-privacy` `program-analysis`<br>
+  *Abhishek Tiwari*, Jyoti Prakash, Zhen Dong, Carlo A. Furia<br>
+  *26th IEEE International Symposium on Formal Methods (FM'24)*
+
+- **Demand-driven Information Flow Analysis of WebView in Android Hybrid Apps** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](https://arxiv.org/pdf/2305.03916)<br>
+  `cross-language` `security-privacy`<br>
+  *Abhishek Tiwari*, *Jyoti Prakash*, Christian Hammer<br>
+  *34th IEEE International Symposium on Software Reliability Engineering (ISSRE'23)*
+
+- **Understanding the Impact of Fingerprinting in Android Hybrid Apps** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assests/charlie.pdf)<br>
+  `security-privacy`<br>
+  *Abhishek Tiwari*, *Jyoti Prakash*, Alimerdan Rahimov, Christian Hammer<br>
+  *MobileSoft'23 (co-located with ICSE'23)*<br>
+  🏅 **ACM SIGSOFT Distinguished Paper Award**
+
+- **Effects of Program Representation on Pointer Analyses — An Empirical Study** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assests/pointeval.pdf)<br>
+  `program-analysis`<br>
+  Jyoti Prakash, Abhishek Tiwari, Christian Hammer<br>
+  *24th International Conference on Fundamental Approaches to Software Engineering (FASE'21)*
+
+- **A Large Scale Analysis of Android–Web Hybridization** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assests/ludroid-journal.pdf)<br>
+  `cross-language`<br>
+  Abhishek Tiwari, Jyoti Prakash, Sascha Groß, Christian Hammer<br>
+  *Journal of Systems and Software 170*
+
+- **A Large Scale Analysis of Android–Web Hybridization** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assests/ludroid.pdf)<br>
+  `cross-language`<br>
+  Abhishek Tiwari, Jyoti Prakash, Sascha Groß, Christian Hammer<br>
+  *19th International Working Conference on Source Code Analysis and Manipulation (SCAM'2019)*
+
+**Note:** *All tools mentioned above are research prototypes and should be treated as alpha-quality software.*
 
 ---
 
-#### Foundations of Pointer Analysis
+### 🎤 Talks
 
-- **Program Representation Effects on Pointer Analysis**  
-  `pointer-analysis` `program-representation` `empirical-study`  
-    * *Do different intermediate representations affect the outcome of pointer analysis?*  
-    * We introduced metrics to compare pointer analyses by isolating the impact of their underlying program representations. Results show that such parameters have **little to no effect on precision**, enabling fair and meaningful comparisons.  
-    * Tool → **PointEval**
-- **Points-to Analysis using Push-Down Systems**  
-  `pointer-analysis` `formal-methods` `static-analysis`  
-    * We formulated **points-to analysis** as a **push-down system reachability** problem, enabling sound handling of recursion and improved precision for context-sensitive analysis.  
-    * Tool → **Points2Pds**
+- **Building Trust in Open-Ended Software Systems: From Static Analysis to LLM Assurance**<br>
+  `analyzer-testing`<br>
+  AI Conference @ ExxonMobil, Bangalore
+
+- **Demand-driven Information Flow Analysis of WebView in Android Hybrid Apps**<br>
+  `cross-language` `security-privacy`<br>
+  Research Highlights in Programming Languages @ FSTTCS'2024 (IIT Gandhinagar)
+
+- **On the Soundness of Pointer Analyses**<br>
+  `program-analysis`<br>
+  The MathWorks, Bangalore
 
 ---
 
-#### Testing Static Analyzers
-    - Upcoming... 
+### 📘 Thesis
 
-**Note:** *All tools listed here are research prototypes and should be treated as alpha-quality software.*
+- **Static Analyses of Interlanguage Interoperations** [Dissertation <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assests/thesis.pdf) · [Slides](assests/DisputationSlidesPublic.pdf)<br>
+  `cross-language`<br>
+  Jyoti Prakash<br>
+  University of Passau, Germany (2024)
+
+- **Points-to Analysis for Java using Push-Down Systems**<br>
+  `program-analysis`<br>
+  Jyoti Prakash<br>
+  Master's Thesis, Saarland University (2017)
+
+---

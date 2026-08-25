@@ -13,14 +13,14 @@ University of Southern Denmark (Odense)
 The Maersk McKinney Moller Institute<br>
 University of Southern Denmark, Odense
 
-My research focuses on developing scalable program analysis techniques for complex software systems. Modern software increasingly spans multiple programming languages and runtimes; however, most existing analysis tools reason about individual languages in isolation. This disconnect significantly limits our ability to ensure security, correctness, and reliability in real-world systems.
+I am a researcher in software analysis, with a core interest in cross-language program analysis. Modern software increasingly spans multiple programming languages and runtimes, yet most existing analysis tools reason about individual languages in isolation. My work develops scalable static and dynamic analysis techniques — grounded in formal foundations — that reason across these language boundaries to detect security vulnerabilities, enforce correctness properties, and improve the reliability of complex, real-world software systems.
 
 Alongside my academic work, I have designed and built industrial-strength analysis systems at OpenText, where I developed static analysis tools for large, security-critical codebases. This experience ensures that my research is firmly grounded in deployable solutions and real-world engineering constraints.
 
 E-mail: *xy@mmmi.sdu.dk* where *x* is the first two characters of first name and *y* is the first character of last name.
 
 #### Research Interests
-- Cross-Language Programming Systems
+- Cross-Language Program Analysis
 - Program Analysis
 - Program Repair
 
