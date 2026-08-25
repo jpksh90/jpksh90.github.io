@@ -5,7 +5,7 @@
   *34th IEEE International Symposium on Software Reliability Engineering (ISSRE'26)*
 
 - **Sentry: A Cross-Language and Cross-Platform Security Analysis Framework**<br>
-  Jyoti Prakash, Abhishek Tiwari, Mikkel Baun Kjærgaard<br>
+  Jyoti Prakash, Matthias R. Yde, Miguel C.M. Araya, Abhishek Tiwari<br>
   *SECUTE@ASE 2026 — TBA*
 
 - **Towards Analyzing N-language Polyglot Programs** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](https://arxiv.org/abs/2602.00303)<br>
