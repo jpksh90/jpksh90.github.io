@@ -1,6 +1,6 @@
 ## 📚 Publications
 
-- **JetTyped: A Study of Cross-Language Type Bugs in Android’s JavaScriptEngine** <a href="assests/jettyped-issre-2026.pdf" aria-label="PDF" title="PDF"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></a><br>
+- **JetTyped: A Study of Cross-Language Type Bugs in Android’s JavaScriptEngine** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assests/jettyped-issre-2026.pdf)<br>
   Abhishek Tiwari, Jyoti Prakash, Dimitrios Dafnis, Mikkel Baun Kjærgaard<br>
   *34th IEEE International Symposium on Software Reliability Engineering (ISSRE'26)*
 
@@ -8,37 +8,37 @@
   Jyoti Prakash, Abhishek Tiwari, Mikkel Baun Kjærgaard<br>
   *SECUTE@ASE 2026 — TBA*
 
-- **Towards Analyzing N-language Polyglot Programs** <a href="https://arxiv.org/abs/2602.00303" aria-label="PDF" title="PDF"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></a><br>
+- **Towards Analyzing N-language Polyglot Programs** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](https://arxiv.org/abs/2602.00303)<br>
   Jyoti Prakash, Abhishek Tiwari, Mikkel Baun Kjærgaard<br>
   *33rd IEEE International Conference on Software Analysis, Evolution and Reengineering*
 
-- **Modular Unification of Unilingual Pointer Analyses to Multilingual FFI-based Programs** <a href="https://www.sciencedirect.com/science/article/pii/S0167642325000176" aria-label="PDF" title="PDF"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></a><br>
+- **Modular Unification of Unilingual Pointer Analyses to Multilingual FFI-based Programs** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](https://www.sciencedirect.com/science/article/pii/S0167642325000176)<br>
   Jyoti Prakash, Abhishek Tiwari, Christian Hammer<br>
   *Science of Computer Programming 243*<br>
   Journal First Track @ SANER'26
 
-- **Automated Repair of Information Flow Security in Android Implicit Inter-App Communication** <a href="https://link.springer.com/chapter/10.1007/978-3-031-71162-6_15" aria-label="PDF" title="PDF"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></a><br>
+- **Automated Repair of Information Flow Security in Android Implicit Inter-App Communication** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](https://link.springer.com/chapter/10.1007/978-3-031-71162-6_15)<br>
   *Abhishek Tiwari*, Jyoti Prakash, Zhen Dong, Carlo A. Furia<br>
   *26th IEEE International Symposium on Formal Methods (FM'24)*
 
-- **Demand-driven Information Flow Analysis of WebView in Android Hybrid Apps** <a href="https://arxiv.org/pdf/2305.03916" aria-label="PDF" title="PDF"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></a><br>
+- **Demand-driven Information Flow Analysis of WebView in Android Hybrid Apps** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](https://arxiv.org/pdf/2305.03916)<br>
   *Abhishek Tiwari*, *Jyoti Prakash*, Christian Hammer<br>
   *34th IEEE International Symposium on Software Reliability Engineering (ISSRE'23)*
 
-- **Understanding the Impact of Fingerprinting in Android Hybrid Apps** <a href="assests/charlie.pdf" aria-label="PDF" title="PDF"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></a><br>
+- **Understanding the Impact of Fingerprinting in Android Hybrid Apps** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assests/charlie.pdf)<br>
   *Abhishek Tiwari*, *Jyoti Prakash*, Alimerdan Rahimov, Christian Hammer<br>
   *MobileSoft'23 (co-located with ICSE'23)*<br>
   🏅 **ACM SIGSOFT Distinguished Paper Award**
 
-- **Effects of Program Representation on Pointer Analyses — An Empirical Study** <a href="assests/pointeval.pdf" aria-label="PDF" title="PDF"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></a><br>
+- **Effects of Program Representation on Pointer Analyses — An Empirical Study** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assests/pointeval.pdf)<br>
   Jyoti Prakash, Abhishek Tiwari, Christian Hammer<br>
   *24th International Conference on Fundamental Approaches to Software Engineering (FASE'21)*
 
-- **A Large Scale Analysis of Android–Web Hybridization** <a href="assests/ludroid-journal.pdf" aria-label="PDF" title="PDF"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></a><br>
+- **A Large Scale Analysis of Android–Web Hybridization** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assests/ludroid-journal.pdf)<br>
   Abhishek Tiwari, Jyoti Prakash, Sascha Groß, Christian Hammer<br>
   *Journal of Systems and Software 170*
 
-- **A Large Scale Analysis of Android–Web Hybridization** <a href="assests/ludroid.pdf" aria-label="PDF" title="PDF"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></a><br>
+- **A Large Scale Analysis of Android–Web Hybridization** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assests/ludroid.pdf)<br>
   Abhishek Tiwari, Jyoti Prakash, Sascha Groß, Christian Hammer<br>
   *19th International Working Conference on Source Code Analysis and Manipulation (SCAM'2019)*
 
@@ -64,7 +64,7 @@
 
 ## 📘 Thesis
 
-- **Static Analyses of Interlanguage Interoperations** <a href="assests/thesis.pdf" title="Dissertation PDF">Dissertation <i class="fa-solid fa-file-pdf" aria-hidden="true"></i></a> · [Slides](assests/DisputationSlidesPublic.pdf)<br>
+- **Static Analyses of Interlanguage Interoperations** [Dissertation <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assests/thesis.pdf) · [Slides](assests/DisputationSlidesPublic.pdf)<br>
   Jyoti Prakash<br>
   University of Passau, Germany (2024)
 
