@@ -10,11 +10,10 @@ University of Southern Denmark (Odense)
 
 # Jyoti Prakash
 
-<span style="background-color: gray;">
-**Assistant Professor**@SDU Software Engineering<br>
-The Maersk McKinney Moller Institute<br>
-University of Southern Denmark, Odense
-</span>
+
+> **Assistant Professor**@SDU Software Engineering<br>
+> The Maersk McKinney Moller Institute<br>
+> University of Southern Denmark, Odense
 
 I am a researcher in software analysis, with a core interest in cross-language program analysis. Modern software increasingly spans multiple programming languages and runtimes, yet most existing analysis tools reason about individual languages in isolation. My work develops scalable static and dynamic analysis techniques — grounded in formal foundations — that reason across these language boundaries to detect security vulnerabilities, enforce correctness properties, and improve the reliability of complex, real-world software systems.
 
