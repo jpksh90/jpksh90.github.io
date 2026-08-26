@@ -6,9 +6,9 @@ My work sits under four themes. Most papers cross-cut more than one of them — 
 
 - 🔒 **Cross-Language Security & Privacy Analysis** `security-privacy` — Applying cross-language analysis to security-critical Android hybrid apps, where the Java–JavaScript boundary inside WebView is a recurring source of vulnerabilities and privacy leaks. Using dynamic instrumentation, my **Charlie** tool collects fingerprinting-relevant attributes from Android WebViews, and our study found WebViews to be equally or more vulnerable to fine-grained fingerprinting than traditional browsers. On the static side, I designed an analysis that collects JavaScript passed from Android code into WebView, showing that such flows are frequently vulnerable and that in some cases Java control flow is influenced by external JavaScript APIs.
 
-- 👉 **Foundations of Program Analysis** `program-analysis` — The formal and empirical foundations underlying my analyses. My **PointEval** tool introduces metrics for isolating the effect of a program's intermediate representation on pointer-analysis outcomes, showing that such representational choices have little to no effect on precision and enabling fairer comparisons between analyses. On the formal side, **Points2Pds** formulates points-to analysis as a push-down-system reachability problem, giving sound handling of recursion and improved precision for context-sensitive analysis.
+- 👉 **Foundations of Program Analysis** `program-analysis` — The foundations underlying my analyses. My **PointEval** tool introduces metrics for isolating the effect of a program's intermediate representation on pointer-analysis outcomes, showing that such representational choices have little to no effect on precision and enabling fairer comparisons between analyses. On the formal side, **Points2Pds** formulates points-to analysis as a push-down-system reachability problem, giving sound handling of recursion and improved precision for context-sensitive analysis.
 
-- 🧪 **Testing of Static Analyzers** `analyzer-testing` — Turning the analysis lens onto the analyzers themselves: testing that static analysis tools behave soundly and that their reported results are reproducible. This is an emerging direction for me, currently reflected in three filed patents (titles undisclosed under NDA) on testing static analyzers with AI and on detecting non-deterministically reported vulnerabilities.
+- 🧪 **Testing of Static Analyzers** `analyzer-testing` — Turning the analysis lens onto the analysers themselves: testing that static analyses tools behave soundly and that their reported results are reproducible. This is an emerging direction for me, currently reflected in three filed patents (titles undisclosed under NDA) on testing static analyzers with AI and on detecting non-deterministically reported vulnerabilities.
 
 ---
 
@@ -19,10 +19,10 @@ My work sits under four themes. Most papers cross-cut more than one of them — 
   Abhishek Tiwari, Jyoti Prakash, Dimitrios Dafnis, Mikkel Baun Kjærgaard<br>
   *34th IEEE International Symposium on Software Reliability Engineering (ISSRE'26)*
 
-- **Sentry: A Cross-Language and Cross-Platform Security Analysis Framework**<br>
+- **Sentry: Towards a Cross-Language Dynamic Analysis Framework for Hybrid Android Applications** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>]()<br>
   `cross-language` `security-privacy`<br>
   Jyoti Prakash, Abhishek Tiwari, Mikkel Baun Kjærgaard<br>
-  *SECUTE@ASE 2026 — TBA*
+  *Second International Workshop on Software Security Testing (SECUTE@ASE 2026)*
 
 - **Towards Analyzing N-language Polyglot Programs** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](https://arxiv.org/abs/2602.00303)<br>
   `cross-language`<br>
