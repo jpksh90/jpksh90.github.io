@@ -29,14 +29,7 @@ E-mail: *xy@mmmi.sdu.dk* where *x* is the first two characters of first name and
 ---
 
 ## 📰 updates
-- **Jan 2026** - I am on ICST'26 program committee. 
-- **Jan 2026** - Starting as Assistant Professor at University of Southern Denmark
-- **Dec 2026** - Confluence is selected for presentation at SANER'2026.
-- **Dec 2026** - *Towards Analyzing N-language Polyglot Programs* accepted in ERA track of SANER'2026
-- **Oct 2024** – Defended my PhD thesis  
-- **Oct 2024** – On TACAS'24 AEC  
-- **Jun 2024** – On ISSTA'24 AEC  
-- **Jun 2024** – Paper on Android IFC repair accepted in FM'24  
+<!-- UPDATES -->
 
 ---
 

@@ -1,0 +1,9 @@
+# One update per line: YYYY-MM-DD | text (markdown allowed in text)
+# Append-only log — do not delete old entries here, the build only
+# hides entries older than 3 months from the rendered page.
+2026-09-20 | *JetTyped* accepted at ISSRE'26
+2026-09-20 | *Sentry* accepted at SECUTE@ASE 2026
+2026-03-01 | Confluence is selected for presentation at SANER'2026
+2026-03-01 | *Towards Analyzing N-language Polyglot Programs* accepted in ERA track of SANER'2026
+2026-01-01 | I am on ICST'26 program committee
+2026-01-01 | Starting as Assistant Professor at University of Southern Denmark
