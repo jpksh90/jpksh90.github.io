@@ -1,5 +1,7 @@
 # Minimal Theme
 
+[![Deploy Clean Build](https://github.com/jpksh90/jpksh90.github.io/actions/workflows/clean-build-deploy.yml/badge.svg)](https://github.com/jpksh90/jpksh90.github.io/actions/workflows/clean-build-deploy.yml)
+
 [Demo the Theme](https://orderedlist.com/minimal/)
 
 This is the raw HTML and styles that are used for the *minimal* theme on [GitHub Pages](http://pages.github.com/).
