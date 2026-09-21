@@ -1,0 +1,7 @@
+README.md
+pyproject.toml
+personal_website.egg-info/PKG-INFO
+personal_website.egg-info/SOURCES.txt
+personal_website.egg-info/dependency_links.txt
+personal_website.egg-info/requires.txt
+personal_website.egg-info/top_level.txt
