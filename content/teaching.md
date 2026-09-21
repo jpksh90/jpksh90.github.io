@@ -15,7 +15,7 @@ I have taught the following courses:
     - Topics in Programming Languages and Security
     - Foundations of Computer Science (*co-instructor*)
 
-## Students Projects
+## Student Projects
 
 - University of Southern Denmark:
     * Thesis (two ongoing)

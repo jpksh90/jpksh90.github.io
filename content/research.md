@@ -8,13 +8,13 @@ My work sits under four themes. Most papers cross-cut more than one of them — 
 
 - 👉 **Foundations of Program Analysis** `program-analysis` — The foundations underlying my analyses. My **PointEval** tool introduces metrics for isolating the effect of a program's intermediate representation on pointer-analysis outcomes, showing that such representational choices have little to no effect on precision and enabling fairer comparisons between analyses. On the formal side, **Points2Pds** formulates points-to analysis as a push-down-system reachability problem, giving sound handling of recursion and improved precision for context-sensitive analysis.
 
-- 🧪 **Testing of Static Analyzers** `analyzer-testing` — Turning the analysis lens onto the analysers themselves: testing that static analyses tools behave soundly and that their reported results are reproducible. This is an emerging direction for me, currently reflected in three filed patents (titles undisclosed under NDA) on testing static analyzers with AI and on detecting non-deterministically reported vulnerabilities.
+- 🧪 **Testing of Static Analyzers** `analyzer-testing` — Turning the analysis lens onto the analysers themselves: testing that static analysis tools behave soundly and that their reported results are reproducible. This is an emerging direction for me, currently reflected in three filed patents (titles undisclosed under NDA) on testing static analyzers with AI and on detecting non-deterministically reported vulnerabilities.
 
 ---
 
 ### 📄 Publications
 
-- **JetTyped: A Study of Cross-Language Type Bugs in Android's JavaScriptEngine** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assests/jettyped-issre-2026.pdf)<br>
+- **JetTyped: A Study of Cross-Language Type Bugs in Android's JavaScriptEngine** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assets/jettyped-issre-2026.pdf)<br>
   `cross-language`<br>
   Abhishek Tiwari, Jyoti Prakash, Dimitrios Dafnis, Mikkel Baun Kjærgaard<br>
   *34th IEEE International Symposium on Software Reliability Engineering (ISSRE'26)*
@@ -45,23 +45,23 @@ My work sits under four themes. Most papers cross-cut more than one of them — 
   *Abhishek Tiwari*, *Jyoti Prakash*, Christian Hammer<br>
   *34th IEEE International Symposium on Software Reliability Engineering (ISSRE'23)*
 
-- **Understanding the Impact of Fingerprinting in Android Hybrid Apps** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assests/charlie.pdf)<br>
+- **Understanding the Impact of Fingerprinting in Android Hybrid Apps** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assets/charlie.pdf)<br>
   `security-privacy`<br>
   *Abhishek Tiwari*, *Jyoti Prakash*, Alimerdan Rahimov, Christian Hammer<br>
   *MobileSoft'23 (co-located with ICSE'23)*<br>
   🏅 **ACM SIGSOFT Distinguished Paper Award**
 
-- **Effects of Program Representation on Pointer Analyses — An Empirical Study** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assests/pointeval.pdf)<br>
+- **Effects of Program Representation on Pointer Analyses — An Empirical Study** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assets/pointeval.pdf)<br>
   `program-analysis`<br>
   Jyoti Prakash, Abhishek Tiwari, Christian Hammer<br>
   *24th International Conference on Fundamental Approaches to Software Engineering (FASE'21)*
 
-- **A Large Scale Analysis of Android–Web Hybridization** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assests/ludroid-journal.pdf)<br>
+- **A Large Scale Analysis of Android–Web Hybridization** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assets/ludroid-journal.pdf)<br>
   `cross-language`<br>
   Abhishek Tiwari, Jyoti Prakash, Sascha Groß, Christian Hammer<br>
   *Journal of Systems and Software 170*
 
-- **A Large Scale Analysis of Android–Web Hybridization** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assests/ludroid.pdf)<br>
+- **A Large Scale Analysis of Android–Web Hybridization** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assets/ludroid.pdf)<br>
   `cross-language`<br>
   Abhishek Tiwari, Jyoti Prakash, Sascha Groß, Christian Hammer<br>
   *19th International Working Conference on Source Code Analysis and Manipulation (SCAM'2019)*
@@ -88,7 +88,7 @@ My work sits under four themes. Most papers cross-cut more than one of them — 
 
 ### 📘 Thesis
 
-- **Static Analyses of Interlanguage Interoperations** [Dissertation <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assests/thesis.pdf) · [Slides](assests/DisputationSlidesPublic.pdf)<br>
+- **Static Analyses of Interlanguage Interoperations** [Dissertation <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assets/thesis.pdf) · [Slides](assets/DisputationSlidesPublic.pdf)<br>
   `cross-language`<br>
   Jyoti Prakash<br>
   University of Passau, Germany (2024)
