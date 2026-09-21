@@ -1,15 +1,10 @@
 ## Research & Publications
 
-My work sits under four themes. Most papers cross-cut more than one of them — each publication below is labeled with every theme it belongs to.
+My work sits under three themes. 
 
-- 🔀 **Cross-Language Program Analysis** `cross-language` — This is my core research theme: reasoning about programs that span multiple languages and runtimes joined by mechanisms such as FFI, JNI, and embedded WebViews, where single-language tools stop short at the language boundary. My **IwanDroid** tool performs demand-driven information-flow analysis across the Java–JavaScript boundary inside Android WebViews, tracking flows precisely in both directions. To generalize beyond a single language pair, I have proposed an approach for unifying independent static analyses — such as WALA and SVF — so that multilingual (polyglot) applications can be reasoned about consistently across language boundaries, and I am investigating the open challenges of analyzing N-language systems that communicate through foreign function interfaces.
-
-- 🔒 **Cross-Language Security & Privacy Analysis** `security-privacy` — Applying cross-language analysis to security-critical Android hybrid apps, where the Java–JavaScript boundary inside WebView is a recurring source of vulnerabilities and privacy leaks. Using dynamic instrumentation, my **Charlie** tool collects fingerprinting-relevant attributes from Android WebViews, and our study found WebViews to be equally or more vulnerable to fine-grained fingerprinting than traditional browsers. On the static side, I designed an analysis that collects JavaScript passed from Android code into WebView, showing that such flows are frequently vulnerable and that in some cases Java control flow is influenced by external JavaScript APIs.
-
-- 👉 **Foundations of Program Analysis** `program-analysis` — The foundations underlying my analyses. My **PointEval** tool introduces metrics for isolating the effect of a program's intermediate representation on pointer-analysis outcomes, showing that such representational choices have little to no effect on precision and enabling fairer comparisons between analyses. On the formal side, **Points2Pds** formulates points-to analysis as a push-down-system reachability problem, giving sound handling of recursion and improved precision for context-sensitive analysis.
-
-- 🧪 **Testing of Static Analyzers** `analyzer-testing` — Turning the analysis lens onto the analysers themselves: testing that static analysis tools behave soundly and that their reported results are reproducible. This is an emerging direction for me, currently reflected in three filed patents (titles undisclosed under NDA) on testing static analyzers with AI and on detecting non-deterministically reported vulnerabilities.
-
+- Cross-language program analysis
+- Foundations of program analysis
+- Security analysis of repair of programs
 ---
 
 ### 📄 Publications
