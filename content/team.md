@@ -1,6 +1,6 @@
 ## Team
 
-<p class="motto">Building trust in the software we rely on</p>
+<p class="motto">Curious minds. Talented people. Software you can trust.</p>
 
 <img src="images/team.jpg" alt="Group photo of the team in a meeting room">
 
