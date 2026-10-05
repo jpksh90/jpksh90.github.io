@@ -1,6 +1,6 @@
 ## Team
 
-<p class="motto">Curious minds. Talented people. Software you can trust.</p>
+<p class="motto">Curious minds. Shared effort. Software you can trust.</p>
 
 <img src="images/team.jpg" alt="Group photo of the team in a meeting room">
 
