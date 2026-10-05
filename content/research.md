@@ -3,8 +3,8 @@
 My work sits under three themes. 
 
 - Cross-language program analysis
-- Foundations of program analysis
-- Security analysis of repair of programs
+- Foundational program analyses
+- Software security analysis and repair
 ---
 
 ### 📄 Publications
@@ -68,15 +68,12 @@ My work sits under three themes.
 ### 🎤 Talks
 
 - **Building Trust in Open-Ended Software Systems: From Static Analysis to LLM Assurance**<br>
-  `analyzer-testing`<br>
   AI Conference @ ExxonMobil, Bangalore
 
 - **Demand-driven Information Flow Analysis of WebView in Android Hybrid Apps**<br>
-  `cross-language` `security-privacy`<br>
   Research Highlights in Programming Languages @ FSTTCS'2024 (IIT Gandhinagar)
 
 - **On the Soundness of Pointer Analyses**<br>
-  `program-analysis`<br>
   The MathWorks, Bangalore
 
 ---

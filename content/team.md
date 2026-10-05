@@ -4,9 +4,23 @@
 
 <img src="images/team.jpg" alt="Group photo of the team in a meeting room">
 
-### Leads
-
 <div class="team-grid">
+  <div class="member-card">
+    <div class="member-avatar" aria-hidden="true">AT</div>
+    <div class="member-info">
+      <div class="member-name">Abhishek Tiwari <span class="fi fi-in member-flag" role="img" aria-label="India" title="India"></span></div>
+      <div class="member-role">Associate Professor · Co-lead</div>
+      <a class="member-link" href="https://mig40000.github.io"><i class="fa-solid fa-globe" aria-hidden="true"></i> Website</a>
+    </div>
+  </div>
+  <div class="member-card">
+    <div class="member-avatar" aria-hidden="true">DD</div>
+    <div class="member-info">
+      <div class="member-name">Dimitrios Dafnis <span class="fi fi-gr member-flag" role="img" aria-label="Greece" title="Greece"></span></div>
+      <div class="member-role">Research Assistant</div>
+      <a class="member-link" href="https://www.linkedin.com/in/dimitrios-dafnis-972116203/"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+    </div>
+  </div>
   <div class="member-card">
     <div class="member-avatar" aria-hidden="true">JP</div>
     <div class="member-info">
@@ -15,23 +29,11 @@
     </div>
   </div>
   <div class="member-card">
-    <div class="member-avatar" aria-hidden="true">AT</div>
+    <div class="member-avatar" aria-hidden="true">SA</div>
     <div class="member-info">
-      <div class="member-name">Abhishek Tiwari <span class="fi fi-in member-flag" role="img" aria-label="India" title="India"></span></div>
-      <div class="member-role">Associate Professor · Co-lead</div>
-    </div>
-  </div>
-</div>
-
-### Members
-
-<div class="team-grid">
-  <div class="member-card">
-    <div class="member-avatar" aria-hidden="true">DD</div>
-    <div class="member-info">
-      <div class="member-name">Dimitrios Dafnis <span class="fi fi-gr member-flag" role="img" aria-label="Greece" title="Greece"></span></div>
+      <div class="member-name">Sahal Abdullah <span class="fi fi-pk member-flag" role="img" aria-label="Pakistan" title="Pakistan"></span></div>
       <div class="member-role">Research Assistant</div>
-      <a class="member-link" href="https://www.linkedin.com/in/dimitrios-dafnis-972116203/"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+      <a class="member-link" href="https://www.linkedin.com/in/sahal-abdullah-237136206/"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
     </div>
   </div>
   <div class="member-card">
@@ -48,14 +50,6 @@
       <div class="member-name">Yusuf Mohamoud Yusuf <span class="fi fi-dk member-flag" role="img" aria-label="Denmark" title="Denmark"></span></div>
       <div class="member-role">Research Assistant</div>
       <a class="member-link" href="https://www.linkedin.com/in/yusuf-mohamoud-yusuf/"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
-    </div>
-  </div>
-  <div class="member-card">
-    <div class="member-avatar" aria-hidden="true">SA</div>
-    <div class="member-info">
-      <div class="member-name">Sahal Abdullah <span class="fi fi-pk member-flag" role="img" aria-label="Pakistan" title="Pakistan"></span></div>
-      <div class="member-role">Research Assistant</div>
-      <a class="member-link" href="https://www.linkedin.com/in/sahal-abdullah-237136206/"><i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
     </div>
   </div>
 </div>
