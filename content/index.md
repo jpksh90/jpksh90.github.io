@@ -17,7 +17,7 @@ University of Southern Denmark (Odense)
 
 I am a researcher and educator in software analysis, with a core interest in analysis of heterogeneous and open-ended systems. Modern software systems span multiple programming languages and runtime, yet most existing analyses reason about individual languages. My work develops static and dynamic analysis techniques that helps us to enforce trust into the software systems that we use on a day-to-day basis. I have also designed and built industrial-strength analyses, at OpenText, where I contributed to Fortify which is a static analysis tool for large, security-critical codebases. This experience ensures that my research is firmly grounded in deployable solutions and real-world engineering constraints.
 
-E-mail: *xy@mmmi.sdu.dk* where *x* is the first two characters of first name and *y* is the first character of last name.
+E-mail: [jyp@mmmi.sdu.dk](mailto:jyp@mmmi.sdu.dk)
 
 #### Research Interests
 - Cross-Language Program Analysis
