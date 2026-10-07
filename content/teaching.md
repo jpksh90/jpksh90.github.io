@@ -5,6 +5,7 @@ I have taught the following courses:
 * **University of Southern Denmark (Instructor)**
     - Software Maintenance
     - Development of Software Systems (Project course)
+    - Software Modelling and Analysis
 * **University of Passau, University of Potsdam (Graduate Teaching Assistant)**
     - Program Repair
     - Reverse and Re-engineering
