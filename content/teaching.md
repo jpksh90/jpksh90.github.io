@@ -19,7 +19,7 @@ I have taught the following courses:
 ## Student Projects
 
 - University of Southern Denmark:
-    * Thesis (two ongoing)
+    * Thesis (two completed, four ongoing)
 - University of Passau:
     * Thesis (three completed)
 - University of Potsdam:
