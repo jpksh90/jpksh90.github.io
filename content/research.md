@@ -16,7 +16,7 @@ My work sits under three themes.
   Abhishek Tiwari, Jyoti Prakash, Dimitrios Dafnis, Mikkel Baun Kjærgaard<br>
   *34th IEEE International Symposium on Software Reliability Engineering (ISSRE'26)*
 
-- **Sentry: Towards a Cross-Language Dynamic Analysis Framework for Hybrid Android Applications** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assets/sentry.pdf)<br>
+- **Sentry: Towards a Cross-Language Dynamic Analysis Framework for Hybrid Android Applications** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assets/sentry.pdf) [<i class="fa-solid fa-file-powerpoint" aria-hidden="true"></i>](assets/sentry-slides.pdf)<br>
   `cross-language` `security-privacy`<br>
   Jyoti Prakash, Abhishek Tiwari, Mikkel Baun Kjærgaard<br>
   *Second International Workshop on Software Security Testing (SECUTE@ASE 2026)*
