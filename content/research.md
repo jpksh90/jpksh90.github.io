@@ -21,7 +21,7 @@ My work sits under three themes.
   Jyoti Prakash, Abhishek Tiwari, Mikkel Baun Kjærgaard<br>
   *Second International Workshop on Software Security Testing (SECUTE@ASE 2026)*
 
-- **Towards Analyzing N-language Polyglot Programs** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](https://arxiv.org/abs/2602.00303)<br>
+- **Towards Analyzing N-language Polyglot Programs** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](https://arxiv.org/abs/2602.00303) [<i class="fa-solid fa-file-powerpoint" aria-hidden="true"></i>](assets/SANER-N-Language-Presentation.pdf)<br>
   `cross-language`<br>
   Jyoti Prakash, Abhishek Tiwari, Mikkel Baun Kjærgaard<br>
   *33rd IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER'26)*

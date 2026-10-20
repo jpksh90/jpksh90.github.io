@@ -34,7 +34,7 @@ E-mail: [jyp@mmmi.sdu.dk](mailto:jyp@mmmi.sdu.dk)
   Jyoti Prakash, Abhishek Tiwari, Mikkel Baun Kjærgaard<br>
   *SECUTE@ASE 2026*
 
-- **Towards Analyzing N-language Polyglot Programs** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](https://arxiv.org/abs/2602.00303)<br>
+- **Towards Analyzing N-language Polyglot Programs** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](https://arxiv.org/abs/2602.00303) [<i class="fa-solid fa-file-powerpoint" aria-hidden="true"></i>](assets/SANER-N-Language-Presentation.pdf)<br>
   Jyoti Prakash, Abhishek Tiwari, Mikkel Baun Kjærgaard<br>
   *SANER 2026*
 
