@@ -17,6 +17,15 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
 ROOT = Path(__file__).resolve().parent
 UPDATES_MARKER = "<!-- UPDATES -->"
+PUBLICATIONS_MARKER = "<!-- PUBLICATIONS -->"
+SELECTED_PUBLICATIONS_MARKER = "<!-- SELECTED_PUBLICATIONS -->"
+PUBLICATIONS_PATH = ROOT / "content" / "publications.yaml"
+PUBLICATION_FIELDS = {
+    "title", "authors", "venue", "short_venue", "year",
+    "pdf", "slides", "tags", "note", "selected",
+}
+PDF_ICON = '<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>'
+SLIDES_ICON = '<i class="fa-solid fa-file-powerpoint" aria-hidden="true"></i>'
 UPDATES_WINDOW_MONTHS = 3
 # Rendered like the other pages, but kept out of the nav and sitemap.
 NOT_FOUND_PAGE = "404"
@@ -192,6 +201,59 @@ def render_updates(updates, months=UPDATES_WINDOW_MONTHS):
     return f"<ul>\n{items}\n</ul>"
 
 
+def load_publications(path=PUBLICATIONS_PATH):
+    """Return the list of publications, or [] if there is no data file."""
+    if not path.exists():
+        return []
+    with open(path) as f:
+        return yaml.safe_load(f) or []
+
+
+def publication_markdown(pub, short=False):
+    """Render one publication as a Markdown list item.
+
+    The short form (home page) drops tags and notes and uses short_venue.
+    """
+    head = f"- **{pub['title']}**"
+    links = []
+    if pub.get("pdf"):
+        links.append(f"[{PDF_ICON}]({pub['pdf']})")
+    if pub.get("slides"):
+        links.append(f"[{SLIDES_ICON}]({pub['slides']})")
+    if links:
+        head += " " + " ".join(links)
+    lines = [head]
+    if not short and pub.get("tags"):
+        lines.append(" ".join(f"`{tag}`" for tag in pub["tags"]))
+    lines.append(", ".join(pub["authors"]))
+    venue = pub.get("short_venue", pub["venue"]) if short else pub["venue"]
+    lines.append(f"*{venue}*")
+    if not short and pub.get("note"):
+        lines.append(pub["note"])
+    return "<br>\n  ".join(lines)
+
+
+def render_publications(pubs):
+    """Render all publications as Markdown, grouped under year headings."""
+    by_year = {}
+    for pub in pubs:
+        by_year.setdefault(pub["year"], []).append(pub)
+    return "\n\n".join(
+        f"#### {year}\n\n"
+        + "\n\n".join(publication_markdown(pub) for pub in by_year[year])
+        for year in sorted(by_year, reverse=True)
+    )
+
+
+def render_selected_publications(pubs):
+    """Render the publications marked `selected` in their short form."""
+    return "\n\n".join(
+        publication_markdown(pub, short=True)
+        for pub in pubs
+        if pub.get("selected")
+    )
+
+
 def is_generated(path):
     """Return True if `path` is a page this script wrote."""
     return f'<meta name="generator" content="{GENERATOR}">' in path.read_text()
@@ -361,9 +423,68 @@ def lint_config(path=ROOT / "config.yaml"):
     return issues
 
 
+def lint_publications(path=PUBLICATIONS_PATH):
+    """Check the publications data file; same return format as lint_config."""
+    if not path.exists():
+        return []
+    name = path.relative_to(ROOT)
+    text = path.read_text()
+    try:
+        pubs = yaml.safe_load(text)
+        nodes = yaml.compose(text)
+    except yaml.YAMLError as e:
+        mark = getattr(e, "problem_mark", None)
+        line = mark.line + 1 if mark else 1
+        problem = getattr(e, "problem", None) or e
+        return [("error", f"{name}:{line}: error: invalid YAML: {problem}")]
+    if pubs is None:
+        return []
+
+    issues = []
+
+    def report(level, line, message):
+        issues.append((level, f"{name}:{line}: {level}: {message}"))
+
+    if not isinstance(pubs, list):
+        report("error", 1, "expected a list of publications ('- title: ...')")
+        return issues
+
+    def is_text(value):
+        return isinstance(value, str) and value.strip()
+
+    for pub, node in zip(pubs, nodes.value):
+        line = node.start_mark.line + 1
+        if not isinstance(pub, dict):
+            report("error", line, "each publication must be a set of fields")
+            continue
+        for key in pub:
+            if key not in PUBLICATION_FIELDS:
+                report("warning", line, f"unknown field '{key}' (typo?)")
+        for key in ("title", "venue"):
+            if not is_text(pub.get(key)):
+                report("error", line, f"publication needs a '{key}'")
+        authors = pub.get("authors")
+        if not isinstance(authors, list) or not authors:
+            report("error", line, "'authors' must be a list of names")
+        elif not all(is_text(author) for author in authors):
+            report("error", line,
+                   "every author must be text; quote names starting with *")
+        if not isinstance(pub.get("year"), int) or isinstance(pub.get("year"), bool):
+            report("error", line, "'year' must be a number such as 2026")
+        for key in ("short_venue", "pdf", "slides", "note"):
+            if key in pub and not is_text(pub[key]):
+                report("error", line, f"'{key}' must be text")
+        tags = pub.get("tags", [])
+        if not isinstance(tags, list) or not all(is_text(tag) for tag in tags):
+            report("error", line, "'tags' must be a list such as [cross-language]")
+        if not isinstance(pub.get("selected", False), bool):
+            report("error", line, "'selected' must be true or false")
+    return issues
+
+
 def run_lint():
     """Print config problems; exit if any are errors."""
-    issues = lint_config()
+    issues = lint_config() + lint_publications()
     for _, message in issues:
         print(message, file=sys.stderr)
     errors = sum(level == "error" for level, _ in issues)
@@ -378,12 +499,20 @@ def generate(config, output_dir):
     output_dir.mkdir(parents=True, exist_ok=True)
     written = []
     pages = [*config["pages"].items(), (NOT_FOUND_PAGE, "page not found")]
+    publications = load_publications()
     for page, label in pages:
         # A fresh renderer per page, so heading ids are unique within a page.
         markdown = mistune.create_markdown(
             renderer=AnchoredRenderer(), plugins=["table"]
         )
-        html_content = markdown((ROOT / "content" / f"{page}.md").read_text())
+        md_content = (ROOT / "content" / f"{page}.md").read_text()
+        md_content = md_content.replace(
+            PUBLICATIONS_MARKER, render_publications(publications)
+        ).replace(
+            SELECTED_PUBLICATIONS_MARKER,
+            render_selected_publications(publications),
+        )
+        html_content = markdown(md_content)
         if UPDATES_MARKER in html_content:
             updates = parse_updates(ROOT / "content" / "updates.txt")
             html_content = html_content.replace(

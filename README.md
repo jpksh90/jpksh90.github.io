@@ -10,6 +10,7 @@ generator (`site-utils.py`) from Markdown and a Jinja template.
 | Path | What it holds |
 | --- | --- |
 | `content/*.md` | One Markdown file per page (`index`, `research`, `teaching`, `service`, `team`, `404`). Raw HTML is allowed. |
+| `content/publications.yaml` | Every publication, once. Rendered in full on the research page (`<!-- PUBLICATIONS -->`) and, for entries with `selected: true`, on the home page (`<!-- SELECTED_PUBLICATIONS -->`). |
 | `content/updates.txt` | News log, one `YYYY-MM-DD \| text` entry per line. Only the last 3 months are shown, wherever `<!-- UPDATES -->` appears in a page. |
 | `config.yaml` | Name, email, site URL, profile links, navigation, and per-page meta descriptions. |
 | `templates/base.html` | Page layout shared by every page. |
@@ -19,6 +20,9 @@ generator (`site-utils.py`) from Markdown and a Jinja template.
 ## Editing
 
 - **Page text**: edit `content/<page>.md`.
+- **Publications**: add an entry at the top of `content/publications.yaml`
+  (the field list is at the top of the file). Set `selected: true` to also
+  show it on the home page, with `short_venue` as its venue there.
 - **News**: add a line to the top of `content/updates.txt`.
 - **Profile links**: add, remove or reorder entries under `links` in
   `config.yaml`. A new link name also needs an icon in `templates/icons.html`.
@@ -51,7 +55,8 @@ Commands can be combined in any order:
   problem with its line number: missing settings, malformed URLs or email,
   pages without a content file or description, profile links without an
   icon, a missing photo, unquoted `404` keys, unknown (misspelled) settings,
-  over-long descriptions, and malformed lines in `content/updates.txt`.
+  over-long descriptions, malformed lines in `content/updates.txt`, and
+  missing or mistyped fields in `content/publications.yaml`.
   `build` runs it first and stops on errors; warnings do not stop the build.
 - `clean` deletes generated pages, including ones no longer in `config.yaml`.
 - `build` renders the pages, `sitemap.xml` and `robots.txt`, then checks links.

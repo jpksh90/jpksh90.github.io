@@ -26,25 +26,7 @@ E-mail: [jyotiprakash1@acm.org](mailto:jyotiprakash1@acm.org)
 
 #### Selected Publications
 
-- **JetTyped: A Study of Cross-Language Type Bugs in Android's JavaScriptEngine** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assets/jettyped-issre-2026.pdf)<br>
-  Abhishek Tiwari, Jyoti Prakash, Dimitrios Dafnis, Mikkel Baun Kjærgaard<br>
-  *ISSRE 2026*
-
-- **Sentry: Towards a Cross-Language Dynamic Analysis Framework for Hybrid Android Applications** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assets/sentry.pdf) [<i class="fa-solid fa-file-powerpoint" aria-hidden="true"></i>](assets/sentry-slides.pdf)<br>
-  Jyoti Prakash, Abhishek Tiwari, Mikkel Baun Kjærgaard<br>
-  *SECUTE@ASE 2026*
-
-- **Towards Analyzing N-language Polyglot Programs** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](https://arxiv.org/abs/2602.00303) [<i class="fa-solid fa-file-powerpoint" aria-hidden="true"></i>](assets/SANER-N-Language-Presentation.pdf)<br>
-  Jyoti Prakash, Abhishek Tiwari, Mikkel Baun Kjærgaard<br>
-  *SANER 2026*
-
-- **Modular Unification of Unilingual Pointer Analyses to Multilingual FFI-based Programs** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](https://www.sciencedirect.com/science/article/pii/S0167642325000176)<br>
-  Jyoti Prakash, Abhishek Tiwari, Christian Hammer<br>
-  *Science of Computer Programming 243 (Journal First @ SANER 2026)*
-
-- **Demand-driven Information Flow Analysis of WebView in Android Hybrid Apps** [<i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](https://arxiv.org/pdf/2305.03916)<br>
-  Abhishek Tiwari, Jyoti Prakash, Christian Hammer<br>
-  *ISSRE 2023*
+<!-- SELECTED_PUBLICATIONS -->
 
 [Full list of publications →](research.html)
 

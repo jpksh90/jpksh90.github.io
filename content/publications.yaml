@@ -1,0 +1,95 @@
+# Publications, newest first. The research page lists all of them grouped by
+# year (<!-- PUBLICATIONS --> in research.md); the home page lists those with
+# `selected: true` (<!-- SELECTED_PUBLICATIONS --> in index.md).
+#
+# Fields (Markdown is allowed in text fields):
+#   title, authors, venue, year   required
+#   short_venue                   venue as shown on the home page (default: venue)
+#   pdf, slides                   local path (assets/...) or URL
+#   tags                          shown on the research page
+#   note                          extra line on the research page, e.g. an award
+#   selected                      true to also list it on the home page
+
+- title: "JetTyped: A Study of Cross-Language Type Bugs in Android's JavaScriptEngine"
+  authors: ["Abhishek Tiwari", "Jyoti Prakash", "Dimitrios Dafnis", "Mikkel Baun Kjærgaard"]
+  venue: "34th IEEE International Symposium on Software Reliability Engineering (ISSRE'26)"
+  short_venue: "ISSRE 2026"
+  year: 2026
+  pdf: assets/jettyped-issre-2026.pdf
+  tags: [cross-language]
+  selected: true
+
+- title: "Sentry: Towards a Cross-Language Dynamic Analysis Framework for Hybrid Android Applications"
+  authors: ["Jyoti Prakash", "Abhishek Tiwari", "Mikkel Baun Kjærgaard"]
+  venue: "Second International Workshop on Software Security Testing (SECUTE@ASE 2026)"
+  short_venue: "SECUTE@ASE 2026"
+  year: 2026
+  pdf: assets/sentry.pdf
+  slides: assets/sentry-slides.pdf
+  tags: [cross-language, security-privacy]
+  selected: true
+
+- title: "Towards Analyzing N-language Polyglot Programs"
+  authors: ["Jyoti Prakash", "Abhishek Tiwari", "Mikkel Baun Kjærgaard"]
+  venue: "33rd IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER'26)"
+  short_venue: "SANER 2026"
+  year: 2026
+  pdf: https://arxiv.org/abs/2602.00303
+  slides: assets/SANER-N-Language-Presentation.pdf
+  tags: [cross-language]
+  selected: true
+
+- title: "Modular Unification of Unilingual Pointer Analyses to Multilingual FFI-based Programs"
+  authors: ["Jyoti Prakash", "Abhishek Tiwari", "Christian Hammer"]
+  venue: "Science of Computer Programming 243"
+  short_venue: "Science of Computer Programming 243 (Journal First @ SANER 2026)"
+  year: 2026
+  pdf: https://www.sciencedirect.com/science/article/pii/S0167642325000176
+  tags: [cross-language, program-analysis]
+  note: "Journal First Track @ SANER'26"
+  selected: true
+
+- title: "Automated Repair of Information Flow Security in Android Implicit Inter-App Communication"
+  authors: ["*Abhishek Tiwari*", "Jyoti Prakash", "Zhen Dong", "Carlo A. Furia"]
+  venue: "26th IEEE International Symposium on Formal Methods (FM'24)"
+  year: 2024
+  pdf: https://link.springer.com/chapter/10.1007/978-3-031-71162-6_15
+  tags: [security-privacy, program-analysis]
+
+- title: "Demand-driven Information Flow Analysis of WebView in Android Hybrid Apps"
+  authors: ["*Abhishek Tiwari*", "*Jyoti Prakash*", "Christian Hammer"]
+  venue: "34th IEEE International Symposium on Software Reliability Engineering (ISSRE'23)"
+  short_venue: "ISSRE 2023"
+  year: 2023
+  pdf: https://arxiv.org/pdf/2305.03916
+  tags: [cross-language, security-privacy]
+  selected: true
+
+- title: "Understanding the Impact of Fingerprinting in Android Hybrid Apps"
+  authors: ["*Abhishek Tiwari*", "*Jyoti Prakash*", "Alimerdan Rahimov", "Christian Hammer"]
+  venue: "MobileSoft'23 (co-located with ICSE'23)"
+  year: 2023
+  pdf: assets/charlie.pdf
+  tags: [security-privacy]
+  note: "🏅 **ACM SIGSOFT Distinguished Paper Award**"
+
+- title: "Effects of Program Representation on Pointer Analyses — An Empirical Study"
+  authors: ["Jyoti Prakash", "Abhishek Tiwari", "Christian Hammer"]
+  venue: "24th International Conference on Fundamental Approaches to Software Engineering (FASE'21)"
+  year: 2021
+  pdf: assets/pointeval.pdf
+  tags: [program-analysis]
+
+- title: "A Large Scale Analysis of Android–Web Hybridization"
+  authors: ["Abhishek Tiwari", "Jyoti Prakash", "Sascha Groß", "Christian Hammer"]
+  venue: "Journal of Systems and Software 170"
+  year: 2020
+  pdf: assets/ludroid-journal.pdf
+  tags: [cross-language]
+
+- title: "A Large Scale Analysis of Android–Web Hybridization"
+  authors: ["Abhishek Tiwari", "Jyoti Prakash", "Sascha Groß", "Christian Hammer"]
+  venue: "19th International Working Conference on Source Code Analysis and Manipulation (SCAM'2019)"
+  year: 2019
+  pdf: assets/ludroid.pdf
+  tags: [cross-language]
