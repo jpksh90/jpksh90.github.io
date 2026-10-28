@@ -21,7 +21,7 @@ from .publications import (
 from .updates import UPDATES_MARKER, parse_updates, render_updates
 
 # Written into every generated page so `clean` only deletes our own output.
-GENERATOR = "site-utils.py"
+GENERATOR = "sitegen"
 # Replaced in page content by the email address(es) from config.yaml.
 EMAIL_MARKER = "<!-- EMAIL -->"
 GENERATED_FILES = ("sitemap.xml", "robots.txt")
@@ -159,7 +159,7 @@ def generate(config, output_dir):
         ignore=shutil.ignore_patterns(".DS_Store"),
     )
     (output_dir / OUTPUT_MARKER).write_text(
-        "Built by site-utils.py; `clean` deletes this whole directory.\n"
+        "Built by sitegen; `clean` deletes this whole directory.\n"
     )
     print(f"\tCopying {STATIC_DIR.name}/")
     written = []

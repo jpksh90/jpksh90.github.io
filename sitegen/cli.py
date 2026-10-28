@@ -1,4 +1,4 @@
-"""Command-line interface: site-utils.py lint|clean|build|serve."""
+"""Command-line interface: sitegen add-news|add-paper|lint|clean|build|serve."""
 
 import argparse
 from pathlib import Path
@@ -13,7 +13,8 @@ from .serve import serve
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Static site generator for personal website."
+        prog="sitegen",
+        description="Static site generator for jpksh90.github.io.",
     )
     parser.add_argument(
         "commands",

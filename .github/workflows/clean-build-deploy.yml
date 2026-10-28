@@ -37,7 +37,7 @@ jobs:
         run: uv sync
     
       - name: Clean and build site
-        run: uv run site-utils.py -o docs clean build
+        run: uv run sitegen build
 
       - name: Set timestamp variable
         id: vars
