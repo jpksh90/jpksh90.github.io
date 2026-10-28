@@ -39,7 +39,11 @@ uv run site-utils.py clean build serve
 
 This rebuilds every page into `docs/` and serves the site at
 <http://localhost:8000/>. The build fails if any page links to a local file
-that is missing or empty.
+that is missing or empty, or to a `#section` that does not exist.
+
+Every Markdown heading gets an id from its text, so sections can be linked
+directly, e.g. `research.html#talks` for `### 🎤 Talks`. Renaming a heading
+changes its id; the build then reports any links that still use the old one.
 
 Commands can be combined in any order:
 
