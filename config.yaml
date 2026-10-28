@@ -1,6 +1,9 @@
 title: Jyoti Prakash - Personal Website
 email: jyotiprakash1@acm.org
 heading: Jyoti Prakash
+url: https://jpksh90.github.io
+job_title: Assistant Professor of Software Engineering
+affiliation: University of Southern Denmark
 github: https://github.com/jpksh90
 linkedin: https://www.linkedin.com/in/jprakash90/
 google_scholar: https://scholar.google.de/citations?user=-hJIVcwAAAAJ
@@ -9,6 +12,14 @@ dblp: https://dblp.org/pid/255/0664.html
 
 pages: {index: "home", research: "research",  teaching: "teaching", service: "service", team: "team"}
 photo_credit: "ankitarout_23"
+
+# Meta descriptions shown in search results and link previews
+descriptions:
+  index: "Jyoti Prakash is an Assistant Professor of Software Engineering at the University of Southern Denmark, working on cross-language program analysis, static and dynamic analysis, and program repair."
+  research: "Publications, talks and PhD thesis of Jyoti Prakash on cross-language program analysis, hybrid Android apps and program repair."
+  teaching: "Courses taught by Jyoti Prakash at the University of Southern Denmark and as a teaching assistant at the Universities of Passau and Potsdam."
+  service: "Program committee and artifact evaluation committee service of Jyoti Prakash at software engineering and programming languages conferences."
+  team: "Members of Jyoti Prakash's research team at the University of Southern Denmark."
 
 # Path to profile photo (relative to docs/ or static root)
 photo_path: "../docs/images/headshot.jpg"

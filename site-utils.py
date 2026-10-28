@@ -1,4 +1,5 @@
 import argparse
+import json
 import os
 from datetime import date, datetime
 
@@ -16,6 +17,10 @@ with open('config.yaml', 'r') as f:
     title = config.get('title', 'My Personal Website')
     email = config.get('email', '')
     heading = config.get('heading', '')
+    url = config.get('url', '').rstrip('/')
+    job_title = config.get('job_title', '')
+    affiliation = config.get('affiliation', '')
+    descriptions = config.get('descriptions', {})
     github = config.get('github', '')
     linkedin = config.get('linkedin', '')
     google_scholar = config.get('google_scholar', '')
@@ -23,7 +28,7 @@ with open('config.yaml', 'r') as f:
     dblp = config.get('dblp', '')
     pages = config.get('pages', {})
     photo_credit = config.get('photo_credit', '')
-    photo_path = config.get('photo_path', 'images/Photo-Indian-Passport.jpg')
+    photo_path = config.get('photo_path', 'images/headshot.jpg')
 
 
 def normalize_public_path(path):
@@ -34,6 +39,42 @@ def normalize_public_path(path):
     if normalized.startswith("docs/"):
         return normalized[len("docs/"):]
     return normalized
+
+
+def page_url(page):
+    """Return the absolute URL of a page; the home page maps to the site root."""
+    return f"{url}/" if page == "index" else f"{url}/{page}.html"
+
+
+def person_json_ld():
+    """Return schema.org Person data so search engines can link the profiles."""
+    person = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": heading,
+        "url": page_url("index"),
+        "image": f"{url}/{normalize_public_path(photo_path)}",
+        "jobTitle": job_title,
+        "worksFor": {"@type": "CollegeOrUniversity", "name": affiliation},
+        "email": f"mailto:{email}",
+        "sameAs": [link for link in (github, linkedin, google_scholar, orcid, dblp) if link],
+    }
+    # Escape "</" so the JSON cannot close the surrounding <script> tag.
+    return json.dumps(person, indent=2, ensure_ascii=False).replace("</", "<\\/")
+
+
+def write_sitemap(output_dir):
+    """Write sitemap.xml and robots.txt listing every generated page."""
+    entries = "\n".join(f"  <url><loc>{page_url(page)}</loc></url>" for page in pages)
+    with open(os.path.join(output_dir, "sitemap.xml"), "w") as f:
+        f.write(
+            '<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            f"{entries}\n</urlset>\n"
+        )
+    with open(os.path.join(output_dir, "robots.txt"), "w") as f:
+        f.write(f"User-agent: *\nAllow: /\n\nSitemap: {url}/sitemap.xml\n")
+    print("\tWriting sitemap.xml and robots.txt")
 
 
 env = Environment(loader=FileSystemLoader('templates'))
@@ -119,7 +160,7 @@ def clean_pages(pages, output_dir):
 
 def generate(output_dir):
     """Generate HTML files from markdown content."""
-    for page,_ in pages.items():
+    for page, label in pages.items():
         with open(f"content/{page}.md") as f:
             md_content = f.read()
         markdown = mistune.create_markdown(plugins=['table'], escape=False)
@@ -132,7 +173,11 @@ def generate(output_dir):
         rendered = template.render(
             content=html_content,
             page=f"{page}.html",
-            title=title,
+            title=title if page == "index" else f"{label.capitalize()} – {heading}",
+            description=descriptions.get(page, descriptions.get("index", "")),
+            canonical_url=page_url(page),
+            image_url=f"{url}/{normalize_public_path(photo_path)}",
+            person_json_ld=person_json_ld() if page == "index" else "",
             email=email,
             heading=heading,
             github=github,
@@ -148,6 +193,7 @@ def generate(output_dir):
         with open(html_path, "w") as f:
             print(f"\tRendering {page}.html")
             f.write(rendered)
+    write_sitemap(output_dir)
 
 
 if __name__ == "__main__":

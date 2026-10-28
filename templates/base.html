@@ -4,6 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <meta name="author" content="{{ heading }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta property="og:type" content="{{ 'profile' if page == 'index.html' else 'website' }}">
+  <meta property="og:site_name" content="{{ heading }}">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta property="og:image" content="{{ image_url }}">
+  <meta property="og:image:alt" content="Photo of {{ heading }}">
+  <meta name="twitter:card" content="summary">
+  {% if person_json_ld %}
+  <script type="application/ld+json">
+{{ person_json_ld | safe }}
+  </script>
+  {% endif %}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400..700&family=Inter:wght@400..700&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -34,7 +50,7 @@
       </main>
 
       <aside class="profile-column">
-        <img src="{{ photo_path }}" class="profile-pic" alt="Profile picture">
+        <img src="{{ photo_path }}" class="profile-pic" alt="Photo of {{ heading }}">
         <div class="contact-links">
           <a href="{{ github }}" class="contact-link">
             <svg viewBox="0 0 16 16" aria-hidden="true" class="contact-icon">
