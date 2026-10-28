@@ -54,5 +54,12 @@ jobs:
           git add -A
           # Generated pages are ignored on main, so add them explicitly
           git add -f docs
-          git commit -m "Deploy build: ${{ env.timestamp }}" || echo "No changes to commit"
+          # Pages serves only docs/, so skip the deploy if the built site is
+          # identical to the one already on the deploy branch
+          if git rev-parse --verify -q origin/deploy >/dev/null &&
+             git diff --cached --quiet origin/deploy -- docs; then
+            echo "::notice::Built site is identical to the deployed one; skipping deploy."
+            exit 0
+          fi
+          git commit -m "Deploy build: ${{ env.timestamp }}"
           git push origin deploy --force
