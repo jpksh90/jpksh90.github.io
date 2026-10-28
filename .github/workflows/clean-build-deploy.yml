@@ -11,7 +11,8 @@ on:
 
 jobs:
   clean-build-push:
-    runs-on: ubuntu-latest
+    # Pinned so the build environment changes only when we choose to
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout repository
