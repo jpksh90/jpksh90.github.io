@@ -376,6 +376,68 @@ code {
   background: var(--color-accent-soft);
 }
 
+/* News on the home page: a compact timeline with dated entries. */
+#content .updates {
+  list-style: none;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  border-left: 2px solid var(--color-border);
+}
+#content .update {
+  position: relative;
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 0.15rem 1rem;
+  align-items: baseline;
+  margin: 0;
+  padding: 0.6rem 0 0.6rem 1.25rem;
+}
+#content .update::before {
+  content: "";
+  position: absolute;
+  top: 1.15rem;
+  left: -6px;
+  width: 10px;
+  height: 10px;
+  box-sizing: border-box;
+  border: 2px solid var(--color-accent);
+  border-radius: 50%;
+  background: var(--color-bg);
+}
+#content .update:first-child::before {
+  background: var(--color-accent);
+}
+#content .update-date {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--color-muted);
+}
+#content .update-text {
+  line-height: 1.6;
+}
+#content .update-new {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0 0.55em;
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  vertical-align: 0.1em;
+  border-radius: 999px;
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+}
+@media (max-width: 560px) {
+  #content .update {
+    grid-template-columns: 1fr;
+  }
+}
+
 pre {
   overflow-x: auto;
   padding: 16px;

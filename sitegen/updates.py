@@ -7,6 +7,8 @@ import mistune
 
 UPDATES_MARKER = "<!-- UPDATES -->"
 UPDATES_WINDOW_MONTHS = 3
+# Entries at most this many days old get a "new" badge.
+NEW_BADGE_DAYS = 30
 
 
 def parse_updates(path):
@@ -55,8 +57,9 @@ def months_ago(months, today=None):
 
 
 def render_updates(updates, months=UPDATES_WINDOW_MONTHS):
-    """Render recent updates (within the last `months` months) as an <ul>."""
-    cutoff = months_ago(months)
+    """Render recent updates (within the last `months` months) as a timeline."""
+    today = date.today()
+    cutoff = months_ago(months, today)
     recent = sorted(
         (u for u in updates if u[0] >= cutoff), key=lambda u: u[0], reverse=True
     )
@@ -70,8 +73,16 @@ def render_updates(updates, months=UPDATES_WINDOW_MONTHS):
             html = html[len("<p>") : -len("</p>")]
         return html
 
-    items = "\n".join(
-        f"<li><strong>{when:%b %Y}</strong> - {render_text(text)}</li>"
-        for when, text in recent
-    )
-    return f"<ul>\n{items}\n</ul>"
+    def render_item(when, text):
+        badge = ""
+        if (today - when).days <= NEW_BADGE_DAYS:
+            badge = ' <span class="update-new">new</span>'
+        return (
+            '<li class="update">'
+            f'<time class="update-date" datetime="{when:%Y-%m-%d}">{when:%b %Y}</time>'
+            f'<span class="update-text">{render_text(text)}{badge}</span>'
+            "</li>"
+        )
+
+    items = "\n".join(render_item(when, text) for when, text in recent)
+    return f'<ol class="updates">\n{items}\n</ol>'

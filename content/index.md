@@ -32,7 +32,7 @@ E-mail: [jyotiprakash1@acm.org](mailto:jyotiprakash1@acm.org)
 
 ---
 
-## 📰 updates
+## 📰 Updates
 <!-- UPDATES -->
 
 ---
