@@ -47,6 +47,12 @@ changes its id; the build then reports any links that still use the old one.
 
 Commands can be combined in any order:
 
+- `lint` checks `config.yaml` and the files it refers to, reporting each
+  problem with its line number: missing settings, malformed URLs or email,
+  pages without a content file or description, profile links without an
+  icon, a missing photo, unquoted `404` keys, unknown (misspelled) settings,
+  over-long descriptions, and malformed lines in `content/updates.txt`.
+  `build` runs it first and stops on errors; warnings do not stop the build.
 - `clean` deletes generated pages, including ones no longer in `config.yaml`.
 - `build` renders the pages, `sitemap.xml` and `robots.txt`, then checks links.
 - `serve` starts a local preview server (`-p` to change the port).
