@@ -1,5 +1,7 @@
 """Rendering pages, the sitemap and robots.txt, and cleaning output."""
 
+import functools
+import hashlib
 import json
 import re
 import shutil
@@ -112,11 +114,24 @@ def clean(output_dir):
             print(f"\tDeleted {path}")
 
 
+@functools.cache
+def asset_url(path):
+    """Return `path` (relative to static/) with a hash of the file's content.
+
+    GitHub Pages lets browsers cache files for 10 minutes; the hash changes
+    whenever the file does, so a deploy is picked up immediately.
+    """
+    digest = hashlib.sha256((STATIC_DIR / path).read_bytes()).hexdigest()[:10]
+    return f"{path}?v={digest}"
+
+
 def template_env():
     """Return the Jinja environment; undefined variables are errors."""
-    return Environment(
+    env = Environment(
         loader=FileSystemLoader(ROOT / "templates"), undefined=StrictUndefined
     )
+    env.globals["asset"] = asset_url
+    return env
 
 
 def generate(config, output_dir):

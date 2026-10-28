@@ -36,8 +36,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400..700&family=Inter:wght@400..700&family=JetBrains+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/7.5.0/css/flag-icons.min.css">
-  <link rel="stylesheet" href="stylesheets/styles.css">
-  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+  <link rel="stylesheet" href="{{ asset('stylesheets/styles.css') }}">
+  <link rel="stylesheet" href="{{ asset('stylesheets/pygment_trac.css') }}">
 </head>
 <body>
   <div class="site-shell">
@@ -61,7 +61,7 @@
       </main>
 
       <aside class="profile-column">
-        <img src="{{ photo_path }}" class="profile-pic" alt="Photo of {{ heading }}">
+        <img src="{{ asset(photo_path) }}" class="profile-pic" alt="Photo of {{ heading }}">
         <div class="contact-links">
           {%- for name, href in links.items() %}
           <a href="{{ href }}" class="contact-link">

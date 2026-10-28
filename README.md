@@ -35,6 +35,11 @@ and a Jinja template.
 
 Do not edit anything in `docs/`; it is rebuilt from scratch on every build.
 
+In `templates/base.html`, link files from `static/` that may change (such as
+stylesheets) through `{{ asset('stylesheets/styles.css') }}`. This adds a hash
+of the file's content to the URL, so browsers fetch the new version right after
+a deploy instead of using their cached copy for up to 10 minutes.
+
 ## Building and previewing
 
 Requires [uv](https://docs.astral.sh/uv/).
