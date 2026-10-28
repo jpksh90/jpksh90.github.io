@@ -3,7 +3,8 @@
 [![Deploy Clean Build](https://github.com/jpksh90/jpksh90.github.io/actions/workflows/clean-build-deploy.yml/badge.svg)](https://github.com/jpksh90/jpksh90.github.io/actions/workflows/clean-build-deploy.yml)
 
 Source for <https://jpksh90.github.io>, built with a small static site
-generator (`site-utils.py`) from Markdown and a Jinja template.
+generator (the `sitegen/` package, run through `site-utils.py`) from Markdown
+and a Jinja template.
 
 ## Layout
 
@@ -64,10 +65,35 @@ Commands can be combined in any order:
 
 Use `-o <dir>` to build somewhere other than `docs/`.
 
+## Generator code
+
+`site-utils.py` only starts the command-line interface; the generator is the
+`sitegen/` package:
+
+| Module | Responsibility |
+| --- | --- |
+| `cli.py` | Command-line interface (`lint`, `clean`, `build`, `serve`). |
+| `config.py` | Loading `config.yaml` with defaults; page URLs. |
+| `render.py` | Rendering pages from Markdown and the template; sitemap, robots.txt; `clean`. |
+| `publications.py` | Publication lists from `content/publications.yaml`. |
+| `updates.py` | The news list from `content/updates.txt`. |
+| `lint.py` | Checks for `config.yaml` and `content/publications.yaml`. |
+| `links.py` | Checking local links and `#fragments` in the built pages. |
+| `serve.py` | Local preview server. |
+
+Code is linted and formatted with [ruff](https://docs.astral.sh/ruff/)
+(settings in `pyproject.toml`). CI fails if either check fails; run them
+locally with:
+
+```sh
+uvx ruff@0.15.10 check --fix .
+uvx ruff@0.15.10 format .
+```
+
 ## Deployment
 
 Pushing to `main` runs `.github/workflows/clean-build-deploy.yml`, which
-builds the site and force-pushes the result to the `deploy` branch. GitHub
+runs the ruff checks, builds the site and force-pushes the result to the `deploy` branch. GitHub
 Pages serves the `docs/` folder of that branch. The workflow also runs every
 Monday so the news list drops entries older than 3 months.
 
