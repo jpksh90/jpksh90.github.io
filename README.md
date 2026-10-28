@@ -28,6 +28,7 @@ uv run sitegen add-news      # add a dated news item (asks questions)
 uv run sitegen add-paper     # add a publication; can copy its PDF into static/assets/
 uv run sitegen build serve   # build into docs/ and preview at http://localhost:8000
 uv run sitegen lint          # check config.yaml and publications.yaml only
+uv run sitegen publish       # lint, build, then commit and push your changes
 ```
 
 The build stops with a message, leaving `docs/` untouched, if the config has
@@ -35,7 +36,7 @@ errors or any page links to a missing file or `#section`.
 
 ## Publishing
 
-Push to `main`. GitHub Actions checks the code with ruff, builds the site and
+Run `uv run sitegen publish`, or commit and push to `main` yourself. GitHub Actions checks the code with ruff, builds the site and
 publishes it to the `deploy` branch, which GitHub Pages serves. It also
 rebuilds every Monday so old news drops off; if nothing changed, it skips the
 deploy.

@@ -1,4 +1,4 @@
-"""Command-line interface: sitegen add-news|add-paper|lint|clean|build|serve."""
+"""Command-line interface: sitegen add-news|add-paper|lint|build|serve|publish."""
 
 import argparse
 from pathlib import Path
@@ -7,6 +7,7 @@ from .add import add_news, add_paper
 from .build import build
 from .config import ROOT, load_config
 from .lint import run_lint
+from .publish import publish
 from .render import clean
 from .serve import serve
 
@@ -20,9 +21,10 @@ def main():
         "commands",
         nargs="*",
         default=["build"],
-        choices=["add-news", "add-paper", "lint", "clean", "build", "serve"],
+        choices=["add-news", "add-paper", "lint", "clean", "build", "serve", "publish"],
         help="Commands to run in sequence: 'add-news' and 'add-paper' ask "
-        "questions interactively; then 'lint', 'clean', 'build', 'serve'",
+        "questions interactively; then 'lint', 'clean', 'build', 'serve'; "
+        "'publish' builds, commits and pushes",
     )
     parser.add_argument(
         "-o",
@@ -58,3 +60,5 @@ def main():
             print(f"Built {args.output}; all local links resolve.")
         elif cmd == "serve":
             serve(args.output, args.port)
+        elif cmd == "publish":
+            publish(args.output)
