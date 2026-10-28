@@ -1,5 +1,8 @@
 title: Jyoti Prakash - Personal Website
+# Personal address; also the one given to search engines
 email: jyotiprakash1@acm.org
+# Optional work address, shown as a second email button; leave empty to hide
+official_email: jyp@mmmi.sdu.dk
 heading: Jyoti Prakash
 url: https://jpksh90.github.io
 job_title: Assistant Professor of Software Engineering

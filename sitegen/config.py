@@ -15,6 +15,7 @@ NOT_FOUND_PAGE = "404"
 CONFIG_DEFAULTS = {
     "title": "My Personal Website",
     "email": "",
+    "official_email": "",
     "heading": "",
     "url": "",
     "job_title": "",

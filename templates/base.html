@@ -73,10 +73,18 @@
           {%- endfor %}
           <a href="mailto:{{ email }}" class="contact-link">
             <svg viewBox="0 0 16 16" aria-hidden="true" class="contact-icon">
-              <path fill="currentColor" d="M1.5 3h13A1.5 1.5 0 0 1 16 4.5v7a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5v-7A1.5 1.5 0 0 1 1.5 3Zm0 1a.5.5 0 0 0-.31.11L8 9.57l6.81-5.46A.5.5 0 0 0 14.5 4h-13Zm13.5 1.39-5.86 4.69a1.83 1.83 0 0 1-2.28 0L1 5.39v6.11c0 .28.22.5.5.5h13a.5.5 0 0 0 .5-.5V5.39Z"/>
+              <path {{ icons["email"] | safe }}/>
             </svg>
-            <span>email</span>
+            <span>{{ "personal email" if official_email else "email" }}</span>
           </a>
+          {%- if official_email %}
+          <a href="mailto:{{ official_email }}" class="contact-link">
+            <svg viewBox="0 0 16 16" aria-hidden="true" class="contact-icon">
+              <path {{ icons["official_email"] | safe }}/>
+            </svg>
+            <span>official email</span>
+          </a>
+          {%- endif %}
         </div>
       </aside>
     </div>
