@@ -47,5 +47,7 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
+          # Generated pages are ignored on main, so add them explicitly
+          git add -f docs
           git commit -m "Deploy build: ${{ env.timestamp }}" || echo "No changes to commit"
           git push origin deploy --force

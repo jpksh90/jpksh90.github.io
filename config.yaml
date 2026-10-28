@@ -4,11 +4,15 @@ heading: Jyoti Prakash
 url: https://jpksh90.github.io
 job_title: Assistant Professor of Software Engineering
 affiliation: University of Southern Denmark
-github: https://github.com/jpksh90
-linkedin: https://www.linkedin.com/in/jprakash90/
-google_scholar: https://scholar.google.de/citations?user=-hJIVcwAAAAJ
-orcid: https://orcid.org/0000-0002-2974-4308
-dblp: https://dblp.org/pid/255/0664.html
+
+# Profile links shown in the sidebar, in this order. Each name needs an icon
+# in templates/icons.html. They are also listed as your profiles for Google.
+links:
+  github: https://github.com/jpksh90
+  linkedin: https://www.linkedin.com/in/jprakash90/
+  scholar: https://scholar.google.de/citations?user=-hJIVcwAAAAJ
+  orcid: https://orcid.org/0000-0002-2974-4308
+  dblp: https://dblp.org/pid/255/0664.html
 
 pages: {index: "home", research: "research",  teaching: "teaching", service: "service", team: "team"}
 photo_credit: "ankitarout_23"

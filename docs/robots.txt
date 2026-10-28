@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://jpksh90.github.io/sitemap.xml

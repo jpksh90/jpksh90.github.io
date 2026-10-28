@@ -1,36 +1,39 @@
 import argparse
+import functools
 import json
 import os
 from datetime import date, datetime
+from html.parser import HTMLParser
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+from pathlib import Path
+from urllib.parse import unquote, urlsplit
 
 import mistune
 import yaml
-from jinja2 import Environment, FileSystemLoader
+from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
+ROOT = Path(__file__).resolve().parent
 UPDATES_MARKER = "<!-- UPDATES -->"
 UPDATES_WINDOW_MONTHS = 3
 # Rendered like the other pages, but kept out of the nav and sitemap.
 NOT_FOUND_PAGE = "404"
+# Written into every generated page so `clean` only deletes our own output.
+GENERATOR = "site-utils.py"
+GENERATED_FILES = ("sitemap.xml", "robots.txt")
 
-
-# Load config file
-with open('config.yaml', 'r') as f:
-    config = yaml.safe_load(f)
-    title = config.get('title', 'My Personal Website')
-    email = config.get('email', '')
-    heading = config.get('heading', '')
-    url = config.get('url', '').rstrip('/')
-    job_title = config.get('job_title', '')
-    affiliation = config.get('affiliation', '')
-    descriptions = config.get('descriptions', {})
-    github = config.get('github', '')
-    linkedin = config.get('linkedin', '')
-    google_scholar = config.get('google_scholar', '')
-    orcid = config.get('orcid', '')
-    dblp = config.get('dblp', '')
-    pages = config.get('pages', {})
-    photo_credit = config.get('photo_credit', '')
-    photo_path = config.get('photo_path', 'images/headshot.jpg')
+CONFIG_DEFAULTS = {
+    "title": "My Personal Website",
+    "email": "",
+    "heading": "",
+    "url": "",
+    "job_title": "",
+    "affiliation": "",
+    "links": {},
+    "pages": {},
+    "descriptions": {},
+    "photo_credit": "",
+    "photo_path": "images/headshot.jpg",
+}
 
 
 def normalize_public_path(path):
@@ -43,44 +46,57 @@ def normalize_public_path(path):
     return normalized
 
 
-def page_url(page):
+def load_config(path=ROOT / "config.yaml"):
+    """Load config.yaml on top of the defaults."""
+    with open(path) as f:
+        config = {**CONFIG_DEFAULTS, **(yaml.safe_load(f) or {})}
+    config["url"] = config["url"].rstrip("/")
+    config["photo_path"] = normalize_public_path(config["photo_path"])
+    return config
+
+
+def page_url(config, page):
     """Return the absolute URL of a page; the home page maps to the site root."""
-    return f"{url}/" if page == "index" else f"{url}/{page}.html"
+    if page == "index":
+        return f"{config['url']}/"
+    return f"{config['url']}/{page}.html"
 
 
-def person_json_ld():
+def person_json_ld(config):
     """Return schema.org Person data so search engines can link the profiles."""
     person = {
         "@context": "https://schema.org",
         "@type": "Person",
-        "name": heading,
-        "url": page_url("index"),
-        "image": f"{url}/{normalize_public_path(photo_path)}",
-        "jobTitle": job_title,
-        "worksFor": {"@type": "CollegeOrUniversity", "name": affiliation},
-        "email": f"mailto:{email}",
-        "sameAs": [link for link in (github, linkedin, google_scholar, orcid, dblp) if link],
+        "name": config["heading"],
+        "url": page_url(config, "index"),
+        "image": f"{config['url']}/{config['photo_path']}",
+        "jobTitle": config["job_title"],
+        "worksFor": {
+            "@type": "CollegeOrUniversity",
+            "name": config["affiliation"],
+        },
+        "email": f"mailto:{config['email']}",
+        "sameAs": list(config["links"].values()),
     }
     # Escape "</" so the JSON cannot close the surrounding <script> tag.
     return json.dumps(person, indent=2, ensure_ascii=False).replace("</", "<\\/")
 
 
-def write_sitemap(output_dir):
+def write_sitemap(config, output_dir):
     """Write sitemap.xml and robots.txt listing every generated page."""
-    entries = "\n".join(f"  <url><loc>{page_url(page)}</loc></url>" for page in pages)
-    with open(os.path.join(output_dir, "sitemap.xml"), "w") as f:
-        f.write(
-            '<?xml version="1.0" encoding="UTF-8"?>\n'
-            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-            f"{entries}\n</urlset>\n"
-        )
-    with open(os.path.join(output_dir, "robots.txt"), "w") as f:
-        f.write(f"User-agent: *\nAllow: /\n\nSitemap: {url}/sitemap.xml\n")
+    entries = "\n".join(
+        f"  <url><loc>{page_url(config, page)}</loc></url>"
+        for page in config["pages"]
+    )
+    (output_dir / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f"{entries}\n</urlset>\n"
+    )
+    (output_dir / "robots.txt").write_text(
+        f"User-agent: *\nAllow: /\n\nSitemap: {config['url']}/sitemap.xml\n"
+    )
     print("\tWriting sitemap.xml and robots.txt")
-
-
-env = Environment(loader=FileSystemLoader('templates'))
-template = env.get_template('base.html')
 
 
 def parse_updates(path):
@@ -151,51 +167,113 @@ def render_updates(updates, months=UPDATES_WINDOW_MONTHS):
     return f"<ul>\n{items}\n</ul>"
 
 
-def clean_pages(pages, output_dir):
-    """Remove generated HTML files for the given pages."""
-    for page in [*pages, NOT_FOUND_PAGE]:
-        html_file = os.path.join(output_dir, f"{page}.html")
-        if os.path.exists(html_file):
-            os.remove(html_file)
-            print(f"\tDeleted {html_file}")
+def is_generated(path):
+    """Return True if `path` is a page this script wrote."""
+    return f'<meta name="generator" content="{GENERATOR}">' in path.read_text()
 
 
-def generate(output_dir):
-    """Generate HTML files from markdown content."""
-    for page, label in [*pages.items(), (NOT_FOUND_PAGE, "page not found")]:
-        with open(f"content/{page}.md") as f:
-            md_content = f.read()
-        markdown = mistune.create_markdown(plugins=['table'], escape=False)
-        html_content = markdown(md_content)
+def clean(output_dir):
+    """Remove every generated page, including ones no longer in the config."""
+    for path in sorted(output_dir.glob("*.html")):
+        if is_generated(path):
+            path.unlink()
+            print(f"\tDeleted {path}")
+    for name in GENERATED_FILES:
+        path = output_dir / name
+        if path.exists():
+            path.unlink()
+            print(f"\tDeleted {path}")
+
+
+def generate(config, output_dir):
+    """Generate HTML files from markdown content; return the pages written."""
+    env = Environment(
+        loader=FileSystemLoader(ROOT / "templates"), undefined=StrictUndefined
+    )
+    template = env.get_template("base.html")
+    markdown = mistune.create_markdown(plugins=["table"], escape=False)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    written = []
+    pages = [*config["pages"].items(), (NOT_FOUND_PAGE, "page not found")]
+    for page, label in pages:
+        html_content = markdown((ROOT / "content" / f"{page}.md").read_text())
         if UPDATES_MARKER in html_content:
-            updates = parse_updates("content/updates.txt")
+            updates = parse_updates(ROOT / "content" / "updates.txt")
             html_content = html_content.replace(
                 UPDATES_MARKER, render_updates(updates)
             )
-        rendered = template.render(
-            content=html_content,
-            page=f"{page}.html",
-            title=title if page == "index" else f"{label.capitalize()} – {heading}",
-            description=descriptions.get(page, descriptions.get("index", "")),
-            canonical_url="" if page == NOT_FOUND_PAGE else page_url(page),
-            image_url=f"{url}/{normalize_public_path(photo_path)}",
-            person_json_ld=person_json_ld() if page == "index" else "",
-            email=email,
-            heading=heading,
-            github=github,
-            linkedin=linkedin,
-            google_scholar=google_scholar,
-            orcid=orcid,
-            dblp=dblp,
-            photo_credit=photo_credit,
-            photo_path=normalize_public_path(photo_path),
-            pages=pages,
-        )
-        html_path = os.path.join(output_dir, f"{page}.html")
-        with open(html_path, "w") as f:
-            print(f"\tRendering {page}.html")
-            f.write(rendered)
-    write_sitemap(output_dir)
+        descriptions = config["descriptions"]
+        rendered = template.render({
+            **config,
+            "content": html_content,
+            "page": f"{page}.html",
+            "title": (
+                config["title"]
+                if page == "index"
+                else f"{label.capitalize()} – {config['heading']}"
+            ),
+            "description": descriptions.get(page, descriptions.get("index", "")),
+            "canonical_url": (
+                "" if page == NOT_FOUND_PAGE else page_url(config, page)
+            ),
+            "image_url": f"{config['url']}/{config['photo_path']}",
+            "person_json_ld": person_json_ld(config) if page == "index" else "",
+            "generator": GENERATOR,
+        })
+        html_path = output_dir / f"{page}.html"
+        print(f"\tRendering {page}.html")
+        html_path.write_text(rendered)
+        written.append(html_path)
+    write_sitemap(config, output_dir)
+    return written
+
+
+class LinkCollector(HTMLParser):
+    """Collect the href/src targets of a page."""
+
+    def __init__(self):
+        super().__init__()
+        self.links = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "base":
+            return
+        for name, value in attrs:
+            if name in ("href", "src") and value:
+                self.links.append(value)
+
+
+def broken_links(output_dir, html_paths):
+    """Return 'page: link' for local links whose target is missing or empty."""
+    problems = []
+    for html_path in html_paths:
+        collector = LinkCollector()
+        collector.feed(html_path.read_text())
+        for link in collector.links:
+            parts = urlsplit(link)
+            if parts.scheme or parts.netloc or not parts.path:
+                continue  # external, mailto: or same-page anchor
+            target = output_dir / unquote(parts.path).lstrip("/")
+            if parts.path.endswith("/"):
+                target = target / "index.html"
+            if not target.is_file():
+                problems.append(f"{html_path.name}: {link} (missing)")
+            elif target.stat().st_size <= 1:
+                problems.append(f"{html_path.name}: {link} (empty file)")
+    return problems
+
+
+def serve(output_dir, port):
+    """Serve the output directory for local preview."""
+    handler = functools.partial(
+        SimpleHTTPRequestHandler, directory=str(output_dir)
+    )
+    with ThreadingHTTPServer(("127.0.0.1", port), handler) as server:
+        print(f"Serving {output_dir} at http://localhost:{port}/ (Ctrl+C to stop)")
+        try:
+            server.serve_forever()
+        except KeyboardInterrupt:
+            pass
 
 
 if __name__ == "__main__":
@@ -206,21 +284,36 @@ if __name__ == "__main__":
         "commands",
         nargs="*",
         default=["build"],
-        choices=["clean", "build"],
-        help="Commands to run: 'build', 'clean', or both in sequence"
+        choices=["clean", "build", "serve"],
+        help="Commands to run in sequence: 'clean', 'build' and/or 'serve'",
     )
     parser.add_argument(
         "-o", "--output",
-        default="docs",
-        help="Output directory for generated HTML files (default: docs)"
+        type=Path,
+        default=ROOT / "docs",
+        help="Output directory for generated HTML files (default: docs)",
+    )
+    parser.add_argument(
+        "-p", "--port",
+        type=int,
+        default=8000,
+        help="Port for 'serve' (default: 8000)",
     )
     args = parser.parse_args()
+    config = load_config()
 
     for cmd in args.commands:
         if cmd == "clean":
-            print("Cleaning up old HTML files...")
-            clean_pages(pages, output_dir=args.output)
+            print("Cleaning up generated files...")
+            clean(args.output)
         elif cmd == "build":
             print("Generating HTML files...")
-            generate(output_dir=args.output)
-            print("HTML files generated successfully.")
+            written = generate(config, args.output)
+            problems = broken_links(args.output, written)
+            if problems:
+                raise SystemExit(
+                    "Broken links found:\n\t" + "\n\t".join(problems)
+                )
+            print("HTML files generated successfully; all local links resolve.")
+        elif cmd == "serve":
+            serve(args.output, args.port)
