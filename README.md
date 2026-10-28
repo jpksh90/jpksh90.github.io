@@ -40,7 +40,7 @@ Do not edit anything in `docs/`; it is rebuilt from scratch on every build.
 Requires [uv](https://docs.astral.sh/uv/).
 
 ```sh
-uv run site-utils.py clean build serve
+uv run site-utils.py build serve
 ```
 
 This rebuilds the site into `docs/` and serves it at
@@ -63,7 +63,10 @@ Commands can be combined in any order:
 - `clean` deletes the built site in `docs/`. It only deletes a folder that
   `build` created, so a wrong `-o` cannot remove anything else.
 - `build` copies `static/`, renders the pages, `sitemap.xml` and `robots.txt`,
-  then checks links.
+  then checks links. It works in a hidden staging folder and replaces `docs/`
+  only if everything succeeds, so a failed build leaves the previous `docs/`
+  untouched. Each build starts from scratch, so stale files never linger and
+  `clean` is not needed first.
 - `serve` starts a local preview server (`-p` to change the port).
 
 Use `-o <dir>` to build somewhere other than `docs/`.

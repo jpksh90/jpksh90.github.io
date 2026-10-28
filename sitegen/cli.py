@@ -3,10 +3,10 @@
 import argparse
 from pathlib import Path
 
+from .build import build
 from .config import ROOT, load_config
-from .links import broken_links
 from .lint import run_lint
-from .render import clean, generate
+from .render import clean
 from .serve import serve
 
 
@@ -47,10 +47,7 @@ def main():
         elif cmd == "build":
             run_lint()
             print("Generating HTML files...")
-            written = generate(load_config(), args.output)
-            problems = broken_links(args.output, written)
-            if problems:
-                raise SystemExit("Broken links found:\n\t" + "\n\t".join(problems))
-            print("HTML files generated successfully; all local links resolve.")
+            build(load_config(), args.output)
+            print(f"Built {args.output}; all local links resolve.")
         elif cmd == "serve":
             serve(args.output, args.port)

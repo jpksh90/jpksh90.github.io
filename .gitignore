@@ -6,3 +6,5 @@ __pycache__/
 # Built site (static/ plus generated pages); CI builds it and publishes it to
 # the deploy branch
 docs/
+# Left behind only if a build is killed mid-way
+.sitegen-staging-*
