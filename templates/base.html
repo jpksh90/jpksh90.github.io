@@ -61,7 +61,7 @@
       </main>
 
       <aside class="profile-column">
-        <img src="{{ asset(photo_path) }}" class="profile-pic" alt="Photo of {{ heading }}">
+        <img src="{{ asset(photo_path) }}" sizes="168px" class="profile-pic" alt="Photo of {{ heading }}">
         <div class="contact-links">
           {%- for name, href in links.items() %}
           <a href="{{ href }}" class="contact-link">

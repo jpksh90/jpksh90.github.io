@@ -15,7 +15,9 @@ Source for <https://jpksh90.github.io>.
 | PDFs, images, stylesheets | `static/` (e.g. `static/assets/paper.pdf`, linked as `assets/paper.pdf`) |
 | Page layout | `templates/base.html` |
 
-Never edit `docs/`; it is generated.
+The home page's "E-mail:" line comes from `email` and `official_email` in
+`config.yaml`. JPEG and PNG photos under `static/images/` are served as WebP in
+several sizes automatically. Never edit `docs/`; it is generated.
 
 ## Building
 

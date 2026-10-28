@@ -22,6 +22,8 @@ from .updates import UPDATES_MARKER, parse_updates, render_updates
 
 # Written into every generated page so `clean` only deletes our own output.
 GENERATOR = "site-utils.py"
+# Replaced in page content by the email address(es) from config.yaml.
+EMAIL_MARKER = "<!-- EMAIL -->"
 GENERATED_FILES = ("sitemap.xml", "robots.txt")
 # Marks a directory as wholly built by us, so `clean` may delete all of it.
 OUTPUT_MARKER = ".sitegen-output"
@@ -83,6 +85,18 @@ def write_sitemap(config, output_dir):
         f"User-agent: *\nAllow: /\n\nSitemap: {config['url']}/sitemap.xml\n"
     )
     print("\tWriting sitemap.xml and robots.txt")
+
+
+def email_markdown(config):
+    """Render the contact line for EMAIL_MARKER from the configured addresses."""
+    personal = config["email"]
+    official = config["official_email"]
+    if not official:
+        return f"E-mail: [{personal}](mailto:{personal})"
+    return (
+        f"E-mail: [{official}](mailto:{official}) (official) · "
+        f"[{personal}](mailto:{personal}) (personal)"
+    )
 
 
 def is_generated(path):
@@ -157,11 +171,13 @@ def generate(config, output_dir):
             renderer=AnchoredRenderer(), plugins=["table"]
         )
         md_content = (ROOT / "content" / f"{page}.md").read_text()
-        md_content = md_content.replace(
-            PUBLICATIONS_MARKER, render_publications(publications)
-        ).replace(
-            SELECTED_PUBLICATIONS_MARKER,
-            render_selected_publications(publications),
+        md_content = (
+            md_content.replace(EMAIL_MARKER, email_markdown(config))
+            .replace(PUBLICATIONS_MARKER, render_publications(publications))
+            .replace(
+                SELECTED_PUBLICATIONS_MARKER,
+                render_selected_publications(publications),
+            )
         )
         html_content = markdown(md_content)
         if UPDATES_MARKER in html_content:

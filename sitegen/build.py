@@ -4,6 +4,7 @@ import shutil
 import tempfile
 from pathlib import Path
 
+from .images import add_responsive_images
 from .links import broken_links
 from .render import OUTPUT_MARKER, generate
 
@@ -39,6 +40,7 @@ def build(config, output_dir):
     staging_dir = Path(tempfile.mkdtemp(prefix=STAGING_PREFIX, dir=output_dir.parent))
     try:
         written = generate(config, staging_dir)
+        add_responsive_images(staging_dir, written)
         problems = broken_links(staging_dir, written)
         if problems:
             raise SystemExit(
