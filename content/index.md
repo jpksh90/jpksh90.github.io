@@ -15,9 +15,9 @@ University of Southern Denmark (Odense)
 > The Maersk McKinney Moller Institute<br>
 > University of Southern Denmark, Odense
 
-I am a researcher and educator in software analysis, with a core interest in analysis of heterogeneous and open-ended systems. Modern software systems span multiple programming languages and runtime, yet most existing analyses reason about individual languages. My work develops static and dynamic analysis techniques that helps us to enforce trust into the software systems that we use on a day-to-day basis. I have also designed and built industrial-strength analyses, at OpenText, where I contributed to Fortify which is a static analysis tool for large, security-critical codebases. This experience ensures that my research is firmly grounded in deployable solutions and real-world engineering constraints.
+I am a researcher and educator in software analysis, with a core interest in analysis of heterogeneous and open-ended systems. Modern software systems span multiple programming languages and runtimes, yet most existing analyses reason about individual languages. My work develops static and dynamic analysis techniques that help us establish trust in the software systems that we use on a day-to-day basis. I have also designed and built industrial-strength analyses, at OpenText, where I contributed to Fortify which is a static analysis tool for large, security-critical codebases. This experience ensures that my research is firmly grounded in deployable solutions and real-world engineering constraints.
 
-E-mail: [jyp@mmmi.sdu.dk](mailto:jyp@mmmi.sdu.dk)
+E-mail: [jyotiprakash1@acm.org](mailto:jyotiprakash1@acm.org)
 
 #### Research Interests
 - Cross-Language Program Analysis

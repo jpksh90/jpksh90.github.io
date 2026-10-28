@@ -92,7 +92,7 @@ My work sits under three themes.
 
 ### 📘 Thesis
 
-- **Static Analyses of Interlanguage Interoperations** [Dissertation <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assets/thesis.pdf) · [Slides](assets/DisputationSlidesPublic.pdf)<br>
+- **Static Analyses of Interlanguage Interoperations** [Dissertation <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>](assets/thesis.pdf) · [Slides](assets/Slides.pdf)<br>
   `cross-language`<br>
   Jyoti Prakash<br>
   University of Passau, Germany (2024)
