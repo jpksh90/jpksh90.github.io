@@ -24,6 +24,8 @@ several sizes automatically. Never edit `docs/`; it is generated.
 Requires [uv](https://docs.astral.sh/uv/).
 
 ```sh
+uv run site-utils.py add-news      # add a dated news item (asks questions)
+uv run site-utils.py add-paper     # add a publication; can copy its PDF into static/assets/
 uv run site-utils.py build serve   # build into docs/ and preview at http://localhost:8000
 uv run site-utils.py lint          # check config.yaml and publications.yaml only
 ```
