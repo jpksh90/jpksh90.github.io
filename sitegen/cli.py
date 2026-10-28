@@ -26,7 +26,7 @@ def main():
         "--output",
         type=Path,
         default=ROOT / "docs",
-        help="Output directory for generated HTML files (default: docs)",
+        help="Output directory for the built site (default: docs)",
     )
     parser.add_argument(
         "-p",

@@ -26,5 +26,5 @@ descriptions:
   team: "Members of Jyoti Prakash's research team at the University of Southern Denmark."
   "404": "The page you were looking for could not be found."
 
-# Path to profile photo (relative to docs/ or static root)
-photo_path: "../docs/images/headshot.jpg"
+# Profile photo, relative to static/
+photo_path: "images/headshot.jpg"

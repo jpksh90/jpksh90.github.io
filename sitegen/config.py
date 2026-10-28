@@ -5,8 +5,10 @@ from pathlib import Path
 
 import yaml
 
-# Repository root: content/, templates/, config.yaml and docs/ live here.
+# Repository root: content/, templates/, static/ and config.yaml live here.
 ROOT = Path(__file__).resolve().parent.parent
+# Files copied unchanged to the site root: PDFs, images, stylesheets, ...
+STATIC_DIR = ROOT / "static"
 # Rendered like the other pages, but kept out of the nav and sitemap.
 NOT_FOUND_PAGE = "404"
 
@@ -26,12 +28,11 @@ CONFIG_DEFAULTS = {
 
 
 def normalize_public_path(path):
-    """Return an asset path relative to the published docs root."""
+    """Return an asset path relative to the site root ('images/x.jpg')."""
     normalized = os.path.normpath(path).replace("\\", "/")
-    if normalized.startswith("../docs/"):
-        return normalized[len("../docs/") :]
-    if normalized.startswith("docs/"):
-        return normalized[len("docs/") :]
+    for prefix in ("../static/", "static/", "../docs/", "docs/"):
+        if normalized.startswith(prefix):
+            return normalized[len(prefix) :]
     return normalized
 
 

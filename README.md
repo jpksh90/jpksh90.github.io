@@ -16,7 +16,8 @@ and a Jinja template.
 | `config.yaml` | Name, email, site URL, profile links, navigation, and per-page meta descriptions. |
 | `templates/base.html` | Page layout shared by every page. |
 | `templates/icons.html` | Sidebar icons, one per entry in `links` in `config.yaml`. |
-| `docs/` | Published site root: stylesheets, images, PDFs in `assets/`. Generated pages are written here but not committed. |
+| `static/` | Files copied unchanged to the site root: PDFs in `assets/`, `images/`, `stylesheets/`, `javascripts/`, `favicon.ico`, the Google verification file. |
+| `docs/` | The built site (`static/` plus the generated pages). Not committed. |
 
 ## Editing
 
@@ -29,10 +30,10 @@ and a Jinja template.
   `config.yaml`. A new link name also needs an icon in `templates/icons.html`.
 - **New page**: add `content/<name>.md`, then add it to `pages` and
   `descriptions` in `config.yaml`.
-- **Papers and slides**: put PDFs in `docs/assets/` and link them as
+- **Papers and slides**: put PDFs in `static/assets/` and link them as
   `assets/<file>.pdf`.
 
-Do not edit generated HTML in `docs/`; it is rebuilt on every deploy.
+Do not edit anything in `docs/`; it is rebuilt from scratch on every build.
 
 ## Building and previewing
 
@@ -42,7 +43,7 @@ Requires [uv](https://docs.astral.sh/uv/).
 uv run site-utils.py clean build serve
 ```
 
-This rebuilds every page into `docs/` and serves the site at
+This rebuilds the site into `docs/` and serves it at
 <http://localhost:8000/>. The build fails if any page links to a local file
 that is missing or empty, or to a `#section` that does not exist.
 
@@ -59,8 +60,10 @@ Commands can be combined in any order:
   over-long descriptions, malformed lines in `content/updates.txt`, and
   missing or mistyped fields in `content/publications.yaml`.
   `build` runs it first and stops on errors; warnings do not stop the build.
-- `clean` deletes generated pages, including ones no longer in `config.yaml`.
-- `build` renders the pages, `sitemap.xml` and `robots.txt`, then checks links.
+- `clean` deletes the built site in `docs/`. It only deletes a folder that
+  `build` created, so a wrong `-o` cannot remove anything else.
+- `build` copies `static/`, renders the pages, `sitemap.xml` and `robots.txt`,
+  then checks links.
 - `serve` starts a local preview server (`-p` to change the port).
 
 Use `-o <dir>` to build somewhere other than `docs/`.

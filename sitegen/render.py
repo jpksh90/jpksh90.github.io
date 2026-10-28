@@ -2,12 +2,13 @@
 
 import json
 import re
+import shutil
 from html import unescape
 
 import mistune
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 
-from .config import NOT_FOUND_PAGE, ROOT, page_url
+from .config import NOT_FOUND_PAGE, ROOT, STATIC_DIR, page_url
 from .publications import (
     PUBLICATIONS_MARKER,
     SELECTED_PUBLICATIONS_MARKER,
@@ -20,6 +21,8 @@ from .updates import UPDATES_MARKER, parse_updates, render_updates
 # Written into every generated page so `clean` only deletes our own output.
 GENERATOR = "site-utils.py"
 GENERATED_FILES = ("sitemap.xml", "robots.txt")
+# Marks a directory as wholly built by us, so `clean` may delete all of it.
+OUTPUT_MARKER = ".sitegen-output"
 
 
 def person_json_ld(config):
@@ -86,7 +89,18 @@ def is_generated(path):
 
 
 def clean(output_dir):
-    """Remove every generated page, including ones no longer in the config."""
+    """Remove the build output.
+
+    A directory built by `build` (it holds OUTPUT_MARKER) is deleted outright.
+    Otherwise only files this generator wrote are removed, so pointing -o at
+    the wrong folder cannot delete anything else.
+    """
+    if (output_dir / OUTPUT_MARKER).is_file():
+        shutil.rmtree(output_dir)
+        print(f"\tDeleted {output_dir}/")
+        return
+    if not output_dir.is_dir():
+        return
     for path in sorted(output_dir.glob("*.html")):
         if is_generated(path):
             path.unlink()
@@ -109,6 +123,16 @@ def generate(config, output_dir):
     """Generate HTML files from markdown content; return the pages written."""
     template = template_env().get_template("base.html")
     output_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copytree(
+        STATIC_DIR,
+        output_dir,
+        dirs_exist_ok=True,
+        ignore=shutil.ignore_patterns(".DS_Store"),
+    )
+    (output_dir / OUTPUT_MARKER).write_text(
+        "Built by site-utils.py; `clean` deletes this whole directory.\n"
+    )
+    print(f"\tCopying {STATIC_DIR.name}/")
     written = []
     pages = [*config["pages"].items(), (NOT_FOUND_PAGE, "page not found")]
     publications = load_publications()

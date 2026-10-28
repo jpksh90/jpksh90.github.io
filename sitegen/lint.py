@@ -5,7 +5,13 @@ import sys
 
 import yaml
 
-from .config import CONFIG_DEFAULTS, NOT_FOUND_PAGE, ROOT, normalize_public_path
+from .config import (
+    CONFIG_DEFAULTS,
+    NOT_FOUND_PAGE,
+    ROOT,
+    STATIC_DIR,
+    normalize_public_path,
+)
 from .publications import PUBLICATION_FIELDS, PUBLICATIONS_PATH
 from .render import template_env
 from .updates import parse_updates
@@ -166,8 +172,8 @@ def lint_config(path=ROOT / "config.yaml"):
     photo_path = raw.get("photo_path", CONFIG_DEFAULTS["photo_path"])
     if not isinstance(photo_path, str):
         report("error", ("photo_path",), "'photo_path' must be text")
-    elif not (ROOT / "docs" / normalize_public_path(photo_path)).is_file():
-        report("error", ("photo_path",), f"photo '{photo_path}' does not exist")
+    elif not (STATIC_DIR / normalize_public_path(photo_path)).is_file():
+        report("error", ("photo_path",), f"photo '{photo_path}' is not in static/")
 
     updates_path = ROOT / "content" / "updates.txt"
     try:
