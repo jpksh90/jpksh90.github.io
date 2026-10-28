@@ -20,6 +20,7 @@ descriptions:
   teaching: "Courses taught by Jyoti Prakash at the University of Southern Denmark and as a teaching assistant at the Universities of Passau and Potsdam."
   service: "Program committee and artifact evaluation committee service of Jyoti Prakash at software engineering and programming languages conferences."
   team: "Members of Jyoti Prakash's research team at the University of Southern Denmark."
+  "404": "The page you were looking for could not be found."
 
 # Path to profile photo (relative to docs/ or static root)
 photo_path: "../docs/images/headshot.jpg"

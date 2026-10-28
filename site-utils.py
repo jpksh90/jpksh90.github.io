@@ -9,6 +9,8 @@ from jinja2 import Environment, FileSystemLoader
 
 UPDATES_MARKER = "<!-- UPDATES -->"
 UPDATES_WINDOW_MONTHS = 3
+# Rendered like the other pages, but kept out of the nav and sitemap.
+NOT_FOUND_PAGE = "404"
 
 
 # Load config file
@@ -151,7 +153,7 @@ def render_updates(updates, months=UPDATES_WINDOW_MONTHS):
 
 def clean_pages(pages, output_dir):
     """Remove generated HTML files for the given pages."""
-    for page in pages:
+    for page in [*pages, NOT_FOUND_PAGE]:
         html_file = os.path.join(output_dir, f"{page}.html")
         if os.path.exists(html_file):
             os.remove(html_file)
@@ -160,7 +162,7 @@ def clean_pages(pages, output_dir):
 
 def generate(output_dir):
     """Generate HTML files from markdown content."""
-    for page, label in pages.items():
+    for page, label in [*pages.items(), (NOT_FOUND_PAGE, "page not found")]:
         with open(f"content/{page}.md") as f:
             md_content = f.read()
         markdown = mistune.create_markdown(plugins=['table'], escape=False)
@@ -175,7 +177,7 @@ def generate(output_dir):
             page=f"{page}.html",
             title=title if page == "index" else f"{label.capitalize()} – {heading}",
             description=descriptions.get(page, descriptions.get("index", "")),
-            canonical_url=page_url(page),
+            canonical_url="" if page == NOT_FOUND_PAGE else page_url(page),
             image_url=f"{url}/{normalize_public_path(photo_path)}",
             person_json_ld=person_json_ld() if page == "index" else "",
             email=email,

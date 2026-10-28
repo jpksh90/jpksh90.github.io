@@ -2,16 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  {%- if page == "404.html" %}
+  {#- GitHub Pages serves this page at any missing path, so resolve links from the site root. #}
+  <base href="/">
+  <meta name="robots" content="noindex">
+  {%- endif %}
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>{{ title }}</title>
   <meta name="description" content="{{ description }}">
   <meta name="author" content="{{ heading }}">
+  {%- if canonical_url %}
   <link rel="canonical" href="{{ canonical_url }}">
+  {%- endif %}
   <meta property="og:type" content="{{ 'profile' if page == 'index.html' else 'website' }}">
   <meta property="og:site_name" content="{{ heading }}">
   <meta property="og:title" content="{{ title }}">
   <meta property="og:description" content="{{ description }}">
+  {%- if canonical_url %}
   <meta property="og:url" content="{{ canonical_url }}">
+  {%- endif %}
   <meta property="og:image" content="{{ image_url }}">
   <meta property="og:image:alt" content="Photo of {{ heading }}">
   <meta name="twitter:card" content="summary">
