@@ -18,8 +18,9 @@ with open('config.yaml', 'r') as f:
     heading = config.get('heading', '')
     github = config.get('github', '')
     linkedin = config.get('linkedin', '')
-    twitter = config.get('twitter', '')
     google_scholar = config.get('google_scholar', '')
+    orcid = config.get('orcid', '')
+    dblp = config.get('dblp', '')
     pages = config.get('pages', {})
     photo_credit = config.get('photo_credit', '')
     photo_path = config.get('photo_path', 'images/Photo-Indian-Passport.jpg')
@@ -136,8 +137,9 @@ def generate(output_dir):
             heading=heading,
             github=github,
             linkedin=linkedin,
-            twitter=twitter,
             google_scholar=google_scholar,
+            orcid=orcid,
+            dblp=dblp,
             photo_credit=photo_credit,
             photo_path=normalize_public_path(photo_path),
             pages=pages,
