@@ -5,8 +5,22 @@ from pathlib import Path
 
 import yaml
 
-# Repository root: content/, templates/, static/ and config.yaml live here.
-ROOT = Path(__file__).resolve().parent.parent
+
+def find_site_root(start=None):
+    """Return the nearest folder holding config.yaml, from `start` upwards.
+
+    Like git, sitegen works from any subfolder of the site. Falls back to
+    `start` itself (the current folder) so `sitegen --help` works anywhere.
+    """
+    start = Path(start or Path.cwd()).resolve()
+    for folder in (start, *start.parents):
+        if (folder / "config.yaml").is_file():
+            return folder
+    return start
+
+
+# Site root: content/, templates/, static/ and config.yaml live here.
+ROOT = find_site_root()
 # Files copied unchanged to the site root: PDFs, images, stylesheets, ...
 STATIC_DIR = ROOT / "static"
 # Optional; a template here replaces the theme's template of the same name.

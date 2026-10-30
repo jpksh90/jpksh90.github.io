@@ -46,6 +46,11 @@ uv run sitegen lint          # check config.yaml and publications.yaml only
 uv run sitegen publish       # lint, build, then commit and push your changes
 ```
 
+sitegen works on the nearest folder above the current one that holds a
+`config.yaml`, so it runs from any subfolder of the site. To build another
+site with this copy of sitegen, run it from that site's folder:
+`uv run --project /path/to/this/repo sitegen build`.
+
 The build stops with a message, leaving `docs/` untouched, if the config has
 errors or any page links to a missing file or `#section`.
 

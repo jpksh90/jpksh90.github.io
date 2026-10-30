@@ -1,1 +1,1 @@
-"""Static site generator for jpksh90.github.io; run it as `uv run sitegen`."""
+"""Static site generator for personal websites; run it as `uv run sitegen`."""

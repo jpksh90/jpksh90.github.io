@@ -15,7 +15,7 @@ from .serve import serve
 def main():
     parser = argparse.ArgumentParser(
         prog="sitegen",
-        description="Static site generator for jpksh90.github.io.",
+        description="Static site generator for a personal website.",
     )
     parser.add_argument(
         "commands",
@@ -41,6 +41,11 @@ def main():
         help="Port for 'serve' (default: 8000)",
     )
     args = parser.parse_args()
+    if not (ROOT / "config.yaml").is_file():
+        raise SystemExit(
+            f"No config.yaml in {ROOT} or any folder above it. "
+            "Run sitegen from inside your site's folder."
+        )
 
     for cmd in args.commands:
         if cmd == "add-news":
