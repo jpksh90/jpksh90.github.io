@@ -83,7 +83,7 @@ def lint_config(path=ROOT / "config.yaml"):
             report("error", (key,), f"'{key}' must be text")
         elif value and not EMAIL_RE.match(value):
             report("error", (key,), f"{key} '{value}' is not an address")
-    for key in ("job_title", "affiliation", "photo_credit"):
+    for key in ("job_title", "affiliation", "photo_credit", "branch"):
         if key in raw and not isinstance(raw[key], str):
             report("error", (key,), f"'{key}' must be text")
 

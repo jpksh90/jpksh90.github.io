@@ -1,0 +1,29 @@
+# Site settings. Run `sitegen lint` after editing to check them.
+title: $name
+heading: $name
+email: $email
+# Optional second address, shown as an "official email" button
+official_email: ""
+url: $url
+job_title: ""
+affiliation: ""
+
+# Profile links shown under the photo, in this order. Names with an icon:
+# github, linkedin, scholar, orcid, dblp
+links: {}
+#  github: https://github.com/you
+
+# Menu: each page name needs a content/<name>.md; index is the home page.
+pages:
+  index: home
+
+# Meta descriptions shown in search results and link previews
+descriptions:
+  index: $description
+  "404": "The page you were looking for could not be found."
+
+# Profile photo, relative to static/
+photo_path: images/photo.svg
+
+# The git branch that `sitegen publish` pushes and the workflow deploys
+branch: $branch

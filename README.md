@@ -44,12 +44,29 @@ uv run sitegen add-paper     # add a publication; can copy its PDF into static/a
 uv run sitegen build serve   # build into docs/ and preview at http://localhost:8000
 uv run sitegen lint          # check config.yaml and publications.yaml only
 uv run sitegen publish       # lint, build, then commit and push your changes
+uv run sitegen publish -y -m "Fix typo"   # the same, without questions
 ```
 
 sitegen works on the nearest folder above the current one that holds a
 `config.yaml`, so it runs from any subfolder of the site. To build another
 site with this copy of sitegen, run it from that site's folder:
 `uv run --project /path/to/this/repo sitegen build`.
+
+## Starting a new site
+
+In an empty folder (ideally a fresh git repository), run:
+
+```sh
+uv tool install git+https://github.com/jpksh90/jpksh90.github.io
+sitegen init        # asks for your name, email and site URL; -y takes the suggestions
+sitegen build serve
+```
+
+This writes `config.yaml`, `content/index.md`, `content/404.md`, a
+placeholder photo, a `.gitignore` and a GitHub Actions workflow that deploys
+to a `deploy` branch. In the repository's Settings > Pages, choose "Deploy
+from a branch", branch `deploy`, folder `/docs`. `sitegen publish` pushes to
+the branch named by `branch` in `config.yaml` (default `main`).
 
 The build stops with a message, leaving `docs/` untouched, if the config has
 errors or any page links to a missing file or `#section`.

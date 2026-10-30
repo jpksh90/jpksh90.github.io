@@ -1,0 +1,46 @@
+# Builds the site and pushes it to the `deploy` branch. In the repository's
+# Settings > Pages, choose "Deploy from a branch", branch `deploy`, folder /docs.
+name: Deploy site
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - $branch
+  schedule:
+    # Weekly rebuild at 03:00 UTC every Monday, so old news drops off
+    - cron: '0 3 * * 1'
+
+permissions:
+  contents: write
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+
+      - name: Build site
+        run: uvx --from "$sitegen_source" sitegen build
+
+      - name: Push to the deploy branch
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -B deploy
+          # The built site is ignored on the main branch, so add it explicitly
+          git add -A
+          git add -f docs
+          # Skip the deploy if the built site is identical to the deployed one
+          if git fetch --quiet origin deploy 2>/dev/null &&
+             git diff --cached --quiet FETCH_HEAD -- docs; then
+            echo "::notice::Built site is identical to the deployed one; skipping deploy."
+            exit 0
+          fi
+          git commit --quiet -m "Deploy build $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push --force origin deploy

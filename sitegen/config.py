@@ -46,6 +46,8 @@ CONFIG_DEFAULTS = {
     "descriptions": {},
     "photo_credit": "",
     "photo_path": "images/headshot.jpg",
+    # The git branch that `publish` commits to and CI deploys from
+    "branch": "main",
 }
 
 
