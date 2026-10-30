@@ -8,9 +8,18 @@ import shutil
 from html import unescape
 
 import mistune
-from jinja2 import Environment, FileSystemLoader, StrictUndefined
+from jinja2 import ChoiceLoader, Environment, FileSystemLoader, StrictUndefined
 
-from .config import NOT_FOUND_PAGE, ROOT, STATIC_DIR, page_url
+from .config import (
+    NOT_FOUND_PAGE,
+    ROOT,
+    STATIC_DIR,
+    TEMPLATES_DIR,
+    THEME_STATIC_DIR,
+    THEME_TEMPLATES_DIR,
+    page_url,
+    static_file,
+)
 from .publications import (
     PUBLICATIONS_MARKER,
     SELECTED_PUBLICATIONS_MARKER,
@@ -135,15 +144,19 @@ def asset_url(path):
     GitHub Pages lets browsers cache files for 10 minutes; the hash changes
     whenever the file does, so a deploy is picked up immediately.
     """
-    digest = hashlib.sha256((STATIC_DIR / path).read_bytes()).hexdigest()[:10]
+    digest = hashlib.sha256(static_file(path).read_bytes()).hexdigest()[:10]
     return f"{path}?v={digest}"
 
 
 def template_env():
-    """Return the Jinja environment; undefined variables are errors."""
-    env = Environment(
-        loader=FileSystemLoader(ROOT / "templates"), undefined=StrictUndefined
+    """Return the Jinja environment; undefined variables are errors.
+
+    Templates are looked up in the site's templates/ first, then the theme's.
+    """
+    loader = ChoiceLoader(
+        [FileSystemLoader(TEMPLATES_DIR), FileSystemLoader(THEME_TEMPLATES_DIR)]
     )
+    env = Environment(loader=loader, undefined=StrictUndefined)
     env.globals["asset"] = asset_url
     return env
 
@@ -152,12 +165,15 @@ def generate(config, output_dir):
     """Generate HTML files from markdown content; return the pages written."""
     template = template_env().get_template("base.html")
     output_dir.mkdir(parents=True, exist_ok=True)
-    shutil.copytree(
-        STATIC_DIR,
-        output_dir,
-        dirs_exist_ok=True,
-        ignore=shutil.ignore_patterns(".DS_Store"),
-    )
+    # The theme's files first, so the site's own files replace them.
+    for static_dir in (THEME_STATIC_DIR, STATIC_DIR):
+        if static_dir.is_dir():
+            shutil.copytree(
+                static_dir,
+                output_dir,
+                dirs_exist_ok=True,
+                ignore=shutil.ignore_patterns(".DS_Store"),
+            )
     (output_dir / OUTPUT_MARKER).write_text(
         "Built by sitegen; `clean` deletes this whole directory.\n"
     )

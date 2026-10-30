@@ -12,12 +12,27 @@ Source for <https://jpksh90.github.io>.
 | Publications | `content/publications.yaml` (`selected: true` also lists a paper on the home page) |
 | News | `content/updates.txt`, one `YYYY-MM-DD \| text` line per item |
 | Name, links, menu, page descriptions | `config.yaml` |
-| PDFs, images, stylesheets | `static/` (e.g. `static/assets/paper.pdf`, linked as `assets/paper.pdf`) |
-| Page layout | `templates/base.html` |
+| PDFs, images | `static/` (e.g. `static/assets/paper.pdf`, linked as `assets/paper.pdf`) |
+| Page layout, profile-link icons, stylesheet | see [Theme](#theme) |
 
 The home page's "E-mail:" line comes from `email` and `official_email` in
 `config.yaml`. JPEG and PNG photos under `static/images/` are served as WebP in
 several sizes automatically. Never edit `docs/`; it is generated.
+
+## Theme
+
+The default theme ships inside sitegen, in `sitegen/theme/`:
+
+| File | Replace it with |
+| --- | --- |
+| `templates/base.html` (page layout) | `templates/base.html` |
+| `templates/icons.html` (profile-link icons) | `templates/icons.html` |
+| `static/stylesheets/styles.css` | `static/stylesheets/styles.css` |
+
+To change one, copy it from `sitegen/theme/` to the same path in this
+repository and edit the copy; it replaces the theme's file, and the others
+still come from the theme. A site therefore needs only `config.yaml` and
+`content/`; `static/` and `templates/` are optional.
 
 ## Building
 

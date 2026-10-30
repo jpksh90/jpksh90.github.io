@@ -9,6 +9,13 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 # Files copied unchanged to the site root: PDFs, images, stylesheets, ...
 STATIC_DIR = ROOT / "static"
+# Optional; a template here replaces the theme's template of the same name.
+TEMPLATES_DIR = ROOT / "templates"
+# The default theme shipped with sitegen. A site file at the same path, in
+# templates/ or static/, takes its place.
+THEME_DIR = Path(__file__).resolve().parent / "theme"
+THEME_TEMPLATES_DIR = THEME_DIR / "templates"
+THEME_STATIC_DIR = THEME_DIR / "static"
 # Rendered like the other pages, but kept out of the nav and sitemap.
 NOT_FOUND_PAGE = "404"
 
@@ -35,6 +42,12 @@ def normalize_public_path(path):
         if normalized.startswith(prefix):
             return normalized[len(prefix) :]
     return normalized
+
+
+def static_file(path):
+    """Return the file served at `path`: the site's own, else the theme's."""
+    site_file = STATIC_DIR / path
+    return site_file if site_file.is_file() else THEME_STATIC_DIR / path
 
 
 def load_config(path=ROOT / "config.yaml"):

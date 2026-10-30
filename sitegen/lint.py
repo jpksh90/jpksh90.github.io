@@ -163,7 +163,7 @@ def lint_config(path=ROOT / "config.yaml"):
             report(
                 "error",
                 ("links", str(name)),
-                f"no icon for link '{name}' in templates/icons.html "
+                f"no icon for link '{name}' in icons.html "
                 f"(available: {', '.join(icons)})",
             )
         if not isinstance(href, str) or not URL_RE.match(href):
