@@ -10,6 +10,15 @@
 #   note                          extra line on the research page, e.g. an award
 #   selected                      true to also list it on the home page
 
+- title: "A Hybrid Information Flow Analysis Framework for Android Hybrid Apps"
+  authors: ["Jyoti Prakash", "Mikkel Baun Kjærgaard", "Abhishek Tiwari"]
+  venue: "arXiv preprint arXiv:2610.27288"
+  short_venue: "arXiv 2026"
+  year: 2026
+  pdf: https://arxiv.org/abs/2610.27288
+  tags: [cross-language, security-privacy]
+  selected: true
+
 - title: "JetTyped: A Study of Cross-Language Type Bugs in Android's JavaScriptEngine"
   authors: ["Abhishek Tiwari", "Jyoti Prakash", "Dimitrios Dafnis", "Mikkel Baun Kjærgaard"]
   venue: "34th IEEE International Symposium on Software Reliability Engineering (ISSRE'26)"
