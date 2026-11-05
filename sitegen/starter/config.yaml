@@ -27,3 +27,6 @@ photo_path: images/photo.svg
 
 # The git branch that `sitegen publish` pushes and the workflow deploys
 branch: $branch
+
+# Look of the site: a folder in sitegen/themes/ (default, high-contrast)
+theme: default

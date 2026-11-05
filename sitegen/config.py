@@ -25,11 +25,11 @@ ROOT = find_site_root()
 STATIC_DIR = ROOT / "static"
 # Optional; a template here replaces the theme's template of the same name.
 TEMPLATES_DIR = ROOT / "templates"
-# The default theme shipped with sitegen. A site file at the same path, in
-# templates/ or static/, takes its place.
-THEME_DIR = Path(__file__).resolve().parent / "theme"
-THEME_TEMPLATES_DIR = THEME_DIR / "templates"
-THEME_STATIC_DIR = THEME_DIR / "static"
+# Themes shipped with sitegen, one folder each with templates/ and static/.
+# Other themes build on the default one: a file is looked up in the site,
+# then the chosen theme, then the default theme.
+THEMES_DIR = Path(__file__).resolve().parent / "themes"
+DEFAULT_THEME = "default"
 # Rendered like the other pages, but kept out of the nav and sitemap.
 NOT_FOUND_PAGE = "404"
 
@@ -48,6 +48,8 @@ CONFIG_DEFAULTS = {
     "photo_path": "images/headshot.jpg",
     # The git branch that `publish` commits to and CI deploys from
     "branch": "main",
+    # A folder in sitegen/themes/
+    "theme": DEFAULT_THEME,
 }
 
 
@@ -60,10 +62,25 @@ def normalize_public_path(path):
     return normalized
 
 
-def static_file(path):
+def available_themes():
+    """Names of the themes shipped with sitegen."""
+    return sorted(path.name for path in THEMES_DIR.iterdir() if path.is_dir())
+
+
+def theme_dirs(theme):
+    """The theme folders to look in, most specific first."""
+    dirs = [THEMES_DIR / theme]
+    if theme != DEFAULT_THEME:
+        dirs.append(THEMES_DIR / DEFAULT_THEME)
+    return dirs
+
+
+def static_file(path, theme):
     """Return the file served at `path`: the site's own, else the theme's."""
-    site_file = STATIC_DIR / path
-    return site_file if site_file.is_file() else THEME_STATIC_DIR / path
+    for static_dir in (STATIC_DIR, *(d / "static" for d in theme_dirs(theme))):
+        if (static_dir / path).is_file():
+            return static_dir / path
+    return STATIC_DIR / path
 
 
 def load_config(path=ROOT / "config.yaml"):

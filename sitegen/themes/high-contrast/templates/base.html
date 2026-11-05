@@ -1,0 +1,4 @@
+{#- The default layout, plus this theme's stylesheet after the default one. -#}
+{% extends "default/base.html" %}
+{% block stylesheets %}{{ super() }}
+  <link rel="stylesheet" href="{{ asset('stylesheets/high-contrast.css') }}">{% endblock %}

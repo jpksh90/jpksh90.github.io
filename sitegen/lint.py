@@ -7,9 +7,11 @@ import yaml
 
 from .config import (
     CONFIG_DEFAULTS,
+    DEFAULT_THEME,
     NOT_FOUND_PAGE,
     ROOT,
     STATIC_DIR,
+    available_themes,
     normalize_public_path,
 )
 from .publications import PUBLICATION_FIELDS, PUBLICATIONS_PATH
@@ -157,7 +159,15 @@ def lint_config(path=ROOT / "config.yaml"):
     if not isinstance(links, dict):
         report("error", ("links",), "'links' must map names to URLs")
         links = {}
-    icons = template_env().get_template("icons.html").module.icons
+    theme = raw.get("theme", DEFAULT_THEME)
+    if theme not in available_themes():
+        report(
+            "error",
+            ("theme",),
+            f"unknown theme {theme!r} (available: {', '.join(available_themes())})",
+        )
+        theme = DEFAULT_THEME
+    icons = template_env(theme).get_template("icons.html").module.icons
     for name, href in links.items():
         if name not in icons:
             report(

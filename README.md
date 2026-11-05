@@ -21,7 +21,19 @@ several sizes automatically. Never edit `docs/`; it is generated.
 
 ## Theme
 
-The default theme ships inside sitegen, in `sitegen/theme/`:
+`theme` in `config.yaml` picks one of the themes in `sitegen/themes/`:
+
+| Theme | Look |
+| --- | --- |
+| `default` | Soft colours, light and dark mode |
+| `high-contrast` | Black on white (white on black in dark mode); all text at least 7:1 contrast (WCAG AAA), links always underlined |
+
+Other themes build on `default`. A file is looked up in this repository's
+`templates/` or `static/` first, then in the chosen theme, then in `default`,
+so a theme holds only the files it changes. `high-contrast`, for example, is
+a stylesheet plus a `base.html` that extends `default/base.html` and adds it.
+
+The default theme's files:
 
 | File | Replace it with |
 | --- | --- |
@@ -29,10 +41,11 @@ The default theme ships inside sitegen, in `sitegen/theme/`:
 | `templates/icons.html` (profile-link icons) | `templates/icons.html` |
 | `static/stylesheets/styles.css` | `static/stylesheets/styles.css` |
 
-To change one, copy it from `sitegen/theme/` to the same path in this
+To change one, copy it from `sitegen/themes/default/` to the same path in this
 repository and edit the copy; it replaces the theme's file, and the others
 still come from the theme. A site therefore needs only `config.yaml` and
-`content/`; `static/` and `templates/` are optional.
+`content/`; `static/` and `templates/` are optional. To add a theme, create
+`sitegen/themes/<name>/` with just the files it changes.
 
 ## Building
 

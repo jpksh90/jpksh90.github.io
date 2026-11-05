@@ -8,17 +8,24 @@ import shutil
 from html import unescape
 
 import mistune
-from jinja2 import ChoiceLoader, Environment, FileSystemLoader, StrictUndefined
+from jinja2 import (
+    ChoiceLoader,
+    Environment,
+    FileSystemLoader,
+    PrefixLoader,
+    StrictUndefined,
+)
 
 from .config import (
+    DEFAULT_THEME,
     NOT_FOUND_PAGE,
     ROOT,
     STATIC_DIR,
     TEMPLATES_DIR,
-    THEME_STATIC_DIR,
-    THEME_TEMPLATES_DIR,
+    THEMES_DIR,
     page_url,
     static_file,
+    theme_dirs,
 )
 from .publications import (
     PUBLICATIONS_MARKER,
@@ -138,35 +145,51 @@ def clean(output_dir):
 
 
 @functools.cache
-def asset_url(path):
+def asset_url(theme, path):
     """Return `path` (relative to static/) with a hash of the file's content.
 
     GitHub Pages lets browsers cache files for 10 minutes; the hash changes
     whenever the file does, so a deploy is picked up immediately.
     """
-    digest = hashlib.sha256(static_file(path).read_bytes()).hexdigest()[:10]
+    digest = hashlib.sha256(static_file(path, theme).read_bytes()).hexdigest()[:10]
     return f"{path}?v={digest}"
 
 
-def template_env():
+def template_env(theme=DEFAULT_THEME):
     """Return the Jinja environment; undefined variables are errors.
 
-    Templates are looked up in the site's templates/ first, then the theme's.
+    Templates are looked up in the site's templates/, then the theme's, then
+    the default theme's. "default/base.html" always names the default theme's
+    layout, so a theme can extend it instead of copying it.
     """
     loader = ChoiceLoader(
-        [FileSystemLoader(TEMPLATES_DIR), FileSystemLoader(THEME_TEMPLATES_DIR)]
+        [
+            FileSystemLoader(TEMPLATES_DIR),
+            *(FileSystemLoader(d / "templates") for d in theme_dirs(theme)),
+            PrefixLoader(
+                {
+                    DEFAULT_THEME: FileSystemLoader(
+                        THEMES_DIR / DEFAULT_THEME / "templates"
+                    )
+                }
+            ),
+        ]
     )
     env = Environment(loader=loader, undefined=StrictUndefined)
-    env.globals["asset"] = asset_url
+    env.globals["asset"] = functools.partial(asset_url, theme)
     return env
 
 
 def generate(config, output_dir):
     """Generate HTML files from markdown content; return the pages written."""
-    template = template_env().get_template("base.html")
+    template = template_env(config["theme"]).get_template("base.html")
     output_dir.mkdir(parents=True, exist_ok=True)
-    # The theme's files first, so the site's own files replace them.
-    for static_dir in (THEME_STATIC_DIR, STATIC_DIR):
+    # The default theme first, then the chosen one, then the site's own files,
+    # so each replaces files of the one before.
+    for static_dir in (
+        *(d / "static" for d in reversed(theme_dirs(config["theme"]))),
+        STATIC_DIR,
+    ):
         if static_dir.is_dir():
             shutil.copytree(
                 static_dir,
