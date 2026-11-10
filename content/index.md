@@ -10,6 +10,8 @@ University of Southern Denmark (Odense)
 
 # Jyoti Prakash
 
+*Program analysis researcher and former industrial static-analysis engineer, working on bugs that hide between languages.*
+
 > **Assistant Professor of Software Engineering**<br>
 > SDU Software Engineering Section<br>
 > The Maersk McKinney Moller Institute<br>
