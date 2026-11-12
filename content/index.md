@@ -21,11 +21,9 @@ I am a researcher and educator in software analysis, with a core interest in ana
 
 <!-- EMAIL -->
 
-[Available Thesis Topics](https://syddanskuni-my.sharepoint.com/:w:/g/personal/jyp_mmmi_sdu_dk/IQCZhMTW1cSRS6xq2JK1cY98ASJnnUYYXRzVVwYo23IJ33A?e=NCd2h7) (only visible within the SDU network)
-
 #### Research Interests
+I am currently interested in:
 - Cross-Language Program Analysis
-- Program Analysis
 - Testing LLM Applications
 
 #### Selected Publications
