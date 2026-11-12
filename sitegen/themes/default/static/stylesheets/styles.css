@@ -494,12 +494,8 @@ tbody tr:hover {
   gap: 20px;
   position: sticky;
   top: 100px;
-  padding: 24px;
+  padding: 0;
   align-items: center;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  background: var(--color-surface);
-  box-shadow: var(--shadow);
 }
 
 .profile-pic {
@@ -509,7 +505,7 @@ tbody tr:hover {
   object-fit: cover;
   display: block;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px var(--color-surface), 0 0 0 5px var(--color-border);
+  box-shadow: 0 0 0 4px var(--color-bg), 0 0 0 5px var(--color-border);
 }
 
 .contact-links {

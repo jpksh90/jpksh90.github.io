@@ -29,6 +29,13 @@
     </div>
   </div>
   <div class="member-card">
+    <div class="member-avatar" aria-hidden="true">LW</div>
+    <div class="member-info">
+      <div class="member-name">Lily Wascher <span class="fi fi-dk member-flag" role="img" aria-label="Denmark" title="Denmark"></span></div>
+      <div class="member-role">MSc Thesis</div>
+    </div>
+  </div>
+  <div class="member-card">
     <div class="member-avatar" aria-hidden="true">SA</div>
     <div class="member-info">
       <div class="member-name">Sahal Abdullah <span class="fi fi-pk member-flag" role="img" aria-label="Pakistan" title="Pakistan"></span></div>
