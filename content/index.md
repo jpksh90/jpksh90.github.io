@@ -26,7 +26,7 @@ I am a researcher and educator in software analysis, with a core interest in ana
 #### Research Interests
 - Cross-Language Program Analysis
 - Program Analysis
-- Program Repair
+- Testing LLM Applications
 
 #### Selected Publications
 
