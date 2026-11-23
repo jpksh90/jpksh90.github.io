@@ -2,7 +2,7 @@
 
 | Year | Conference and Role.   |
 | ------- | ----------------------|
-| 2027 | PC Member, ISSRE'26 |
+| 2027 | PC Member, ISSRE'27 |
 | 2026 | PC Member, ICSME'26 Industry Track |
 | 2026 | PC Member, ICST'26 |
 | 2025 | AEC Member, SAS'25 |
